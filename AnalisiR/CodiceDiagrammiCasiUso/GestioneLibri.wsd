@@ -1,0 +1,28 @@
+@startuml GestioneLibri
+scale 1
+left to right direction
+'skinparam linetype ortho
+actor Bibliotecario as b
+rectangle GestioneLibri{
+usecase "Inserimento libro" as uc1
+usecase "Modifica dati" as uc2
+usecase "Modifica numero copie" as uc3
+usecase "Cancellazione Libro" as uc4
+usecase "Ricerca Libro" as uc5
+usecase "visualizzazione lista Libri" as uc6
+usecase "Libro non presente" as uc7
+}
+
+
+b--uc1
+b--uc2
+b--uc3
+b--uc4
+b--uc6
+ allowmixing
+
+uc7 ..>uc5 :<<extends>>
+
+
+
+@enduml
