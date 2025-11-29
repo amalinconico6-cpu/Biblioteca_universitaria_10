@@ -1,6 +1,6 @@
 @startuml GestioneUtenti
 scale 1
-top to bottom direction
+left to right direction
 actor bibliotecario as b
 rectangle GestioneUtente{
 usecase "Inserimento utente" as uc1
@@ -10,14 +10,14 @@ usecase "Ricerca utente" as uc4
 usecase "Visualizzazione lista utenti" as uc5
 usecase "Utente non presente" as uc6
 
+b--uc1
+b--uc2
+b--uc3
+b--uc4
 b--uc5
 
-uc5 ..> uc4:<<include>>
-uc6 ..> uc4:<<extend>>
 
-uc4 ..> uc1:<<include>>
-uc4 ..> uc2:<<include>>
-uc4 ..> uc3:<<include>>
+uc6 ..> uc4:<<extend>>
 
 }
 

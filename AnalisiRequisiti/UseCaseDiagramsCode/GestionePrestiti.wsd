@@ -1,0 +1,23 @@
+@startuml GestionePrestiti
+scale 1
+left to right direction 
+actor Bibliotecario as b
+rectangle GestionePrestiti{
+    usecase "Registrazione di un prestito" as uc1
+    usecase "Registrazione di una restituzione" as uc2
+    usecase "Prestito non presente" as uc3
+    usecase "Ricerca Prestito" as uc4
+    usecase "Visualizzazione Elenco Prestiti" as uc5
+}
+
+b--uc1
+b--uc2
+b--uc4
+b--uc5
+
+uc3 ..>uc4:<<extends>>
+
+
+
+
+@enduml

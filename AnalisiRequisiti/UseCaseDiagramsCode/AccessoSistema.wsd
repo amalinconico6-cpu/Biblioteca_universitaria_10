@@ -1,21 +1,11 @@
-@startuml cas1
+@startuml AccessoSistema
 scale 1
 top to bottom direction
 actor Bibliotecario as b
 rectangle Accesso{
-    usecase "accede al sistema" as uc1
-    usecase "inserisce username e password" as uc2
-    usecase "username o password errati" as uc3
-    usecase "vengono prelevati i dati dall'archivio esterno" as uc4
-    usecase "visualizzazione prestiti scaduti in data" as uc5
-    }
-
+    usecase "accesso al sistema" as uc1
+    usecase "autenticazione" as uc2
+}
 b--uc1
-
-uc1 ..> uc2 :<<include>>
-uc2 ..>uc4 :<<include>>
-uc4 ..>uc5 :<<include>>
-
-uc3 ..>uc2 :<<extends>>
-
+uc1 ..>uc2:<<include>>
 @enduml

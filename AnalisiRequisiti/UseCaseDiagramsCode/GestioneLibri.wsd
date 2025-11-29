@@ -16,12 +16,13 @@ usecase "Libro non presente" as uc7
 
 b--uc1
 b--uc2
-b--uc3
 b--uc4
+b--uc5
 b--uc6
- allowmixing
 
-uc7 ..>uc5 :<<extends>>
+
+uc2 ..>uc3:<<include>>
+uc5 ..>uc7 :<<extends>>
 
 
 
