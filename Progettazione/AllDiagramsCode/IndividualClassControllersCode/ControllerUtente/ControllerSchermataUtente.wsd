@@ -1,0 +1,14 @@
+@startuml ControllerSchermataUtente
+
+class ControllerSchermataUtente {
+    - btnLista: Button
+    - btnAggiungi: Button
+    - btnIndietro: Button
+
+    + init(): void
+    + schermataVisualizzaUtente(): void
+    + schermataAggiungiUtente(): void
+    + tornaIndietro(): void
+}
+
+@enduml

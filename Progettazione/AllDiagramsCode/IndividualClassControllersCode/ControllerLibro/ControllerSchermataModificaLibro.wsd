@@ -1,0 +1,19 @@
+@startuml ControllerSchermataModificaLibro
+class ControllerSchermataModificaLibro {
+    - titolo: TextField
+    - autori: ListView<Autore>
+    - nomeAutore: TextField
+    - cognomeAutore: TextField
+    - anno: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+    - btnAggiungiAutore: Button
+    - btnRimuoviAutore: Button
+
+    + init(): void
+    + aggiungiAutore(): void
+    + rimuoviAutore(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+@enduml

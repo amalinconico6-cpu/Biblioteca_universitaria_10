@@ -1,0 +1,22 @@
+@startuml ControllerSchermataVisualizzaLibro
+
+class ControllerSchermataVisualizzaLibro {
+    - tabellaLibro: TableView<Libro>
+    - colonnaTitolo: TableColumn<Libro,String>
+    - colonnaAutori: TableColumn<Libro,String>
+    - colonnaAnno: TableColumn<Libro,Integer>
+    - colonnaISBN: TableColumn<Libro,String>
+    - colonnaElimina: TableColumn<Libro,Void>
+    - colonnaModifica: TableColumn<Libro,Void>
+    - btnIndietro: Button
+    - btnRicerca: Button
+    - input: TextField
+
+    + init(): void
+    + aggiungiBtnModifica(): void
+    + aggiungiBtnElimina(): void
+    + tornaIndietro(): void
+    + cerca(): void
+}
+
+@enduml

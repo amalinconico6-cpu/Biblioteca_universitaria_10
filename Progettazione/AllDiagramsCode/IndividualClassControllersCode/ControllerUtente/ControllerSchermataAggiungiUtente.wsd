@@ -1,0 +1,16 @@
+@startuml ControllerSchermataAggiungiUtente
+
+class ControllerSchermataAggiungiUtente {
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml ControllerSchermataModificaRitardo
+
+class ControllerSchermataModificaRitardo {
+    - ISBN: TextField
+    - utenti: ListView<Utente>
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - scadenza: TextField
+    - ID: TextField
+    - prestito: Prestito
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(): void
+    + initBottoni(): void
+    + aggiungiUtente(): void
+    + rimuoviUtente(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+
+@enduml

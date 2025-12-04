@@ -1,0 +1,21 @@
+@startuml ClasseListaLibri
+
+class Lista_Libri {
+    - libri: List<Libro>
+
+    + Lista_Libri()
+    + ricercaLibro(): Libro
+    + aggiungiLibro(libro: Libro): void
+    + rimuoviLibro(libro: Libro): void
+    + modificaLibro(libro: Libro): void
+    + cercaPerTitolo(str: String): List<Libro>
+    + cercaPerISBN(str: String): List<Libro>
+    + cercaPerAutore(str: String): List<Autore>
+    + autoreTrovato(autori: List<Autore>, str: String): boolean
+    + ordina(cmp: Comparator<Libro>): void
+    + checkISBN(ISBN: String): boolean
+    + salvataggioLibri(nomefile: String): void
+    + letturaLibri(nomefile: String): Lista_Libri
+}
+
+@enduml

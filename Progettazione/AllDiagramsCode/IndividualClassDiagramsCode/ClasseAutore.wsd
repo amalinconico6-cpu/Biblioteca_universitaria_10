@@ -1,0 +1,16 @@
+@startuml CLasseAutore
+
+class Autore {
+    - nome: String
+    - cognome: String
+    {static} + COGNOME: Comparator<Autore>
+
+    + Autore(nome: String, cognome: String)
+    + getNome(): String
+    + setNome(nome: String): String
+    + getCognome(): String
+    + setCognome(cognome: String): String
+    + equals(o: Object): boolean
+}
+
+@enduml

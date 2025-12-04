@@ -1,0 +1,10 @@
+@startuml ControllerSchermataPrincipale
+class ControllerSchermataPrincipale {
+    - btnEntra: Button
+
+    + init(): void
+    + entra(): void
+}
+
+
+@enduml

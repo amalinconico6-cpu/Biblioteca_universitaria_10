@@ -1,0 +1,34 @@
+@startuml ClasseLibro
+
+class Libro {
+    - titolo: String
+    - autori: List<Autore>
+    - ISBN: String
+    - anno: int
+    - disponibile: boolean
+    - copie: int
+    {static} + final TITOLO: Comparator<Libro> 
+    {static} + final ISBN: Comparator<Libro>
+    {static} + final PRIMO_AUTORE: Comparator<Libro>
+
+    + Libro(titolo: String, autori: List<Autore>, ISBN: String, anno: int, copie: int)
+    + getTitolo(): String
+    + setTitolo(titolo: String): void
+    + getAutori(): List<Autore>
+    + setAutori(autori: List<Autore>): void
+    + modificaAutore(autore: Autore): void
+    + getISBN(): String
+    + setISBN(ISBN: String): void
+    + getAnno(): int
+    + setAnno(anno: int): void
+    + getCopie(): int
+    + setCopie(copie: int): void
+    + aggiungiAutore(a: Autore): void
+    + rimuoviAutore(a: Autore): void
+    + getDisponibile(): boolean
+    + setDisponibile(disponibile: boolean): void
+    + equals(o: Object): boolean
+    + ordinaAutori(): void
+}
+
+@enduml

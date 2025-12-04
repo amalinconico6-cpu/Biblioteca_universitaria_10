@@ -1,0 +1,14 @@
+@startuml ControllerSchermataPrestiti
+
+class ControllerSchermataPrestiti {
+    - btnLista: Button
+    - btnAggiungi: Button
+    - btnIndietro: Button
+
+    + init(): void
+    + schermataVisualizzaPrestito(): void
+    + schermataAggiungiPrestito(): void
+    + tornaIndietro(): void
+}
+
+@enduml

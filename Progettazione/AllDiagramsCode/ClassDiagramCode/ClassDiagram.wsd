@@ -1,0 +1,400 @@
+@startuml ClassDiagram
+skinparam linetype ortho
+
+class Autore {
+    - nome: String
+    - cognome: String
+    {static} + COGNOME: Comparator<Autore>
+
+    + Autore(nome: String, cognome: String)
+    + getNome(): String
+    + setNome(nome: String): String
+    + getCognome(): String
+    + setCognome(cognome: String): String
+    + equals(o: Object): boolean
+}
+
+class Libro {
+    - titolo: String
+    - autori: List<Autore>
+    - ISBN: String
+    - anno: int
+    - disponibile: boolean
+    - copie: int
+    {static} + final TITOLO: Comparator<Libro> 
+    {static} + final ISBN: Comparator<Libro>
+    {static} + final PRIMO_AUTORE: Comparator<Libro>
+
+    + Libro(titolo: String, autori: List<Autore>, ISBN: String, anno: int, copie: int)
+    + getTitolo(): String
+    + setTitolo(titolo: String): void
+    + getAutori(): List<Autore>
+    + setAutori(autori: List<Autore>): void
+    + modificaAutore(autore: Autore): void
+    + getISBN(): String
+    + setISBN(ISBN: String): void
+    + getAnno(): int
+    + setAnno(anno: int): void
+    + getCopie(): int
+    + setCopie(copie: int): void
+    + aggiungiAutore(a: Autore): void
+    + rimuoviAutore(a: Autore): void
+    + getDisponibile(): boolean
+    + setDisponibile(disponibile: boolean): void
+    + equals(o: Object): boolean
+    + ordinaAutori(): void
+}
+
+class Lista_Libri {
+    - libri: List<Libro>
+
+    + Lista_Libri()
+    + ricercaLibro(): Libro
+    + aggiungiLibro(libro: Libro): void
+    + rimuoviLibro(libro: Libro): void
+    + modificaLibro(libro: Libro): void
+    + cercaPerTitolo(str: String): List<Libro>
+    + cercaPerISBN(str: String): List<Libro>
+    + cercaPerAutore(str: String): List<Autore>
+    + autoreTrovato(autori: List<Autore>, str: String): boolean
+    + ordina(cmp: Comparator<Libro>): void
+    + checkISBN(ISBN: String): boolean
+    + salvataggioLibri(nomefile: String): void
+    + letturaLibri(nomefile: String): Lista_Libri
+}
+
+class Lista_Prestiti {
+    - prestiti: List<Prestito>
+
+    + getPrestiti(): List<Prestito>
+    + aggiungiPrestito(p: Prestito): void
+    + rimuoviPrestito(p: Prestito): void
+    + aggiornaRitardi(): void
+    + setPrestiti(prestiti: List<Prestito>): void
+    + OrdinaLibriPerScadenza(cmp: Comparator<Prestito>): void
+    + salvataggioPrestiti(nomefile: String): void
+    + letturaPrestiti(nomefile: String): Lista_Prestiti
+}
+
+class Lista_Utenti {
+    - utenti: List<Utente>
+
+    + aggiungiUtente(utente: Utente): void
+    + rimuoviUtente(utente: Utente): void
+    + modificaUtente(utente: Utente): Utente
+    + getUtenti(): List<Utente>
+    + setUtenti(utenti: List<Utente>): void
+    + cercaPerMatricola(str: String): List<Utente>
+    + cercaPerNomeCognome(str: String): List<Utente>
+    + checkUtente(utente: Utente): boolean
+    + salvataggioUtenti(nomefile: String): void
+    + letturaUtenti(nomefile: String): Lista_Utenti
+}
+
+class Prestito {
+    - ISBN: String
+    - utente: Utente
+    - dataScadenza: LocalDate
+    {static} - ID: int
+    {static} + SCADENZA: Comparator<Prestito> <<final>>
+
+    + getLibro(): Libro
+    + setLibro(libro: Libro): void
+    + getUtente(): Utente
+    + setUtente(utente: Utente): void
+    + getID(): int
+    + setID(ID: int): void
+    + getDataScadenza(): LocalDate
+    + setDataScadenza(data: LocalDate): void
+    + equals(o: Object): boolean
+}
+
+class Utente {
+    - nome: String
+    - cognome: String
+    - matricola: int
+    - mail: String
+
+    + Utente(nome: String, cognome: String, matricola: int, mail: String)
+    + getNome(): String
+    + setNome(nome: String): void
+    + getCognome(): String
+    + setCognome(cognome: String): void
+    + getMatricola(): int
+    + setMatricola(matricola: int): void
+    + getMail(): String
+    + setMail(mail: String): void
+    + equals(o: Object): boolean
+}
+
+class ControllerSchermataAggiungiLibro {
+    - titolo: TextField
+    - ISBN: TextField
+    - autori: ListView<Autore>
+    - nomeAutore: TextField
+    - cognomeAutore: TextField
+    - anno: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+    - btnAggiungiAutore: Button
+
+    + init(): void
+    + aggiungiAutore(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+class ControllerSchermataAggiungiPrestito {
+    - ISBN: TextField
+    - utenti: ListView<Utente>
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - scadenza: TextField
+    - ID: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(): void
+    + aggiungiUtente(): void
+    + rimuoviUtente(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+class ControllerSchermataAggiungiUtente {
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+class ControllerSchermataIniziale {
+    - btnLibro: Button
+    - btnUtente: Button
+    - btnPrestito: Button
+    - btnRitardo: Button
+
+    + init(): void
+    + schermataLibro(): void
+    + schermataUtente(): void
+    + schermataPrestito(): void
+    + schermataRitardo(): void
+}
+
+class ControllerSchermataLibro {
+    - btnLista: Button
+    - btnAggiungi: Button
+    - btnIndietro: Button
+    - btnTitolo: Button
+    - btnISBN: Button
+    - btnPrimoAutore: Button
+
+    + init(): void
+    + schermataVisualizzaLibro(): void
+    + schermataAggiungiLibro(): void
+    + tornaIndietro(): void
+    + ordinamentoPerTitolo(): void
+    + ordinamentoPerISBN(): void
+    + ordinamentoPerAutore(): void
+}
+
+class ControllerSchermataModificaLibro {
+    - titolo: TextField
+    - autori: ListView<Autore>
+    - nomeAutore: TextField
+    - cognomeAutore: TextField
+    - anno: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+    - btnAggiungiAutore: Button
+    - btnRimuoviAutore: Button
+
+    + init(): void
+    + aggiungiAutore(): void
+    + rimuoviAutore(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+class ControllerSchermataModificaPrestito {
+    - ISBN: TextField
+    - utenti: ListView<Utente>
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - scadenza: TextField
+    - ID: TextField
+    - prestito: Prestito
+    - prestiti: List<Prestito>
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(prestito: Prestito, prestiti: List<Prestito>): void
+    + initBottoni(): void
+    + aggiungiUtente(): void
+    + rimuoviUtente(): void
+    + tornaIndietro(): void
+    + conferma(): void
+    + ErroreTxt(str: String): void
+}
+
+class ControllerSchermataModificaRitardo {
+    - ISBN: TextField
+    - utenti: ListView<Utente>
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - scadenza: TextField
+    - ID: TextField
+    - prestito: Prestito
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(): void
+    + initBottoni(): void
+    + aggiungiUtente(): void
+    + rimuoviUtente(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+class ControllerSchermataModificaUtente {
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+class ControllerSchermataPrestiti {
+    - btnLista: Button
+    - btnAggiungi: Button
+    - btnIndietro: Button
+
+    + init(): void
+    + schermataVisualizzaPrestito(): void
+    + schermataAggiungiPrestito(): void
+    + tornaIndietro(): void
+}
+
+class ControllerSchermataPrincipale {
+    - btnEntra: Button
+
+    + init(): void
+    + entra(): void
+}
+
+class ControllerSchermataRitardi {
+    - btnLista: Button
+    - btnAggiungi: Button
+    - btnIndietro: Button
+
+    + init(): void
+    + schermataVisualizzaRitardo(): void
+    + schermataAggiungiRitardo(): void
+    + tornaIndietro(): void
+}
+
+class ControllerSchermataUtente {
+    - btnLista: Button
+    - btnAggiungi: Button
+    - btnIndietro: Button
+
+    + init(): void
+    + schermataVisualizzaUtente(): void
+    + schermataAggiungiUtente(): void
+    + tornaIndietro(): void
+}
+
+class ControllerSchermataVisualizzaLibro {
+    - tabellaLibro: TableView<Libro>
+    - colonnaTitolo: TableColumn<Libro,String>
+    - colonnaAutori: TableColumn<Libro,String>
+    - colonnaAnno: TableColumn<Libro,Integer>
+    - colonnaISBN: TableColumn<Libro,String>
+    - colonnaElimina: TableColumn<Libro,Void>
+    - colonnaModifica: TableColumn<Libro,Void>
+    - btnIndietro: Button
+    - btnRicerca: Button
+    - input: TextField
+
+    + init(): void
+    + aggiungiBtnModifica(): void
+    + aggiungiBtnElimina(): void
+    + tornaIndietro(): void
+    + cerca(): void
+}
+
+class ControllerSchermataVisualizzaPrestito {
+    - tabellaPrestito: TableView<Prestito>
+    - colonnaISBN: TableColumn<Prestito,String>
+    - colonnaUtente: TableColumn<Prestito,Utente>
+    - colonnaID: TableColumn<Prestito,Integer>
+    - colonnaScadenza: TableColumn<Prestito,LocalDate>
+    - colonnaElimina: TableColumn<Prestito,Void>
+    - colonnaModifica: TableColumn<Prestito,Void>
+    - btnIndietro: Button
+    - btnRicerca: Button
+
+    + init(): void
+    + aggiungiBtnModifica(): void
+    + aggiungiBtnElimina(): void
+    + cerca(): void
+    + tornaIndietro(): void
+}
+
+class ControllerSchermataVisualizzaRitardo {
+    - tabellaRitardo: TableView<Prestito>
+    - colonnaISBN: TableColumn<Prestito,String>
+    - colonnaUtente: TableColumn<Prestito,Utente>
+    - colonnaID: TableColumn<Prestito,Integer>
+    - colonnaScadenza: TableColumn<Prestito,LocalDate>
+    - colonnaElimina: TableColumn<Prestito,Void>
+    - colonnaModifica: TableColumn<Prestito,Void>
+    - btnIndietro: Button
+    - btnRicerca: Button
+
+    + init(): void
+    + aggiungiBtnModifica(): void
+    + aggiungiBtnElimina(): void
+    + cerca(): void
+    + tornaIndietro(): void
+}
+
+class ControllerSchermataVisualizzaUtente {
+    - tabellaUtente: TableView<Utente>
+    - colonnaNome: TableColumn<Utente,String>
+    - colonnaCognome: TableColumn<Utente,String>
+    - colonnaMatricola: TableColumn<Utente,Integer>
+    - colonnaEmail: TableColumn<Utente,String>
+    - colonnaElimina: TableColumn<Utente,Void>
+    - colonnaModifica: TableColumn<Utente,Void>
+    - btnIndietro: Button
+    - btnRicerca: Button
+
+    + init(): void
+    + aggiungiBtnModifica(): void
+    + aggiungiBtnElimina(): void
+    + tornaIndietro(): void
+    + cerca(): void
+}
+
+
+
+
+@enduml

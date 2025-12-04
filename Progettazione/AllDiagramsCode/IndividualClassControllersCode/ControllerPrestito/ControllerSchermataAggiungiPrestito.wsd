@@ -1,0 +1,22 @@
+@startuml ControllerSchermataAggiungiPrestito
+
+class ControllerSchermataAggiungiPrestito {
+    - ISBN: TextField
+    - utenti: ListView<Utente>
+    - nome: TextField
+    - cognome: TextField
+    - matricola: TextField
+    - email: TextField
+    - scadenza: TextField
+    - ID: TextField
+    - btnIndietro: Button
+    - btnConferma: Button
+
+    + init(): void
+    + aggiungiUtente(): void
+    + rimuoviUtente(): void
+    + tornaIndietro(): void
+    + conferma(): void
+}
+
+@enduml
