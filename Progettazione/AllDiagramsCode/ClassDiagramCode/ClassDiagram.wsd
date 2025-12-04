@@ -1,5 +1,7 @@
 @startuml ClassDiagram
 skinparam linetype ortho
+left to right direction
+
 
 class Autore {
     - nome: String
@@ -394,7 +396,51 @@ class ControllerSchermataVisualizzaUtente {
     + cerca(): void
 }
 
+'sezione relazioni
 
+Libro "1..*" o-- "1..*" Autore
+Lista_Libri "1" o-- "1..*" Libro
+Lista_Utenti "1" o-- "1..*" Utente
+Lista_Prestiti "1" o-- "1..*" Prestito
+Libro "1" <-- "1" Prestito
+Utente "1" o-- "1..3" Prestito
 
+ControllerSchermataPrincipale ..> ControllerSchermataIniziale
 
-@enduml
+'Dipendenze Controller Libro
+ControllerSchermataAggiungiLibro ..> Autore
+ControllerSchermataAggiungiLibro ..> Lista_Libri
+
+ControllerSchermataLibro ..> Lista_Libri
+
+ControllerSchermataModificaLibro ..> Autore
+ControllerSchermataModificaLibro ..> Lista_Libri
+
+ControllerSchermataVisualizzaLibro ..>Libro
+
+'Dipendenze Controller Prestito
+ControllerSchermataAggiungiPrestito ..>Utente
+
+ControllerSchermataModificaPrestito ..>Utente
+
+ControllerSchermataPrestiti ..> Prestito
+
+ControllerSchermataVisualizzaPrestito ..>Prestito
+
+'Dipendenze Controller Ritardo
+ControllerSchermataModificaRitardo ..>Utente
+ControllerSchermataModificaRitardo ..>Prestito
+
+ControllerSchermataRitardi ..>Lista_Prestiti
+
+ControllerVisualizzaRitardi ..>Prestito
+ControllerVisualizzaRitardi ..>Lista_Prestiti
+
+'Dipendenze Controller Utente
+ControllerSchermataAggiungiUtente ..>Lista_Utenti
+
+ControllerSchermataModificaUtente..>Lista_Utenti
+
+ControllerSchermataUtente ..>Utente
+
+ControllerSchermataVisualizzaUtente ..>Utente
