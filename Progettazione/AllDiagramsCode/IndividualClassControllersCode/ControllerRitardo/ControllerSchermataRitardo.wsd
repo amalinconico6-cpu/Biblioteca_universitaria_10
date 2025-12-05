@@ -1,14 +1,12 @@
-@startuml ControllerSchermataRitardi
+@startuml ControllerSchermataRitardo
 
-class ControllerSchermataRitardi {
+class ControllerSchermataRitardo {
     - btnLista: Button
     - btnAggiungi: Button
     - btnIndietro: Button
 
     + init(): void
     + schermataVisualizzaRitardo(): void
-    + schermataAggiungiRitardo(): void
     + tornaIndietro(): void
 }
-
 @enduml

@@ -23,5 +23,4 @@ class ControllerSchermataModificaPrestito {
     + ErroreTxt(str: String): void
 }
 
-
 @enduml

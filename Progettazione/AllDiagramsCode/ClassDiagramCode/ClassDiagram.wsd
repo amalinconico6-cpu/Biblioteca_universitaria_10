@@ -1,7 +1,5 @@
 @startuml ClassDiagram
 skinparam linetype ortho
-left to right direction
-
 
 class Autore {
     - nome: String
@@ -130,317 +128,104 @@ class Utente {
 }
 
 class ControllerSchermataAggiungiLibro {
-    - titolo: TextField
-    - ISBN: TextField
-    - autori: ListView<Autore>
-    - nomeAutore: TextField
-    - cognomeAutore: TextField
-    - anno: TextField
-    - btnIndietro: Button
-    - btnConferma: Button
-    - btnAggiungiAutore: Button
 
-    + init(): void
-    + aggiungiAutore(): void
-    + tornaIndietro(): void
-    + conferma(): void
 }
 
 class ControllerSchermataAggiungiPrestito {
-    - ISBN: TextField
-    - utenti: ListView<Utente>
-    - nome: TextField
-    - cognome: TextField
-    - matricola: TextField
-    - email: TextField
-    - scadenza: TextField
-    - ID: TextField
-    - btnIndietro: Button
-    - btnConferma: Button
 
-    + init(): void
-    + aggiungiUtente(): void
-    + rimuoviUtente(): void
-    + tornaIndietro(): void
-    + conferma(): void
 }
 
 class ControllerSchermataAggiungiUtente {
-    - nome: TextField
-    - cognome: TextField
-    - matricola: TextField
-    - email: TextField
-    - btnIndietro: Button
-    - btnConferma: Button
 
-    + init(): void
-    + tornaIndietro(): void
-    + conferma(): void
-}
-
-class ControllerSchermataIniziale {
-    - btnLibro: Button
-    - btnUtente: Button
-    - btnPrestito: Button
-    - btnRitardo: Button
-
-    + init(): void
-    + schermataLibro(): void
-    + schermataUtente(): void
-    + schermataPrestito(): void
-    + schermataRitardo(): void
-}
-
-class ControllerSchermataLibro {
-    - btnLista: Button
-    - btnAggiungi: Button
-    - btnIndietro: Button
-    - btnTitolo: Button
-    - btnISBN: Button
-    - btnPrimoAutore: Button
-
-    + init(): void
-    + schermataVisualizzaLibro(): void
-    + schermataAggiungiLibro(): void
-    + tornaIndietro(): void
-    + ordinamentoPerTitolo(): void
-    + ordinamentoPerISBN(): void
-    + ordinamentoPerAutore(): void
 }
 
 class ControllerSchermataModificaLibro {
-    - titolo: TextField
-    - autori: ListView<Autore>
-    - nomeAutore: TextField
-    - cognomeAutore: TextField
-    - anno: TextField
-    - btnIndietro: Button
-    - btnConferma: Button
-    - btnAggiungiAutore: Button
-    - btnRimuoviAutore: Button
 
-    + init(): void
-    + aggiungiAutore(): void
-    + rimuoviAutore(): void
-    + tornaIndietro(): void
-    + conferma(): void
 }
 
 class ControllerSchermataModificaPrestito {
-    - ISBN: TextField
-    - utenti: ListView<Utente>
-    - nome: TextField
-    - cognome: TextField
-    - matricola: TextField
-    - email: TextField
-    - scadenza: TextField
-    - ID: TextField
-    - prestito: Prestito
-    - prestiti: List<Prestito>
-    - btnIndietro: Button
-    - btnConferma: Button
 
-    + init(prestito: Prestito, prestiti: List<Prestito>): void
-    + initBottoni(): void
-    + aggiungiUtente(): void
-    + rimuoviUtente(): void
-    + tornaIndietro(): void
-    + conferma(): void
-    + ErroreTxt(str: String): void
 }
 
 class ControllerSchermataModificaRitardo {
-    - ISBN: TextField
-    - utenti: ListView<Utente>
-    - nome: TextField
-    - cognome: TextField
-    - matricola: TextField
-    - email: TextField
-    - scadenza: TextField
-    - ID: TextField
-    - prestito: Prestito
-    - btnIndietro: Button
-    - btnConferma: Button
 
-    + init(): void
-    + initBottoni(): void
-    + aggiungiUtente(): void
-    + rimuoviUtente(): void
-    + tornaIndietro(): void
-    + conferma(): void
 }
 
 class ControllerSchermataModificaUtente {
-    - nome: TextField
-    - cognome: TextField
-    - matricola: TextField
-    - email: TextField
-    - btnIndietro: Button
-    - btnConferma: Button
 
-    + init(): void
-    + tornaIndietro(): void
-    + conferma(): void
-}
-
-class ControllerSchermataPrestiti {
-    - btnLista: Button
-    - btnAggiungi: Button
-    - btnIndietro: Button
-
-    + init(): void
-    + schermataVisualizzaPrestito(): void
-    + schermataAggiungiPrestito(): void
-    + tornaIndietro(): void
-}
-
-class ControllerSchermataPrincipale {
-    - btnEntra: Button
-
-    + init(): void
-    + entra(): void
-}
-
-class ControllerSchermataRitardi {
-    - btnLista: Button
-    - btnAggiungi: Button
-    - btnIndietro: Button
-
-    + init(): void
-    + schermataVisualizzaRitardo(): void
-    + schermataAggiungiRitardo(): void
-    + tornaIndietro(): void
-}
-
-class ControllerSchermataUtente {
-    - btnLista: Button
-    - btnAggiungi: Button
-    - btnIndietro: Button
-
-    + init(): void
-    + schermataVisualizzaUtente(): void
-    + schermataAggiungiUtente(): void
-    + tornaIndietro(): void
 }
 
 class ControllerSchermataVisualizzaLibro {
-    - tabellaLibro: TableView<Libro>
-    - colonnaTitolo: TableColumn<Libro,String>
-    - colonnaAutori: TableColumn<Libro,String>
-    - colonnaAnno: TableColumn<Libro,Integer>
-    - colonnaISBN: TableColumn<Libro,String>
-    - colonnaElimina: TableColumn<Libro,Void>
-    - colonnaModifica: TableColumn<Libro,Void>
-    - btnIndietro: Button
-    - btnRicerca: Button
-    - input: TextField
 
-    + init(): void
-    + aggiungiBtnModifica(): void
-    + aggiungiBtnElimina(): void
-    + tornaIndietro(): void
-    + cerca(): void
 }
 
 class ControllerSchermataVisualizzaPrestito {
-    - tabellaPrestito: TableView<Prestito>
-    - colonnaISBN: TableColumn<Prestito,String>
-    - colonnaUtente: TableColumn<Prestito,Utente>
-    - colonnaID: TableColumn<Prestito,Integer>
-    - colonnaScadenza: TableColumn<Prestito,LocalDate>
-    - colonnaElimina: TableColumn<Prestito,Void>
-    - colonnaModifica: TableColumn<Prestito,Void>
-    - btnIndietro: Button
-    - btnRicerca: Button
 
-    + init(): void
-    + aggiungiBtnModifica(): void
-    + aggiungiBtnElimina(): void
-    + cerca(): void
-    + tornaIndietro(): void
 }
 
 class ControllerSchermataVisualizzaRitardo {
-    - tabellaRitardo: TableView<Prestito>
-    - colonnaISBN: TableColumn<Prestito,String>
-    - colonnaUtente: TableColumn<Prestito,Utente>
-    - colonnaID: TableColumn<Prestito,Integer>
-    - colonnaScadenza: TableColumn<Prestito,LocalDate>
-    - colonnaElimina: TableColumn<Prestito,Void>
-    - colonnaModifica: TableColumn<Prestito,Void>
-    - btnIndietro: Button
-    - btnRicerca: Button
 
-    + init(): void
-    + aggiungiBtnModifica(): void
-    + aggiungiBtnElimina(): void
-    + cerca(): void
-    + tornaIndietro(): void
 }
 
 class ControllerSchermataVisualizzaUtente {
-    - tabellaUtente: TableView<Utente>
-    - colonnaNome: TableColumn<Utente,String>
-    - colonnaCognome: TableColumn<Utente,String>
-    - colonnaMatricola: TableColumn<Utente,Integer>
-    - colonnaEmail: TableColumn<Utente,String>
-    - colonnaElimina: TableColumn<Utente,Void>
-    - colonnaModifica: TableColumn<Utente,Void>
-    - btnIndietro: Button
-    - btnRicerca: Button
 
-    + init(): void
-    + aggiungiBtnModifica(): void
-    + aggiungiBtnElimina(): void
-    + tornaIndietro(): void
-    + cerca(): void
 }
 
 'sezione relazioni
 
-Libro "1..*" o-- "1..*" Autore
+Libro "1.." o-- "1.." Autore
 Lista_Libri "1" o-- "1..*" Libro
 Lista_Utenti "1" o-- "1..*" Utente
 Lista_Prestiti "1" o-- "1..*" Prestito
 Libro "1" <-- "1" Prestito
 Utente "1" o-- "1..3" Prestito
 
-ControllerSchermataPrincipale ..> ControllerSchermataIniziale
-
 'Dipendenze Controller Libro
+'Schermata Libro
+'Visualizzazione Libro
+ControllerSchermataVisualizzaLibro ..>Lista_Libri
+ControllerSchermataVisualizzaLibro ..> ControllerSchermataModificaLibro
+ControllerSchermataModificaLibro ..> Autore
+ControllerSchermataModificaLibro ..> Lista_Libri
+'Aggiunta Libro
 ControllerSchermataAggiungiLibro ..> Autore
 ControllerSchermataAggiungiLibro ..> Lista_Libri
 
-ControllerSchermataLibro ..> Lista_Libri
-
-ControllerSchermataModificaLibro ..> Autore
-ControllerSchermataModificaLibro ..> Lista_Libri
-
-ControllerSchermataVisualizzaLibro ..>Libro
-
-'Dipendenze Controller Prestito
-ControllerSchermataAggiungiPrestito ..>Utente
-
-ControllerSchermataModificaPrestito ..>Utente
-
-ControllerSchermataPrestiti ..> Prestito
-
-ControllerSchermataVisualizzaPrestito ..>Prestito
-
-'Dipendenze Controller Ritardo
-ControllerSchermataModificaRitardo ..>Utente
-ControllerSchermataModificaRitardo ..>Prestito
-
-ControllerSchermataRitardi ..>Lista_Prestiti
-
-ControllerVisualizzaRitardi ..>Prestito
-ControllerVisualizzaRitardi ..>Lista_Prestiti
 
 'Dipendenze Controller Utente
+'Schermata Utente
+'Visualizzazione Utente
+ControllerSchermataVisualizzaUtente ..>Lista_Utenti
+ControllerSchermataVisualizzaUtente ..> ControllerSchermataModificaUtente
+ControllerSchermataModificaUtente..>Lista_Utenti
+'Aggiunta Utente
 ControllerSchermataAggiungiUtente ..>Lista_Utenti
 
-ControllerSchermataModificaUtente..>Lista_Utenti
 
-ControllerSchermataUtente ..>Utente
+'Dipendenze Controller Prestito
+'Schermata prestito
 
-ControllerSchermataVisualizzaUtente ..>Utente
+ControllerSchermataVisualizzaPrestito ..> ControllerSchermataModificaPrestito 
+ControllerSchermataVisualizzaPrestito ..> Lista_Prestiti
+ControllerSchermataModificaPrestito ..> Utente
+ControllerSchermataModificaPrestito..> Lista_Prestiti
+'Aggiunta Prestito
+ControllerSchermataAggiungiPrestito ..>Utente
+ControllerSchermataAggiungiPrestito ..>Lista_Prestiti
+
+
+'Dipendenze Controller Ritardo
+'Schermata Ritardo
+'Visualizzazione Ritardo
+ControllerSchermataVisualizzaRitardo ..>Lista_Prestiti
+ControllerSchermataVisualizzaRitardo ..>ControllerSchermataModificaRitardo
+ControllerSchermataModificaRitardo ..>Utente
+ControllerSchermataModificaRitardo ..>Lista_Prestiti
+
+note as N1
+Metodi e attributi dei controller 
+sono implementati in file contenuti 
+nella directory IndividualClassControllersCode e nel
+file ControllersOnlyDiagramCodeExplicit ai fini 
+di una migliore rappresentazione
+end note
