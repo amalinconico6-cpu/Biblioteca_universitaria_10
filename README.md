@@ -8,9 +8,10 @@ contenenti a loro volta delle sottocartelle :
 - Progettazione
 - 		AllDiagramsCode : contiene tutte le cartelle contenenti file codice attualmente presenti nella nostra repo
 - 					ActivityDiagramsCode : contiene il codice dei diagrammi di attività (realizzati sui casi d'uso)
-- 					ClassDiagramsCode : contiene il codice contenente diagramma delle classi, dove, per ottimizzazione grafica, il diagramma è stato diviso in un diagramma contenente l'interazione tra i controller e le classi, ed un diagramma contenente un diagramma contenente solo l'interazione tra controller; è stata inoltre aggiunta una versione che contiene esplicitamente tutti i metodi e attributi dei controller. 
+- 					ClassDiagramsCode : contiene il codice contenente il diagramma delle classi e dei controller
 - 					IndividualClassControllersCode : contiene tutte le cartelle contenenti file codice 
 - 					IndividualCLassDiagramsCode
 - 					IndividualSequenceDiagramsCode
 - 					PackageDiagramCode : contiene il codice del diagramma dei package
 
+Nella cartella ClassDiagramsCode, per ottimizzazione grafica, il diagramma è stato diviso in un diagramma contenente l'interazione tra i controller e le classi, ed un diagramma contenente solo l'interazione tra controller; è stata inoltre aggiunta una versione che contiene esplicitamente tutti i metodi e attributi dei controller. 
