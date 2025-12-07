@@ -7,19 +7,19 @@ contenenti a loro volta delle sottocartelle :
 - 		UseCaseDiagramsCode 
 - Progettazione
 - 		AllDiagramsCode 
--       ActivityDiagramsCode 
--       ClassDiagramsCode 
--       IndividualClassControllersCode 
--         ControllerLibro
--         ControllerPresito
--         ControllerRitardo
--         ControllerUtente
--         ControllerSchermata
--       IndividualCLassDiagramsCode 
--         EntityClasses
--         ListClasses
--       IndividualSequenceDiagramsCode
--       PackageDiagramCode
+-         ActivityDiagramsCode 
+-         ClassDiagramsCode 
+-         IndividualClassControllersCode 
+-             ControllerLibro
+-             ControllerPresito
+-             ControllerRitardo
+-             ControllerUtente
+-             ControllerSchermata
+-         IndividualCLassDiagramsCode 
+-             EntityClasses
+-             ListClasses
+-         IndividualSequenceDiagramsCode
+-         PackageDiagramCode
 
 **BREVE DESCRIZIONE DELLE CARTELLE**
 
