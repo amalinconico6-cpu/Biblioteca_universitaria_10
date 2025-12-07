@@ -1,13 +1,14 @@
 **COME NAVIGARE LA REPO**
 
-La nostra repo presenta attualmente **2** cartelle principali al suo interno:
+La nostra repo presenta attualmente **2** cartelle principali al suo interno, 
+contenenti a loro volta delle sottocartelle :
 - AnalisiRequisiti
 - 		Documentazione : contiene il pdf con i requisiti ed i casi d'uso
 - 		UseCaseDiagramsCode : contiene il codice dei diagrammi dei casi d'uso
 - Progettazione
 - 		AllDiagramsCode : contiene tutte le cartelle contenenti file codice attualmente presenti nella nostra repo
 - 					ActivityDiagramsCode : contiene il codice dei diagrammi di attività (realizzati sui casi d'uso)
-- 					ClassDiagramCode : contiene il codice contenente diagramma delle classi
+- 					ClassDiagramsCode : contiene il codice contenente diagramma delle classi, dove, per ottimizzazione grafica, il diagramma è stato diviso in un diagramma contenente l'interazione tra i controller e le classi, ed un diagramma contenente un diagramma contenente solo l'interazione tra controller; è stata inoltre aggiunta una versione che contiene esplicitamente tutti i metodi e attributi dei controller. 
 - 					IndividualClassControllersCode : contiene tutte le cartelle contenenti file codice 
 - 					IndividualCLassDiagramsCode
 - 					IndividualSequenceDiagramsCode
