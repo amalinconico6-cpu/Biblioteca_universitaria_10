@@ -4,8 +4,6 @@ top to bottom direction
 actor Bibliotecario as b
 rectangle Accesso{
     usecase "accesso al sistema" as uc1
-    usecase "autenticazione" as uc2
 }
 b--uc1
-uc1 ..>uc2:<<include>>
 @enduml
