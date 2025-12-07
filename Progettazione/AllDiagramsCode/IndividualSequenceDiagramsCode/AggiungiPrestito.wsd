@@ -21,20 +21,23 @@ else condizione ISBN presente
         archiviou-->g:return false
     else condizione Matricola presente
         archiviou-->g:return true
-        deactivate archiviou
-        g->archiviop:checkUtente()
-        activate archiviop
+        
+        g->archiviou:checkUtente()
+     
         alt condizione Utente ha 3 prestiti attivi
-            archiviop-->g:return true
+            archiviou-->g:return true
         else condizione Utente non ha 3 prestiti attivi
-            archiviop-->g:return false
+            archiviou-->g:return false
+            deactivate archiviou
             g->p:Prestito()
             activate p
             p-->g:return Prestito
             deactivate p
             g->archiviop:aggiungiPrestito()
+            activate archiviop
            
             g->archiviop:salvataggioPrestiti()
+            
             deactivate archiviop
         end
     end
