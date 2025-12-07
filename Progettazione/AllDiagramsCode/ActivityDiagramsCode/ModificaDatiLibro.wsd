@@ -1,0 +1,15 @@
+@startuml ModificaDatiLibro
+start 
+
+:Accesso area modifica libro;
+:Ricerca libro;
+:Selezione libro da modificare;
+repeat 
+:Selezione dato da modificare;
+:Verifica formato dati;
+repeat while
+
+:Aggiornamento file esterno;
+
+stop
+@enduml

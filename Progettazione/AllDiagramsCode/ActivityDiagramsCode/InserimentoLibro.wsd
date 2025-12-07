@@ -1,0 +1,24 @@
+@startuml InserimentoLibro
+
+start
+:Accesso area inserimento libro;
+repeat
+    :Inserisci dati libro;
+    :Verifica correttezza dati;
+    if(Dati corretti) then (sì)
+    break
+    else(no)
+    endif  
+repeat while
+
+if(libro presente in archivio) then (sì)
+:Aggiorna numero copie; 
+else (no)
+:Aggiungi libro in archivio;
+endif
+
+:Salva libro;
+:Aggiornamento file esterno;
+stop
+
+@enduml

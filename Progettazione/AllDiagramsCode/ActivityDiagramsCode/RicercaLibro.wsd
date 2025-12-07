@@ -1,0 +1,13 @@
+@startuml RicercaLIbro
+start 
+:Accesso area ricerca;
+repeat
+:Inserimento dati;
+repeat while (dati errati)
+if(Libro presente) then (sì)
+:Visualizzazione libro/i ricercato/i;
+else (no)
+:Visualizzazione lista vuota;
+endif
+stop 
+@enduml 

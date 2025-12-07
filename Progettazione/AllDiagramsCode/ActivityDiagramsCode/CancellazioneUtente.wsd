@@ -1,0 +1,20 @@
+@startuml CancellazioneUtente
+start 
+:Accesso area gestione utente;
+:Visualizzazione lista utenti;
+repeat 
+:Ricerca utente;
+repeat while (utente non trovato) is (notifica)
+
+:Selezione utente;
+if(prestiti attivi?) then (yes)
+:Notifica;
+endif
+
+:Conferma Cancellazione;
+:Rimozione Utente da archivio;
+:Rimozione Utente da file esterno;
+:Notifica rimozione con successo;
+
+stop 
+@enduml 

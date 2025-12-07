@@ -1,0 +1,17 @@
+@startuml ModificaCopieLibro
+start 
+
+:Accesso area copie libro; 
+:Ricerca libro;
+repeat
+:Scelta operazione da eseguire;
+if(operazione selezionata) then (Aggiunta)
+:Aggiunta copie;
+else (Rimozione)
+:Rimozione copie;
+endif
+repeat while (copie insufficienti) is (sì)
+:Aggiornamento file esterno;
+
+end
+@enduml

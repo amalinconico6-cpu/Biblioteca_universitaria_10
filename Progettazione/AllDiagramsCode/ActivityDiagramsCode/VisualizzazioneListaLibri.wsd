@@ -1,0 +1,12 @@
+@startuml VisualizzazioneListaLibri
+start 
+:Accesso sezione visualizza lista libri;
+:Selezione visualizza lista libri;
+if(archivio vuoto) then (sì)
+:Notifica archivio vuoto;
+else (no)
+:Ordinamento archivio in base al titolo;
+:Visualizzazione lista libri;
+endif
+stop 
+@enduml 

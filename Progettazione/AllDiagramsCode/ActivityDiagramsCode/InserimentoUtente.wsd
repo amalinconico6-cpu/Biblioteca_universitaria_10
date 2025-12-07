@@ -1,0 +1,20 @@
+@startuml InserimentoUtente
+start 
+:Accesso are Gestione utenti;
+:Selezione aggiungi utente;
+:Inserimento nome;
+:Inseriment cognome;
+repeat
+repeat 
+repeat
+:Inserimento matricola;
+:Inserimento e-mail universitaria;
+repeat while (Formato dati non corretto)
+repeat while (e-mail non istituzionale)
+repeat while (matricola già registrata)
+
+:Conferma dati inseriti;
+:Conferma registrazione utente;
+:Aggiornamento file esterno;
+stop 
+@enduml

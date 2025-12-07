@@ -1,0 +1,12 @@
+@startuml VisualizzazioneListaUtenti
+start 
+:Accesso sezione gestione utente;
+:Selezione visualizza lista utenti;
+if(archivio vuoto) then (sì)
+:Notifica archivio vuoto;
+else (no)
+:Ordinamento archivio per nome e cognome;
+:Visualizzazione lista utenti;
+endif
+stop 
+@enduml

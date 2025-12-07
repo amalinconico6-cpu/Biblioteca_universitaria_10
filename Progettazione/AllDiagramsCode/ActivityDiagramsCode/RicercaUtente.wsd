@@ -1,0 +1,11 @@
+@startuml RicercaUtente
+start 
+:Accesso area gestione utente;
+:Selezione ricerca utente;
+repeat
+repeat
+:Compilazione form di ricerca;
+repeat while (caratteri non ammessi) is (notifica)
+repeat while (utente non trovato) is (notifica)
+stop 
+@enduml

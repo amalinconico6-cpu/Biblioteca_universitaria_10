@@ -1,0 +1,9 @@
+@startuml CancellazioneLibro 
+start 
+:Accesso area rimozione libro;
+:Ricerca libro;
+:Rimozione di tutte le copie;
+:Aggiornamento file esterno;
+:Notifica rimozione con successo;
+stop 
+@enduml 
