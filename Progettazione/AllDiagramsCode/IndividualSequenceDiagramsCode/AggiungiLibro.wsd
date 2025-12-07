@@ -1,0 +1,37 @@
+@startuml
+autonumber
+
+participant "interfaccia" as g
+participant "Lista Libri" as archiviol
+participant "Libro" as l
+participant "Autore" as a
+participant "Archivio esterno Libri" as archivioe
+activate g
+g->archiviol:checkISBN()
+alt condizione ISBN non presente
+activate archiviol
+archiviol-->g:return false
+g->l:Libro()
+activate l
+l->a:Autore()
+activate a
+a-->l:return Autore
+deactivate a
+l-->g:return Libro
+deactivate l
+g->archiviol:aggiungiLibro()
+g->archivioe: salvataggioLibri()
+activate archivioe
+else condizione ISBN presente
+archiviol-->g:return true
+g->archiviol:search()
+archiviol-->g:return libro
+g->l:setCopie()
+activate l
+l-->g:return Libro aggiornato
+deactivate l
+g->archivioe: salvataggioLibri()
+deactivate archivioe
+end
+deactivate archiviol
+@enduml
