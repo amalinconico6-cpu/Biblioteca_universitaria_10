@@ -1,0 +1,38 @@
+@startuml ModificaUtente
+title Modifica utente
+
+participant "Interfaccia" as UI
+participant "Lista Utenti" as ListaUtenti
+participant "Utente" as Utente
+participant "Archivio esterno utenti" as ArchUtenti
+
+' Accesso area gestione / modifica utenti (riassunto nello UI)
+note over UI
+Accesso area gestione utenti e
+selezione funzionalità "Modifica utente".
+end note
+
+' --- Ricerca / selezione utente ---
+    UI -> ListaUtenti: cercaPerMatricola() 
+
+    alt Utente trovato
+        ListaUtenti --> UI: return Utente
+    else Utente non trovato
+        ListaUtenti --> UI: return null
+    end
+
+' --- Visualizzazione dati utente correnti ---
+UI -> Utente: getNome()
+Utente --> UI: return nome
+UI -> Utente: getCognome()
+Utente --> UI: return cognome
+UI -> Utente: getMatricola()
+Utente --> UI: return matricola
+UI -> Utente: getMail()
+Utente --> UI: return mail
+
+' --- Conferma modifica e aggiornamento archivi ---
+UI -> ListaUtenti: modificaUtente()
+ListaUtenti -> ArchUtenti: salvataggioUtenti()
+
+@enduml
