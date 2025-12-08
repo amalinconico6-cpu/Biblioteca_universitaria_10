@@ -1,0 +1,20 @@
+@startuml PackageDiagramCode
+' layout verticale
+top to bottom direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+package "Libro;Autore;Lista_libri " as Biblioteca
+package "Utente;Lista_Utenti"  as Utenti
+package "Prestito;Lista_Prestiti"  as Prestiti
+package "InterfacciaGrafica" as UserInterface
+
+'--- DIPENDENZE (tratteggiate)
+Biblioteca  ..> UserInterface
+Utenti ..> UserInterface
+Prestiti ..> UserInterface
+Utenti --> Biblioteca
+Utenti --> Prestiti
+@enduml
+
+
