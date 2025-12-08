@@ -1,9 +1,0 @@
-var classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_modifica_ritardo =
-[
-    [ "aggiungiUtente", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_modifica_ritardo.html#a79e70f4c18361a90be99cafb56526e27", null ],
-    [ "conferma", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_modifica_ritardo.html#a78b0b283d3154222ab30db3501408dac", null ],
-    [ "init", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_modifica_ritardo.html#aa82fd1e71044f0eb378ef2afc67e5cf4", null ],
-    [ "initBottoni", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_modifica_ritardo.html#a695187ab46eefbf043b4f4048897dbf9", null ],
-    [ "rimuoviUtente", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_modifica_ritardo.html#abea5700135a3cb1650f7847a4f4ac5f4", null ],
-    [ "tornaIndietro", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_modifica_ritardo.html#ae365cc19f48dc8b62b0dec84c2b05347", null ]
-];

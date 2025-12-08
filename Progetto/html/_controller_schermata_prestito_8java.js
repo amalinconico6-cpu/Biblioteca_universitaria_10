@@ -1,4 +1,0 @@
-var _controller_schermata_prestito_8java =
-[
-    [ "it.unisa.diem.ingsoft.biblioteca_universitaria_10.userinterface.ControllerSchermataPrestito", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_prestito.html", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_prestito" ]
-];

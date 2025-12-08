@@ -1,6 +1,0 @@
-var classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_aggiungi_utente =
-[
-    [ "conferma", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_aggiungi_utente.html#a1d60280b631e63ba8406c8f7a060b3e6", null ],
-    [ "init", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_aggiungi_utente.html#ac85a11c6351398fe1524440fa50363be", null ],
-    [ "tornaIndietro", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_aggiungi_utente.html#a5304821bba71760d690ed1b6b4557386", null ]
-];

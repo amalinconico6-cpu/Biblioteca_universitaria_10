@@ -1,6 +1,0 @@
-var classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_ritardo =
-[
-    [ "init", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_ritardo.html#acb8861cf02c511c427c3d8c29d26ba2f", null ],
-    [ "schermataVisualizzaRitardo", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_ritardo.html#ab446a71602aa7d2faa73be17e13ee210", null ],
-    [ "tornaIndietro", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_ritardo.html#a57a476247869a3599fbf7bade28876e6", null ]
-];

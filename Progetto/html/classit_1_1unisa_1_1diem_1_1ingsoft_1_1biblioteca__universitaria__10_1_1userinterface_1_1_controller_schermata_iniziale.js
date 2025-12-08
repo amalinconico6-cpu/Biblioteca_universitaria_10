@@ -1,8 +1,0 @@
-var classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale =
-[
-    [ "init", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale.html#a24180ea2b5fdf9daba2d907ed97e3ed5", null ],
-    [ "schermataLibro", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale.html#a9b93faa524d3c579dadcf42921d22281", null ],
-    [ "schermataPrestito", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale.html#ac9ca08f7a71d9c6a7717277c96229e98", null ],
-    [ "schermataRitardo", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale.html#a208e080fcac1606af96c9ce1abe735af", null ],
-    [ "schermataUtente", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale.html#a439bf477a8f9d4b4b5f742a803052675", null ]
-];
