@@ -20,7 +20,8 @@ deactivate a
 l-->g:return Libro
 deactivate l
 g->archiviol:aggiungiLibro()
-g->archivioe: salvataggioLibri()
+g->archiviol: salvataggioLibri()
+archiviol-->archivioe:salvataggio dati
 activate archivioe
 else condizione ISBN presente
 archiviol-->g:return true
@@ -30,7 +31,8 @@ g->l:setCopie()
 activate l
 l-->g:return Libro aggiornato
 deactivate l
-g->archivioe: salvataggioLibri()
+g->archiviol: salvataggioLibri()
+archiviol-->archivioe:salvataggio dati
 deactivate archivioe
 end
 deactivate archiviol
