@@ -1,0 +1,12 @@
+@startuml VisualizzazioneElencoPrestiti
+start 
+:Accesso area gestione prestiti;
+:Accesso visualizza lista prestiti;
+if(Lista prestiti vuota) then (no)
+:Visualizzazione lista prestiti ordinati per data di restituzione;
+else(sì)
+endif
+
+stop
+
+@enduml 

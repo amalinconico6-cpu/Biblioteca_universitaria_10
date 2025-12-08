@@ -1,13 +1,13 @@
 @startuml ModificaDatiLibro
 start 
-
-:Accesso area modifica libro;
+:Accesso area gestione libro;
 :Ricerca libro;
+:Accesso area modifica libro;
 :Selezione libro da modificare;
 repeat 
 :Selezione dato da modificare;
 :Verifica formato dati;
-repeat while
+repeat while (Dati errati) is (sì)
 
 :Aggiornamento file esterno;
 

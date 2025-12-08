@@ -9,9 +9,9 @@ repeat
 repeat
 :Inserimento matricola;
 :Inserimento e-mail universitaria;
-repeat while (Formato dati non corretto)
-repeat while (e-mail non istituzionale)
-repeat while (matricola già registrata)
+repeat while (Formato dati non corretto) is (sì)
+repeat while (e-mail non istituzionale) is (sì)
+repeat while (matricola già registrata) is (sì)
 
 :Conferma dati inseriti;
 :Conferma registrazione utente;

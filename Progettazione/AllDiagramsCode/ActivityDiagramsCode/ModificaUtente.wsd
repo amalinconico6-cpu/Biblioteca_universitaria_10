@@ -1,6 +1,7 @@
 @startuml ModificaUtente
 start
 
+:Accesso area gestione utenti;
 :Accesso area modifica utente;
 if(Operazione richiesta) then (Ricerca)
 :Ricerca utente;
@@ -10,13 +11,13 @@ endif
 
 repeat 
 :Selezione utente;
-repeat while (Utente non trovato)
+repeat while (Utente non trovato) is (sì)
 
 :Visualizzazione dati utente;
 
 repeat 
 :Modifica dati;
-repeat while (Dati errati)
+repeat while (Dati errati) is (sì)
 
 :Conferma modifica;
 :Aggiornamento file esterno;

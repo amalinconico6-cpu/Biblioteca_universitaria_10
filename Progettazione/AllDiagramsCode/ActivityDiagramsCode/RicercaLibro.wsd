@@ -1,9 +1,10 @@
 @startuml RicercaLIbro
 start 
-:Accesso area ricerca;
+:Accesso area gestione libri;
+:Ricerca libro;
 repeat
 :Inserimento dati;
-repeat while (dati errati)
+repeat while (dati errati) is (sì)
 if(Libro presente) then (sì)
 :Visualizzazione libro/i ricercato/i;
 else (no)

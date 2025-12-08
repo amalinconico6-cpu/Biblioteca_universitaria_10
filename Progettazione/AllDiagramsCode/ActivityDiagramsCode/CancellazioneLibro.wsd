@@ -1,7 +1,8 @@
 @startuml CancellazioneLibro 
 start 
-:Accesso area rimozione libro;
+:Accesso area gestione libri;
 :Ricerca libro;
+:Accesso area rimozione libro;
 :Rimozione di tutte le copie;
 :Aggiornamento file esterno;
 :Notifica rimozione con successo;

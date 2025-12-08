@@ -1,14 +1,15 @@
 @startuml CancellazioneUtente
 start 
-:Accesso area gestione utente;
+:Accesso area gestione utenti;
 :Visualizzazione lista utenti;
 repeat 
 :Ricerca utente;
-repeat while (utente non trovato) is (notifica)
+repeat while (utente non trovato) is (sì (notifica))
 
 :Selezione utente;
 if(prestiti attivi?) then (yes)
 :Notifica;
+else (no)
 endif
 
 :Conferma Cancellazione;

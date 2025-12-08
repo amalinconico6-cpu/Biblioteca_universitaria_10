@@ -1,17 +1,18 @@
 @startuml InserimentoLibro
 
 start
-:Accesso area inserimento libro;
+:Accesso area gestione libri;
+:Accesso area aggiungi libro;
 repeat
     :Inserisci dati libro;
     :Verifica correttezza dati;
     if(Dati corretti) then (sì)
     break
-    else(no)
+    else(no (notifica))
     endif  
 repeat while
 
-if(libro presente in archivio) then (sì)
+if(Libro presente in archivio) then (sì)
 :Aggiorna numero copie; 
 else (no)
 :Aggiungi libro in archivio;

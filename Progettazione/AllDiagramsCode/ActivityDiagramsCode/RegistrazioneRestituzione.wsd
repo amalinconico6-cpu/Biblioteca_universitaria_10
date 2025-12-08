@@ -1,0 +1,19 @@
+@startuml RegistrazioneRestituzione.wsd 
+start 
+:Accesso area gestione prestiti;
+
+repeat
+if(operazione richiesta) then (ricerca)
+:Ricerca prestito;
+else (visualizza lista)
+:Visualizza lista prestiti;
+endif 
+repeat while (Prestito non trovato)
+
+:Selezione Prestito;
+:Rimozione Prestito;
+:Copia reinserita in archivio;
+:Aggiornamento file esterno;
+
+stop 
+@enduml 

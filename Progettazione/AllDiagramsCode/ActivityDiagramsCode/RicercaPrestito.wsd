@@ -1,0 +1,16 @@
+@startuml RicercaPrestito
+start 
+:Accesso area prestito;
+:Accesso ricerca prestito;
+
+repeat
+if(Ricerca per ISBN ) then
+elseif(Ricerca per cognome) then
+elseif(Ricerca per matricola) then 
+endif
+repeat while (Utente o libro trovato) is(sì)
+
+:Visualzzazione presiti associati;
+
+stop 
+@enduml 

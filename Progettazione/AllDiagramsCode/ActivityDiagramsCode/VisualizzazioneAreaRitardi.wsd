@@ -1,0 +1,12 @@
+@startuml VisualizzazioneAreaRitardi
+start 
+:Accesso area prestiti;
+:Accesso visualizza ritardi;
+
+if(lista vuota) then (no)
+:Visualizzazione ritardi per data di restituzione;
+else (sì)
+endif
+stop
+
+@enduml 

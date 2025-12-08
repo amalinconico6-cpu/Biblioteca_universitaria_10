@@ -1,6 +1,34 @@
 @startuml RegistrazionePrestito
 start
 
+:Accesso area gestione prestiti;
+:Accesso area registrazione prestiti;
+
+repeat
+
+repeat
+repeat
+:Inserimento dati utente;
+repeat while(Utente non presente) is (sì)
+repeat while(Prestiti attivi < 3) is (sì)
+
+
+repeat 
+:Inserimento dati libro;
+repeat while(Libro non presente) is (sì)
+
+repeat 
+:Inserimento data restituzione;
+repeat while(Data non valida) is (sì)
+
+repeat while(Formato dati errati) is (sì)
+
+:Conferma inserimento;
+:Rimozione copia dall'archivio;
+:Aggiornamento archivio esterno;
+
+
+
 stop
 @enduml
 

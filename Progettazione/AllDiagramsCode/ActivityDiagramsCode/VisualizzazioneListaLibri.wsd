@@ -1,7 +1,7 @@
 @startuml VisualizzazioneListaLibri
 start 
+:Accesso sezione gestione libri;
 :Accesso sezione visualizza lista libri;
-:Selezione visualizza lista libri;
 if(archivio vuoto) then (sì)
 :Notifica archivio vuoto;
 else (no)

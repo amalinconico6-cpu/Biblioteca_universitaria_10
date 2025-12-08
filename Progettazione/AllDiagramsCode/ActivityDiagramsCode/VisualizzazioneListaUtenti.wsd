@@ -1,7 +1,7 @@
 @startuml VisualizzazioneListaUtenti
 start 
-:Accesso sezione gestione utente;
-:Selezione visualizza lista utenti;
+:Accesso sezione gestione utenti;
+:Accesso visualizza lista utenti;
 if(archivio vuoto) then (sì)
 :Notifica archivio vuoto;
 else (no)
