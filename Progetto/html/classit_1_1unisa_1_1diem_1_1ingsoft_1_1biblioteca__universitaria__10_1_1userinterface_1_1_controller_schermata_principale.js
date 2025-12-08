@@ -1,0 +1,5 @@
+var classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_principale =
+[
+    [ "entra", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_principale.html#a715ddf227565dbb7347f3bac416624b3", null ],
+    [ "init", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_principale.html#aebce093a74cef370406f6add72441705", null ]
+];

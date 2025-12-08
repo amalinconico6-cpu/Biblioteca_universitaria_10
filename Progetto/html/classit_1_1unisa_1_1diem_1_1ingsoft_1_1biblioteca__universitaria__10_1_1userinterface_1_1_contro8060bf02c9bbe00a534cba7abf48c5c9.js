@@ -1,0 +1,8 @@
+var classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_contro8060bf02c9bbe00a534cba7abf48c5c9 =
+[
+    [ "aggiungiUtente", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_contro8060bf02c9bbe00a534cba7abf48c5c9.html#a9c9a961b755c335269692ab8841c7c6c", null ],
+    [ "conferma", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_contro8060bf02c9bbe00a534cba7abf48c5c9.html#a9a1ca945d4c5110054ca690b73253be4", null ],
+    [ "init", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_contro8060bf02c9bbe00a534cba7abf48c5c9.html#a6768e61134233094e3cf6a4e4a075c00", null ],
+    [ "rimuoviUtente", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_contro8060bf02c9bbe00a534cba7abf48c5c9.html#a6c4a2a955e08ba0e456e44b2e6a3b7fa", null ],
+    [ "tornaIndietro", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_contro8060bf02c9bbe00a534cba7abf48c5c9.html#aa19511df03692995aecfca228b06c529", null ]
+];

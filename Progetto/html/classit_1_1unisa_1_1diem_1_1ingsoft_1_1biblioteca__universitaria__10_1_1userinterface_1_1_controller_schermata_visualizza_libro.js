@@ -1,0 +1,8 @@
+var classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_visualizza_libro =
+[
+    [ "aggiungiBtnElimina", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_visualizza_libro.html#a883ec75455738b2d503df101c0fd9adf", null ],
+    [ "aggiungiBtnModifica", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_visualizza_libro.html#a5bb0b1de43e295660b8774e26b855634", null ],
+    [ "cerca", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_visualizza_libro.html#a61ad451d70037db74ce3ddef9c9e1495", null ],
+    [ "init", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_visualizza_libro.html#a2caaac038a7186a6a653b772e8c71f0c", null ],
+    [ "tornaIndietro", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_visualizza_libro.html#a0ed15afb1c58efc3459ec70f93ecb7a4", null ]
+];

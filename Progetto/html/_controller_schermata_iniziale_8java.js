@@ -1,0 +1,4 @@
+var _controller_schermata_iniziale_8java =
+[
+    [ "it.unisa.diem.ingsoft.biblioteca_universitaria_10.userinterface.ControllerSchermataIniziale", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale.html", "classit_1_1unisa_1_1diem_1_1ingsoft_1_1biblioteca__universitaria__10_1_1userinterface_1_1_controller_schermata_iniziale" ]
+];
