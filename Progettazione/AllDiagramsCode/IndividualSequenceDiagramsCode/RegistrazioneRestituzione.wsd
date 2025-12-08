@@ -1,0 +1,40 @@
+@startuml RegistrazioneRestituzione
+title Registrazione di una restituzione
+
+participant "interfaccia" as UI
+participant "Lista Prestiti" as ListaPrestiti
+participant "Prestito" as Prestito
+participant "Lista Libri" as ListaLibri
+participant "Archivio esterno Prestiti" as ArchPrestiti
+
+note over UI
+Registrazione della restituzione di un prestito.
+Il sistema ricerca il prestito, aggiorna le copie
+del libro associato e rimuove il prestito dagli archivi.
+end note
+
+UI -> ListaPrestiti: rimuoviPrestito()
+activate ListaPrestiti
+
+ListaPrestiti -> ListaPrestiti: search()
+ListaPrestiti --> ListaPrestiti: return Prestito / null
+
+alt Prestito trovato
+    ListaPrestiti -> Prestito: getISBN()
+    Prestito --> ListaPrestiti: return ISBN
+
+    ListaPrestiti -> ListaLibri: cercaPerISBN()
+    ListaLibri --> ListaPrestiti: return Libro
+
+    ListaPrestiti -> ListaLibri: setCopie()
+
+    ListaPrestiti -> ListaPrestiti: rimuoviPrestito()
+
+    UI -> ListaPrestiti: salvataggioPrestiti()
+else Prestito non trovato
+    ListaPrestiti --> UI: return errore("Prestito non trovato")
+end
+
+deactivate ListaPrestiti
+
+@enduml
