@@ -1,0 +1,37 @@
+@startuml AggiungiUtente
+
+title Aggiungi Utente
+
+participant "interfaccia" as UI
+participant "Lista Utenti" as ListaUtenti
+participant "Utente" as Utente
+participant "Archivio esterno Utenti" as ArchUtenti
+
+note over UI
+Inserimento di un nuovo utente:
+nome, cognome, matricola ed
+e-mail universitaria. Il sistema
+controlla formato dati, tipo di e-mail
+e unicità della matricola.
+end note
+
+' --- Controllo matricola già registrata ---
+UI -> ListaUtenti: checkMatricola()
+
+alt condizione Matricola non presente
+    ListaUtenti --> UI:  return false
+
+    ' Creazione dell'oggetto Utente
+    UI -> Utente: Utente(nome, cognome, matricola, mail)
+    Utente --> UI: return Utente
+
+    ' Aggiunta alla lista e salvataggio su file
+    UI -> ListaUtenti: aggiungiUtente(Utente)
+    ListaUtenti -> ArchUtenti: salvataggioUtenti()
+
+else condizione Matricola già registrata
+    ListaUtenti --> UI: return true
+    UI -> UI: ControllerPopup()
+end
+
+@enduml
