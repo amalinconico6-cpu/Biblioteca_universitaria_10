@@ -67,13 +67,17 @@ class Lista_Prestiti {
     - prestiti: List<Prestito>
 
     + getPrestiti(): List<Prestito>
+    + setPrestiti(prestiti: List<Prestito>): void
     + aggiungiPrestito(p: Prestito): void
     + rimuoviPrestito(p: Prestito): void
-    + aggiornaRitardi(): void
-    + setPrestiti(prestiti: List<Prestito>): void
+    + aggiornaRitardi(): List<Prestito>
+    + cercaPerISBN(String ISBN): List<Prestito>
+    + cercaPerID(int ID): List<Prestito>
+    + cercaPerMatricola(int Matricola): List<Prestito>
+    + cercaPerData(LocalDate dataScadenza): List<Prestito>
     + OrdinaLibriPerScadenza(cmp: Comparator<Prestito>): void
     + salvataggioPrestiti(nomefile: String): void
-    + letturaPrestiti(nomefile: String): Lista_Prestiti
+    + letturaPrestiti(nomefile: String): void
 }
 
 class Lista_Utenti {
@@ -93,20 +97,21 @@ class Lista_Utenti {
 
 class Prestito {
     - ISBN: String
-    - utente: Utente
+    - matricola: int
     - dataScadenza: LocalDate
-    {static} - ID: int
+    - ID: int
+    {static} -counter:int
     {static} + SCADENZA: Comparator<Prestito> <<final>>
 
-    + getLibro(): Libro
-    + setLibro(libro: Libro): void
-    + getUtente(): Utente
-    + setUtente(utente: Utente): void
+    + getISBN(): ISBN
+    + setISBN(String: ISBN): void
+    + getMatricola(): Matricola
+    + setMatricola(int: Matricola): void
     + getID(): int
-    + setID(ID: int): void
     + getDataScadenza(): LocalDate
     + setDataScadenza(data: LocalDate): void
     + equals(o: Object): boolean
+    + hashCode(): int
 }
 
 class Utente {
