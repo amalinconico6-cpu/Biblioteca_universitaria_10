@@ -2,11 +2,10 @@
  * @file 
  * @brief
  * "Inserire qui descrizione specifica della classe"
- * @author
+ * @author ALDO MALINCONICO
  * @date
  * @version
  */
-
 
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 
@@ -16,130 +15,147 @@ public class Utente {
     private String cognome;
     private int matricola;
     private String mail;
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @author ALDO MALINCONICO
+     */
     public Utente(String nome, String cognome, int matricola, String mail) {
-        // vuoto
+        this.nome = nome;
+        this.cognome = cognome;
+        this.matricola = matricola;
+        this.mail = mail;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @return 
+     * @author ALDO MALINCONICO
+     */
     public String getNome() {
-        return null;
+        return this.nome;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @author ALDO MALINCONICO
+     */
     public void setNome(String nome) {
-        // vuoto
+        this.nome = nome;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @return 
+     * @author ALDO MALINCONICO
+     */
     public String getCognome() {
-        return null;
+        return this.cognome;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @author ALDO MALINCONICO
+     */
     public void setCognome(String cognome) {
-        // vuoto
+        this.cognome = cognome;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @return 
+     * @author ALDO MALINCONICO
+     */
     public int getMatricola() {
-        return 0;
+        return this.matricola;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @author ALDO MALINCONICO
+     */
     public void setMatricola(int matricola) {
-        // vuoto
+        this.matricola = matricola;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @return 
+     * @author ALDO MALINCONICO
+     */
     public String getMail() {
-        return null;
+        return this.mail;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @author ALDO MALINCONICO
+     */
     public void setMail(String mail) {
-        // vuoto
+        this.mail = mail;
     }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
- */
+
+    /**
+     * @brief "inserire qui descrizione breve"
+     * "inserire qui descrizione specifica del metodo"
+     * @pre
+     * @post
+     * @param[in]
+     * @param[out]
+     * @return 
+     * @author ALDO MALINCONICO
+     */
     @Override
     public boolean equals(Object o) {
-        return false;
+        if (this == o) return true;  
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Utente altro = (Utente) o;
+        return this.matricola == altro.matricola;
     }
 }
