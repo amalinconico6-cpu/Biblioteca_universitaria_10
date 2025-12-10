@@ -8,39 +8,36 @@ participant "Lista Utenti" as archiviou
 participant "Lista Libri" as archiviol
 participant "Archivio esterno Prestiti" as archivioe
 activate g
-activate archiviol
-g->archiviol:checkISBN()
-alt condizione ISBN non presente
-    archiviol-->g:return false
-else condizione ISBN presente
-    archiviol-->g:return true
-    deactivate archiviol
-    g->archiviou:checkMatricola()
+
+g->archiviop:aggiungiPrestito()
+activate archiviop
+archiviop->archiviop:checkUtente()
+alt condizione 3 prestiti associati all'Utente
+    archiviop-->g:return "Ci sono già 3 prestiti associati a questo utente"
+else condizione meno di 3 prestiti associati all'Utente
+    archiviop->archiviou:checkMatricola()
     activate archiviou
-    alt condizione Matricola non presente
-        archiviou-->g:return false
-    else condizione Matricola presente
-        archiviou-->g:return true
-        
-        g->archiviou:checkUtente()
-     
-        alt condizione Utente ha 3 prestiti attivi
-            archiviou-->g:return true
-        else condizione Utente non ha 3 prestiti attivi
-            archiviou-->g:return false
-            deactivate archiviou
-            g->p:Prestito()
-            activate p
-            p-->g:return Prestito
-            deactivate p
-            g->archiviop:aggiungiPrestito()
-            activate archiviop
-           
-            g->archiviop:salvataggioPrestiti()
-            
-            deactivate archiviop
+    alt Matricola presente
+        archiviop->archiviol:checkISBN()
+        activate archiviol
+        alt condizione ISBN presente
+            archiviop->archiviol:checkCopie()
+            alt condizione copie disponibili
+                archiviop->archiviop:add()   
+                archiviop->archiviop:OrdinaPerScadenza() 
+                archiviop->archiviol:modificaCopie()
+                archiviop-->g:return "Prestito inserito"
+                g->archiviop:salvataggioPrestiti()
+                archiviop-->archivioe: Lista salvata
+            else condizione copie non disponibili
+                archiviop-->g:return "Non ci sono copie disponibili"
+            end
+        else condizione ISBN non presente
+            archiviop-->g:return "ISBN non presente nella Lista Libri"
         end
+    else condizione Matricola non presente
+        archiviop-->g:return "Utente non presente"
     end
 end
-deactivate g
+
 @enduml
