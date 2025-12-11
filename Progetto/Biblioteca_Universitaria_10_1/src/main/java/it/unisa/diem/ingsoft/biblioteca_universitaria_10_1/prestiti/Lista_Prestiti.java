@@ -26,7 +26,7 @@ public class Lista_Prestiti {
  * @author
  */
     public List<Prestito> getPrestiti() {
-        return null;
+     return null;    
     }
 /**
  * @brief "inserire qui descrizione breve"
