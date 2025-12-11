@@ -29,101 +29,84 @@ public class Prestito {
         this.ID=counter++;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "get del Comparatore"
+ * "restituisce il comparatore per il corretto ordinamento della lista prestiti"
+ * @post Viene restituito il comparatore 
+ * @return Comparator<Prestito> Scadenza
+ * @author ALESSANDRO VISCIANO
  */
     public Comparator<Prestito> getComp(){
         return this.SCADENZA;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+ * @brief "get dell'ISBN"
+ * "restituisce il valore dell'attributo ISBN"
+ * @post Viene restituito l'ISBN
+ * @return String ISBN
+ * @author ALESSANDRO VISCIANO
  */
     public String getISBN(){
         return this.ISBN;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "set dell'ISBN"
+ * "Sostituisce l'ISBN dell'oggetto con l'ISBN passato per parametro"
+ * @pre L'ISBN deve rispettare il formato desiderato
+ * @post L'ISBN viene modificato
+ * @param[in] String ISBN
+ * @author ALESSANDRO VISCIANO
  */
     public void setISBN(String ISBN){
-        this.ISBN=ISBN;
+        if(ISBN!=null)
+            this.ISBN=ISBN;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+ * @brief "get della Matricola"
+ * "restituisce la Matricola associata al prestito"
+ * @post viene restituita la Matricola
+ * @return int Matricola
+ * @author ALESSANDRO VISCIANO
  */
    public int getMatricola(){
         return this.Matricola;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "set della Matricola"
+ * "Sostituisce la Matricola dell'oggetto con la Matricola passata come parametro"
+ * @pre la matricola rispetta il formato desiderato
+ * @post viene modificata la Matricola
+ * @param[in] int Matricola
+ * @author ALESSANDRO VISCIANO
  */
    public void setMatricola(int Matricola){
-       this.Matricola=Matricola;
+        this.Matricola=Matricola;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+ * @brief "get dell'ID"
+ * "Viene restituito l'ID dell'oggetto"
+ * @post Viene restituito l'ID
+ * @return int ID
+ * @author ALESSANDRO VISCIANO
  */
     public int getID(){
        return this.ID;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "get della DataScadenza"
+ * "Viene restituita la Data di Scadenza del prestito"
+ * @post Viene restitito dataScadenza
+ * @return  LocalDate dataScadenza
+ * @author ALESSANDRO VISCIANO
  */
     public LocalDate getDataScadenza(){
         return this.dataScadenza;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+ * @brief "equals"
+ * "serve a definire quando 2 prestiti sono uguali nella lista (in base all'ID)"
+ * @param[in] Object o
+ * @return boolean
+ * @author ALESSANDRO VISCIANO
  */
     @Override
     public boolean equals(Object o){
@@ -133,14 +116,12 @@ public class Prestito {
         return this.getID()==p.getID();
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "set di DataScadenza"
+ * "Sostituisce dataScadenza dell'oggetto con dataScadenza passato come parametro"
+ * @pre dataScadenza rispetta il formato desiderato
+ * @post viene modificato dataScadenza
+ * @param[in] LocalDate dataScadenza 
+ * @author ALESSANDRO VISCIANO
  */
     public void setDataScadenza(LocalDate dataScadenza){
         this.dataScadenza=dataScadenza;

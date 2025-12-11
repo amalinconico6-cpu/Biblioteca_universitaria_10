@@ -39,22 +39,22 @@ public class Lista_Prestiti {
  * @pre
  * @post
  * @param[in]
+ * @invariant
  * @param[out]
  * @author
  */
-    public String aggiungiPrestito(Prestito p){
+    public String aggiungiPrestito(Prestito p,Lista_Utenti utenti,Lista_Libri libri){
         if(checkUtente(p))
             return "Ci sono già 3 prestiti associati a questo utente";
-        else if(checkMatricola(p.getMatricola())){ 
-                if(checkISBN(p.getISBN())){
-                    if(checkCopie(p.getISBN())){
+        else if(utenti.checkMatricola(p.getMatricola())){ 
+                if(libri.checkISBN(p.getISBN())){
+                    if(libri.checkCopie(p.getISBN())){
                         prestiti.add(p);
                         OrdinaPerScadenza(p.getComp());
-                        modificaCopie(p.getISBN(),-1);
+                        libri.modificaCopie(p.getISBN(),-1);
                         return "Prestito inserito";
                     }else
                         return "Non ci sono copie disponibili";
-            
                 }else
                     return "ISBN non presente nella Lista Libri";
             }else
@@ -66,13 +66,14 @@ public class Lista_Prestiti {
  * @pre
  * @post
  * @param[in]
+ * @invariant
  * @param[out]
  * @author
  */
-    public String rimuoviPrestito(Prestito p){
+    public String rimuoviPrestito(Prestito p,Lista_Libri libri){
         if(prestiti.contains(p)){
             prestiti.remove(p);
-            modificaCopie(p.getISBN(),+1);
+            libri.modificaCopie(p.getISBN(),+1);
             return "Prestito rimosso correttamente";
         } 
         else{
@@ -150,9 +151,9 @@ public class Lista_Prestiti {
  * @post
  * @param[in]
  * @param[out]
- * @author
+ * @author ALESSANDRO VISCIANO
  */
-    public List<Prestito> cercaPerMatricola(int Matricola){
+    public List<Prestito> cercaPrestitoPerMatricola(int Matricola){
         List<Prestito> filter=new ArrayList<>();
         for(Prestito p:prestiti){
             if(p.getMatricola()==Matricola)
@@ -167,7 +168,7 @@ public class Lista_Prestiti {
  * @post
  * @param[in]
  * @param[out]
- * @author
+ * @author ALESSANDRO VISCIANO
  */
     public List<Prestito> cercaPerData(LocalDate dataScadenza){
         List<Prestito> filter=new ArrayList<>();
@@ -184,7 +185,7 @@ public class Lista_Prestiti {
  * @post
  * @param[in]
  * @param[out]
- * @author
+ * @author ALESSANDRO VISCIANO
  */ 
     public void OrdinaPerScadenza(Comparator<Prestito> cmp){
         prestiti.sort(cmp);
@@ -196,7 +197,7 @@ public class Lista_Prestiti {
  * @post
  * @param[in]
  * @param[out]
- * @author
+ * @author ALESSANDRO VISCIANO
  */
     public void salvataggioPrestiti(String nomefile)throws IOException{
         try(ObjectOutputStream o=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(nomefile)))){
@@ -213,7 +214,7 @@ public class Lista_Prestiti {
  * @param[in]
  * @param[out]
  * @return 
- * @author
+ * @author ALESSANDRO VISCIANO
  */
     public void letturaPrestiti(String nomefile)throws IOException{
         try(ObjectInputStream o=new ObjectInputStream(new BufferedInputStream(new FileInputStream(nomefile)))){
@@ -233,10 +234,10 @@ public class Lista_Prestiti {
  * @param[in]
  * @param[out]
  * @return 
- * @author
+ * @author ALESSANDRO VISCIANO
  */
     public boolean checkUtente(Prestito p){
-        List<Prestito> check=cercaPerMatricola(p.getMatricola());
+        List<Prestito> check=cercaPrestitoPerMatricola(p.getMatricola());
         if(check.size()==3)
             return true;
         else{
