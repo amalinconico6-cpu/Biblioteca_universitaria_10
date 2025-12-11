@@ -143,7 +143,6 @@ public List<Utente> cercaPerMatricola(String str) {
     } catch (NumberFormatException e) {
 
     }
-
     return risultato;
 }
 
@@ -228,30 +227,12 @@ public List<Utente> cercaPerNomeCognome(String str) {
      * @brief Salvataggio utenti su file
      * @author ALDO MALINCONICO
      */
-    public void salvataggioUtenti(String nomefile) {
-        if (nomefile == null || nomefile.isEmpty()) return;
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomefile))) {
-
-            // for-each sulle righe generate
-            for (Utente u : utenti) {
-                String linea =
-                        u.getMatricola() + ";" +
-                        safe(u.getNome()) + ";" +
-                        safe(u.getCognome()) + ";" +
-                        safe(u.getMail());
-
-                writer.write(linea);
-                writer.newLine();
-            }
-
-        } catch (IOException e) {
+    public void salvataggioUtenti(String nomefile)throws IOException{
+        try(ObjectOutputStream o=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(nomefile)))){
+            o.writeObject(utenti);
+        }catch(IOException e){
             e.printStackTrace();
         }
-    }
-
-    private String safe(String s) {
-        return (s == null) ? "" : s.replace(";", ",");
     }
 
     /**
@@ -259,42 +240,15 @@ public List<Utente> cercaPerNomeCognome(String str) {
      * @author ALDO MALINCONICO
      * @return nuova lista utenti caricata dal file
      */
-    public Lista_Utenti letturaUtenti(String nomefile) {
-        Lista_Utenti lista = new Lista_Utenti();
-        if (nomefile == null || nomefile.isEmpty()) return lista;
-
-        List<String> righe = new ArrayList<>();
-
-        // 1) Leggo il file e salvo IL CONTENUTO in una lista
-        try (BufferedReader reader = new BufferedReader(new FileReader(nomefile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                righe.add(line);
-            }
-        } catch (IOException e) {
+    public void letturaUtenti(String nomefile)throws IOException{
+        try(ObjectInputStream o=new ObjectInputStream(new BufferedInputStream(new FileInputStream(nomefile)))){
+            List<Utente> readed= (List<Utente>)o.readObject(); 
+            this.utenti=readed;
+        }catch(IOException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-        // 2) Elaboro le righe usando for-each
-        for (String linea : righe) {
-            String[] parts = linea.split(";");
-
-            if (parts.length >= 4) {
-                try {
-                    int matricola = Integer.parseInt(parts[0]);
-                    String nome = parts[1];
-                    String cognome = parts[2];
-                    String mail = parts[3];
-
-                    Utente u = new Utente(nome, cognome, matricola, mail);
-                    lista.aggiungiUtente(u);
-
-                } catch (NumberFormatException e) {
-                    // Riga non valida sulla matricola → skip
-                }
-            }
-        }
-
-        return lista;
+        
     }
 }
