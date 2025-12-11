@@ -139,6 +139,7 @@ public class Utente {
     public void setMail(String mail) {
         this.mail = mail;
     }
+    
 
     /**
      * @brief "inserire qui descrizione breve"

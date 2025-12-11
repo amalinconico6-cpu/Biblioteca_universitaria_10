@@ -8,6 +8,7 @@
  */
 
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
+import it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.biblioteca.*;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -16,9 +17,14 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 
 public class Lista_Utenti {
@@ -36,15 +42,34 @@ public class Lista_Utenti {
      * @param[out]
      * @author ALDO MALINCONICO
      */
-    public void aggiungiUtente(Utente utente) {
-        if (utente == null) return;
-
-        // aggiunge solo se non esiste già un utente con stessa matricola
-        if (!checkUtente(utente)) {
-            utenti.add(utente);
+     public String aggiungiUtente(Utente utente) {
+        if (utente == null) {
+            return "Utente non valido";
         }
-    }
 
+        int matricola = utente.getMatricola();
+        String nome = utente.getNome();
+        String cognome = utente.getCognome();
+        String email = utente.getMail();
+
+        if (matricola <= 0) {
+            return "Matricola non valida";
+        }
+        if (nome == null || nome.trim().isEmpty()) {
+            return "Nome non valido";
+        }
+        if (cognome == null || cognome.trim().isEmpty()) {
+            return "Cognome non valido";
+        }
+        if (email == null || email.trim().isEmpty()) {
+            return "Email non valida";
+        }
+        if (checkMatricola(matricola)) {
+            return "Esiste già un utente con questa matricola";
+        }
+        utenti.add(utente);
+        return "Utente aggiunto correttamente";
+    }
     /**
      * @brief "Rimuove un utente dalla lista"
      * @pre
@@ -53,10 +78,16 @@ public class Lista_Utenti {
      * @param[out]
      * @author ALDO MALINCONICO
      */
-    public void rimuoviUtente(Utente utente) {
-        if (utente == null) return;
-        utenti.remove(utente); // usa equals()
+  public String rimuoviUtente(Utente utente) {
+    if (utente == null) {
+        return "Utente non valido";
     }
+    boolean rimosso = utenti.remove(utente); 
+    if (!rimosso) {
+        return "Utente non presente in lista";
+    }
+    return "Utente rimosso correttamente";
+}
 
     /**
      * @brief "Aggiorna un utente già presente nella lista"
@@ -108,7 +139,6 @@ public class Lista_Utenti {
     }
     }
 
-
     /**
      * @brief Ricerca per matricola
      * "Creo la lista dei risultati (all'inizio vuota),
@@ -120,36 +150,38 @@ public class Lista_Utenti {
      */
     
 public List<Utente> cercaPerMatricola(String str) {
-
-    // 1) Creo la lista dei risultati (all'inizio vuota)
     List<Utente> risultato = new ArrayList<>();
-
     if (str == null) {
         return risultato;
     }
-
     String trimmed = str.trim();
-
     if (trimmed.isEmpty()) {
         return risultato;
     }
-
     try {
         int matricola = Integer.parseInt(trimmed);
-
         for (Utente u : utenti) {
-
             if (u.getMatricola() == matricola) {
                 risultato.add(u);
             }
         }
-
     } catch (NumberFormatException e) {
-
     }
     return risultato;
 }
-
+/**
+ * @brief "Controlla se esiste un utente con la matricola indicata"
+ * @author ALDO MALINCONICO
+*/
+public boolean checkMatricola(int matricola) {
+    if (matricola <= 0) return false;
+    for (Utente u : utenti) {
+        if (u != null && u.getMatricola() == matricola) {
+            return true; 
+        }
+    }
+    return false; 
+}
 
 /**
  * @brief "inserire qui descrizione breve"
@@ -164,27 +196,18 @@ public List<Utente> cercaPerMatricola(String str) {
  * @author
  */
 public List<Utente> cercaPerNomeCognome(String str) {
-
-    // 1) Creo una lista vuota che conterrà gli utenti trovati
     List<Utente> risultato = new ArrayList<>();
-
     if (str == null) {
         return risultato;
     }
-
     String trimmed = str.trim();
-
     if (trimmed.isEmpty()) {
         return risultato; 
     }
-
     String query = trimmed.toLowerCase();
-
     for (Utente u : utenti) {
-
         String nome;
         String cognome;
-
         //Gestisco il nome: se getNome() non è null, lo porto in minuscolo;
         //altrimenti assegno una stringa vuota.
         if (u.getNome() != null) {
@@ -194,7 +217,6 @@ public List<Utente> cercaPerNomeCognome(String str) {
         } else {
             nome = ""; // nessun nome disponibile → uso stringa vuota
         }
-
         if (u.getCognome() != null) {
             String cognomeOriginale = u.getCognome();     
             String cognomeMinuscolo = cognomeOriginale.toLowerCase(); 
@@ -202,30 +224,16 @@ public List<Utente> cercaPerNomeCognome(String str) {
         } else {
             cognome = ""; // 
         }
-
         //Verifico se la query è contenuta nel nome o nel cognome
         boolean matchSuNome = nome.contains(query);
         boolean matchSuCognome = cognome.contains(query);
-
         //Se la query è presente in almeno uno dei due, aggiungo l'utente ai risultati
         if (matchSuNome || matchSuCognome) {
             risultato.add(u);
         }
     }
-
     return risultato;
 }
-
-
-    /**
-     * @brief Controlla se un utente è già presente
-     * @return true se esiste già
-     * @author ALDO MALINCONICO
-     */
-    public boolean checkUtente(Utente utente) {
-        if (utente == null) return false;
-        return utenti.contains(utente); 
-    }
 
     /**
      * @brief Salvataggio utenti su file
@@ -238,7 +246,6 @@ public List<Utente> cercaPerNomeCognome(String str) {
             e.printStackTrace();
         }
     }
-
     /**
      * @brief Lettura utenti da file
      * @author ALDO MALINCONICO
@@ -253,6 +260,5 @@ public List<Utente> cercaPerNomeCognome(String str) {
         }catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        
     }
 }
