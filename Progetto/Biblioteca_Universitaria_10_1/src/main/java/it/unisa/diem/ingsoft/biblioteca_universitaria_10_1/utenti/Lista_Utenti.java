@@ -236,7 +236,7 @@ public List<Utente> cercaPerNomeCognome(String str) {
     }
 
     /**
-     * @brief Lettura utenti da file con for-each
+     * @brief Lettura utenti da file
      * @author ALDO MALINCONICO
      * @return nuova lista utenti caricata dal file
      */
