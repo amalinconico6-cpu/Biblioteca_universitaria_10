@@ -10,9 +10,6 @@
 
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.prestiti;
 
-import it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.biblioteca.Libro;
-import it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti.Utente;
-
 import java.time.LocalDate;
 import java.util.Comparator;
 
@@ -41,8 +38,8 @@ public class Prestito {
  * @return 
  * @author
  */
-    public Libro getLibro() {
-        return null;
+    public Comparator<Prestito> getComp(){
+        return this.SCADENZA;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -53,8 +50,8 @@ public class Prestito {
  * @param[out]
  * @author
  */
-    public void setLibro(Libro libro) {
-        // vuoto
+    public String getISBN(){
+        return this.ISBN;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -66,8 +63,8 @@ public class Prestito {
  * @return 
  * @author
  */
-    public Utente getUtente() {
-        return null;
+    public void setISBN(String ISBN){
+        this.ISBN=ISBN;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -78,8 +75,8 @@ public class Prestito {
  * @param[out]
  * @author
  */
-    public void setUtente(Utente utente) {
-        // vuoto
+   public int getMatricola(){
+        return this.Matricola;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -91,8 +88,8 @@ public class Prestito {
  * @return 
  * @author
  */
-    public int getID() {
-        return 0;
+   public void setMatricola(int Matricola){
+       this.Matricola=Matricola;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -103,8 +100,8 @@ public class Prestito {
  * @param[out]
  * @author
  */
-    public void setID(int ID) {
-        // vuoto
+    public int getID(){
+       return this.ID;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -116,8 +113,8 @@ public class Prestito {
  * @return 
  * @author
  */
-    public LocalDate getDataScadenza() {
-        return null;
+    public LocalDate getDataScadenza(){
+        return this.dataScadenza;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -126,23 +123,26 @@ public class Prestito {
  * @post
  * @param[in]
  * @param[out]
- * @author
- */
-    public void setDataScadenza(LocalDate data) {
-        // vuoto
-    }
-/**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
  * @author
  */
     @Override
-    public boolean equals(Object o) {
-        return false;
+    public boolean equals(Object o){
+        if(this==o) return true;
+        if(o==null || this.getClass()!=o.getClass()) return false;
+        Prestito p=(Prestito) o;
+        return this.getID()==p.getID();
+    }
+/**
+ * @brief "inserire qui descrizione breve"
+ * "inserire qui descrizione specifica del metodo"
+ * @pre
+ * @post
+ * @param[in]
+ * @param[out]
+ * @return 
+ * @author
+ */
+    public void setDataScadenza(LocalDate dataScadenza){
+        this.dataScadenza=dataScadenza;
     }
 }
