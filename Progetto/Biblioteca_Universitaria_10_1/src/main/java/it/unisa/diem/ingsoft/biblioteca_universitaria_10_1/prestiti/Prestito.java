@@ -19,11 +19,18 @@ import java.util.Comparator;
 public class Prestito {
 
     private String ISBN;
-    private Utente utente;
+    private int Matricola;
     private LocalDate dataScadenza;
-
-    private static int ID;
-    public static final Comparator<Prestito> SCADENZA = null;
+    private final int ID;
+    private static int counter=0;
+    public static final Comparator<Prestito> SCADENZA = Comparator.comparing(Prestito::getDataScadenza);
+    
+    public Prestito(String ISBN,int Matricola,LocalDate dataScadenza){
+        this.ISBN=ISBN;
+        this.Matricola=Matricola;
+        this.dataScadenza=dataScadenza;
+        this.ID=counter++;
+    }
 /**
  * @brief "inserire qui descrizione breve"
  * "inserire qui descrizione specifica del metodo"
