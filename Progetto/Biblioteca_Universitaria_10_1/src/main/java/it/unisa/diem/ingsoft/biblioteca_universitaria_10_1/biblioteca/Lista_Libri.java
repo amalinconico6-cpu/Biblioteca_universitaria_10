@@ -1,4 +1,4 @@
-/**
+  /**
  * @file Lista_libri
  * @brief classe per la gestione della lista dei libri
  * "fornisce tutti i metodi per la gestione della lista dei libri"
@@ -25,13 +25,12 @@ public class Lista_Libri {
     private List<Libro> libri=new ArrayList<>();
 
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+  * @brief "aggiunta libro"
+ * "permette l'aggiunta di un nuovo libro alla lista di libri gia presente"
+ * @pre Libro passato != null
+ * @post viene aggiunto un libro
+ * @param[in] Libro libro
+ * @author Francesco Sabia
  */
     public void aggiungiLibro(Libro libro){
         if(this.libri.contains(libro)){
@@ -46,30 +45,26 @@ public class Lista_Libri {
         }
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+  * @brief "rimuovi libro"
+ * "permette la rimozione di un nuovo libro dalla lista di libri gia presente"
+ * @pre Libro passato != null
+ * @post viene rimosso un libro
+ * @param[in] Libro libro
+ * @author Francesco Sabia
  */
     public void rimuoviLibro(Libro libro){
-        if(!(this.libri.contains(libro))){
-            //errore
-        }
-        else{
+        if((this.libri.contains(libro))){
             this.libri.remove(libro);
         }
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+ * @brief "modifica dei dati di un libro"
+ * "metodo per la gestione delle modifiche di uno qualsiasi dei campi del libro"
+ * @pre i 2 Libri passati non devono essere null
+ * @post la lista libri viene aggiornata
+ * @param[in] 2 ogetti di tipo Libro
+ * @param[out] la la lista dei libri viene aggiornata
+ * @author Francesco Sabia
  */
     public void modificaLibro(Libro libro, Libro l_modificato){
         for(Libro l: this.libri){
@@ -80,31 +75,29 @@ public class Lista_Libri {
     }
     
     /**
- * @brief "inserire qui descrizione breve"
+ * @brief "permette di modificare solo il numero di copie presenti nella lista"
  * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @pre il numero non deve essere 0 e l'ISBN deve essere valido
+ * @post la lista viene aggiornata
+ * @param[in] ISBN  e n 
+ * @author Francesco Sabia
  */
     public void modificaCopie(String ISBN, int n){
         for(Libro l: this.libri){
                 if(l.getISBN()==ISBN){
+                    if(n<0&&(n*-1)<l.getCopie())
                     l.setCopie(l.getCopie()+n);
                 }
         }
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "cerca un libro per titolo"
+ * "permette la ricerca per titolo passato sotto forma di stringa"
+ * @pre Il titolo deve essere valido
+ * @param[in] una stringa contenente il titolo
+ * @param[out] la lista con solo i libri con quel titolo
+ * @return la lista con solo i libri con quel titolo
+ * @author Francesco Sabia
  */
     public List<Libro> cercaPerTitolo(String str){
         List<Libro> temp_list=new ArrayList<>();
@@ -119,14 +112,13 @@ public class Lista_Libri {
             return temp_list;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "cerca un libro per ISBN"
+ * "permette la ricerca per ISBN passato sotto forma di stringa"
+ * @pre ISBN deve essere valido
+ * @param[in] una stringa contenente ISBN
+ * @param[out] la lista con solo i libri con quel ISBN
+ * @return la lista con solo i libri con quel ISBN
+ * @author Francesco Sabia 
  */
     public List<Libro> cercaPerISBN(String str){
         List<Libro> temp_list=new ArrayList<>();
@@ -136,19 +128,18 @@ public class Lista_Libri {
             }
         }
         if(temp_list.isEmpty())
-            return null;//errore
+            return null;
         else
             return temp_list;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+  * @brief "cerca un libro per Autore"
+ * "permette la ricerca per Autore passato sotto forma di stringa"
+ * @pre l'Autore deve essere valido
+ * @param[in] una stringa contenente l'autore
+ * @param[out] la lista con solo i libri con quel autore presente nella lista di autori
+ * @return la lista con solo i libri con quel autore presente nella lista di autori
+ * @author Francesco Sabia
  */
     public List<Libro> cercaPerAutore(String str){
         List<Libro> temp_list=new ArrayList<>();
@@ -158,19 +149,17 @@ public class Lista_Libri {
                     temp_list.add(l);
             }
         if(temp_list.isEmpty())
-            return null;//errore
+            return null;
         else
             return temp_list;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "controlla l'esistenza dell'ISBN"
+ * @pre ISBN deve essere valido
+ * @param[in] Una Stringa contente l'ISBN
+ * @param[out] un boolean
+ * @return un boolean
+ * @author Francesco Sabia
  */
   public boolean checkISBN(String ISBN){
         for(Libro l: this.libri){
@@ -182,26 +171,23 @@ public class Lista_Libri {
         return false;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+ /**
+ * @brief "ordina i libri presenti nella lista"
+ * "ordina la lista di libri in base a uno degli ordini stabiliti nella classe Libro"
+ * @post la lista viene ordinata
+ * @author Francesco Sabia
  */
     public void ordina(Comparator<Libro> cmp){
         libri.sort(cmp);
     }
 
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @author
+ * @brief "Salvataggio su file esterno"
+ * "Permette il salvataggio dell' intera lista su un file esterno"
+ * @pre La lista di libri deve contenere almeno un elemento
+ * @post il file viene aggiornato
+ * @param[in] una stringa con il nome del file
+ * @author Francesco Sabia
  */
     public void salvataggioLibri(String nomefile)throws IOException{
         FileOutputStream fileOut = new FileOutputStream(nomefile);
@@ -212,14 +198,13 @@ public class Lista_Libri {
         }
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @brief "Lettura da file"
+ * "crea una lista di libri effetuando una copia dal file esterno"
+ * @pre il file deve esistere e non deve essere vuoto
+ * @post viene creata una lista di libri 
+ * @param[in] una stringa contente  il nome del file
+ * @param[out] la lista dei libri
+ * @author Francesco Sabia
  */
     public void letturaLibri(String nomefile)throws IOException{
         try(ObjectInputStream objout=new ObjectInputStream(new BufferedInputStream(new FileInputStream(nomefile)))){

@@ -35,11 +35,6 @@ public class Autore {
     }
 /**
  * @brief "getter del nome"
- * "getter del attributo nome"
- * @pre 
- * @post 
- * @param[in]
- * @param[out] 
  * @return attributo nome
  * @author Francesco Sabia
  */
@@ -48,51 +43,29 @@ public class Autore {
     }
 /**
  * @brief "setter del nome"
- * "setter del nome"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
  * @author Francesco Sabia
  */
     public void setNome(String nome) {
         this.nome = nome;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
+ * @brief "getter del cognome"
+ * @return l'attributo cognome
  * @author Francesco Sabia
  */
     public String getCognome() {
         return cognome;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
+ * @brief "setter del cognome"
  * @author Francesco Sabia
  */
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
 /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
+ * @brief "getter del comparator"
+ * @return il comparatore
  * @author Francesco Sabia
  */
     public static Comparator<Autore> getCOGNOME() {
@@ -100,13 +73,11 @@ public class Autore {
     }
     
  /**
- * @brief "inserire qui descrizione breve"
- * "inserire qui descrizione specifica del metodo"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
+ * @brief "metodo equls"
+ * "override del metodo equals di object prevede la gestione di obj nullo"
+ * @post effetua il confronto tra l'obj passato e l'ogetto invocante
+ * @param[in] un ogetto object
+ * @return un boolean
  * @author Francesco Sabia
  */
     @Override
