@@ -43,22 +43,14 @@ public class Lista_Prestiti {
  * @param[out]
  * @author
  */
-    public String aggiungiPrestito(Prestito p,Lista_Utenti utenti,Lista_Libri libri){
+    public boolean aggiungiPrestito(Prestito p){
         if(checkUtente(p))
-            return "Ci sono già 3 prestiti associati a questo utente";
-        else if(utenti.checkMatricola(p.getMatricola())){ 
-                if(libri.checkISBN(p.getISBN())){
-                    if(libri.checkCopie(p.getISBN())){
-                        prestiti.add(p);
-                        OrdinaPerScadenza(p.getComp());
-                        libri.modificaCopie(p.getISBN(),-1);
-                        return "Prestito inserito";
-                    }else
-                        return "Non ci sono copie disponibili";
-                }else
-                    return "ISBN non presente nella Lista Libri";
-            }else
-                return "Utente non presente";
+            return false;
+        else {
+               prestiti.add(p);
+               OrdinaPerScadenza(p.getComp());
+               return true;
+            }
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -70,14 +62,13 @@ public class Lista_Prestiti {
  * @param[out]
  * @author
  */
-    public String rimuoviPrestito(Prestito p,Lista_Libri libri){
+    public boolean rimuoviPrestito(Prestito p){
         if(prestiti.contains(p)){
             prestiti.remove(p);
-            libri.modificaCopie(p.getISBN(),+1);
-            return "Prestito rimosso correttamente";
+            return true;
         } 
         else{
-            return "Prestito non presente in lista";
+            return false;
         }
     }
 /**
@@ -226,6 +217,30 @@ public class Lista_Prestiti {
             e.printStackTrace();
         }
     }
+ /**
+ * @brief "inserire qui descrizione breve"
+ * "inserire qui descrizione specifica del metodo"
+ * @pre
+ * @post
+ * @param[in]
+ * @param[out]
+ * @return 
+ * @author ALESSANDRO VISCIANO
+ */
+    public boolean ModificaPrestito(Prestito old, Prestito newer){
+        for(Prestito pr:prestiti){
+            if(pr.equals(old))
+                if(!checkUtente(newer)){
+                    pr.setISBN(newer.getISBN()); 
+                    pr.setMatricola(newer.getMatricola());
+                    pr.setDataScadenza(newer.getDataScadenza());
+                    return true;
+                }else 
+                    return false;
+        }
+        return false;
+    }
+    
 /**
  * @brief "inserire qui descrizione breve"
  * "inserire qui descrizione specifica del metodo"
