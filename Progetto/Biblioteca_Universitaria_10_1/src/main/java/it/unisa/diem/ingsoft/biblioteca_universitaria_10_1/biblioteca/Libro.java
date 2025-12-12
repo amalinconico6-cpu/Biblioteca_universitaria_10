@@ -1,10 +1,9 @@
 /**
- * @file 
- * @brief
- * "Inserire qui descrizione specifica della classe"
- * @author
- * @date
- * @version
+ * @file Llibro
+ * @brief classe per la gestione del libro
+ * "fornisce i metodi per la gestione del singolo libro"
+ * @author Francesco Sabia
+ * @version 1.0
  */
 
 
@@ -12,6 +11,7 @@ package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.biblioteca;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class Libro {
 
@@ -35,8 +35,13 @@ public class Libro {
  * @param[out]
  * @author
  */
-    public Libro(String titolo, List<Autore> autori, String ISBN, int anno, int copie) {
-        // vuoto
+    public Libro(String titolo, List<Autore> autori, String ISBN, int anno, boolean disponibile, int copie) {
+        this.titolo = titolo;
+        this.autori = autori;
+        this.ISBN = ISBN;
+        this.anno = anno;
+        this.disponibile = disponibile;
+        this.copie = copie;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -49,7 +54,7 @@ public class Libro {
  * @author
  */
     public String getTitolo() {
-        return null;
+        return titolo;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -61,7 +66,7 @@ public class Libro {
  * @author
  */
     public void setTitolo(String titolo) {
-        // vuoto
+        this.titolo = titolo;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -74,7 +79,7 @@ public class Libro {
  * @author
  */
     public List<Autore> getAutori() {
-        return null;
+        return autori;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -86,7 +91,7 @@ public class Libro {
  * @author
  */
     public void setAutori(List<Autore> autori) {
-        // vuoto
+        this.autori = autori;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -111,7 +116,7 @@ public class Libro {
  * @author
  */
     public String getISBN() {
-        return null;
+        return ISBN;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -122,8 +127,8 @@ public class Libro {
  * @param[out]
  * @author
  */
-    public void setISBN(String ISBN) {
-        // vuoto
+     public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -136,7 +141,7 @@ public class Libro {
  * @author
  */
     public int getAnno() {
-        return 0;
+        return anno;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -148,7 +153,7 @@ public class Libro {
  * @author
  */
     public void setAnno(int anno) {
-        // vuoto
+        this.anno = anno;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -161,7 +166,7 @@ public class Libro {
  * @author
  */
     public int getCopie() {
-        return 0;
+        return copie;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -173,7 +178,7 @@ public class Libro {
  * @author
  */
     public void setCopie(int copie) {
-        // vuoto
+        this.copie=copie;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -185,7 +190,10 @@ public class Libro {
  * @author
  */
     public void aggiungiAutore(Autore a) {
-        // vuoto
+        if(!(this.autori.contains(a))){
+            this.autori.add(a);
+            this.ordinaAutori();
+        }
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -197,7 +205,10 @@ public class Libro {
  * @author
  */
     public void rimuoviAutore(Autore a) {
-        // vuoto
+        if(this.autori.contains(a)){
+            this.autori.remove(a);
+            this.ordinaAutori();
+        }
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -210,7 +221,7 @@ public class Libro {
  * @author
  */
     public boolean getDisponibile() {
-        return false;
+        return disponibile;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -222,7 +233,7 @@ public class Libro {
  * @author
  */
     public void setDisponibile(boolean disponibile) {
-        // vuoto
+        this.disponibile = disponibile;
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -234,7 +245,7 @@ public class Libro {
  * @author
  */
     public void ordinaAutori() {
-        // vuoto
+        autori.sort(Autore.getCOGNOME());
     }
 /**
  * @brief "inserire qui descrizione breve"
@@ -247,7 +258,20 @@ public class Libro {
  * @author
  */
     @Override
-    public boolean equals(Object o) {
-        return false;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Libro other = (Libro) obj;
+        if (!Objects.equals(this.ISBN, other.ISBN)) {
+            return false;
+        }
+        return true;
     }
 }
