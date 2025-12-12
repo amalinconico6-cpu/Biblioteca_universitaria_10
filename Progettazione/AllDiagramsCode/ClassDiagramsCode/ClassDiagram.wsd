@@ -7,6 +7,7 @@ class Autore {
     {static} + COGNOME: Comparator<Autore>
 
     + Autore(nome: String, cognome: String)
+    {static}+getCOGNOME():Comparator<Autore>
     + getNome(): String
     + setNome(nome: String): String
     + getCognome(): String
@@ -48,15 +49,13 @@ class Libro {
 class Lista_Libri {
     - libri: List<Libro>
 
-    + Lista_Libri()
-    + ricercaLibro(): Libro
+    + modificaCopie(String ISBN, int n): void
     + aggiungiLibro(libro: Libro): void
     + rimuoviLibro(libro: Libro): void
     + modificaLibro(libro: Libro): void
     + cercaPerTitolo(str: String): List<Libro>
     + cercaPerISBN(str: String): List<Libro>
     + cercaPerAutore(str: String): List<Autore>
-    + autoreTrovato(autori: List<Autore>, str: String): boolean
     + ordina(cmp: Comparator<Libro>): void
     + checkISBN(ISBN: String): boolean
     + salvataggioLibri(nomefile: String): void
