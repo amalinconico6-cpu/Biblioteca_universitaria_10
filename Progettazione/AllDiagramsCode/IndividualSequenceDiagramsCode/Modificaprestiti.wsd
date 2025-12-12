@@ -1,0 +1,45 @@
+@startuml
+autonumber
+participant "interfaccia" as g
+participant "Lista_libri" as archiviol
+participant "Lista_Utenti" as archiviou
+participant "Lista_Prestiti" as archiviop
+participant "Prestito" as p
+participant "Archivio esterno prestiti" as archivioe
+note over g
+    "Si presuppone che almeno un campo venga modificato"
+end note
+g->archiviol:checkISBN()
+activate g
+activate archiviol
+alt Condizione Nuovo ISBN presente
+    g->archiviou:checkMatricola()
+    activate archiviou
+    alt Condizione Nuova Matricola presente
+        g->p:Prestito()
+        activate p
+        p-->g:return "Oggetto prestito con nuovi dati"
+        deactivate p
+        g->archiviop:ModificaPrestito()
+        activate archiviop
+        archiviop->archiviop:checkUtente()
+        alt Condizione Nuova Matricola non compare già 3 volte
+            archiviop->p:setISBN()
+            activate p
+            archiviop->p:setMatricola()
+            archiviop->p:setDataScadenza()
+            deactivate p
+            archiviop-->g:return true
+            g->archiviol:ModificaCopie(VecchioISBN,+1)
+            g->archiviol:ModificaCopie(NuovoISBN,-1)
+        else Condizione Nuova Matricola compare già 3 volte
+            archiviop-->g:return false
+             deactivate archiviop
+        end
+    else Condizione Nuova Matricola non presente
+        archiviou-->g:return false
+    end
+else Condizione ISBN non presente
+    archiviol-->g:return false
+end
+@enduml
