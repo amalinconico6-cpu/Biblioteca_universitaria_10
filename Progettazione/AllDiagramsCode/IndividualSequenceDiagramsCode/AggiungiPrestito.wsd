@@ -13,30 +13,30 @@ g->archiviop:aggiungiPrestito()
 activate archiviop
 archiviop->archiviop:checkUtente()
 alt condizione 3 prestiti associati all'Utente
-    archiviop-->g:return "Ci sono già 3 prestiti associati a questo utente"
+    archiviop-->g:return "false"
 else condizione meno di 3 prestiti associati all'Utente
-    archiviop->archiviou:checkMatricola()
+    g->archiviou:checkMatricola()
     activate archiviou
     alt Matricola presente
-        archiviop->archiviol:checkISBN()
+        g->archiviol:checkISBN()
         activate archiviol
         alt condizione ISBN presente
-            archiviop->archiviol:checkCopie()
+            g->archiviol:checkCopie()
             alt condizione copie disponibili
                 archiviop->archiviop:add()   
                 archiviop->archiviop:OrdinaPerScadenza() 
-                archiviop->archiviol:modificaCopie()
-                archiviop-->g:return "Prestito inserito"
+                archiviop-->g:return "true"
+                g->archiviol:modificaCopie()
                 g->archiviop:salvataggioPrestiti()
                 archiviop-->archivioe: Lista salvata
             else condizione copie non disponibili
-                archiviop-->g:return "Non ci sono copie disponibili"
+                archiviop-->g:return "false"
             end
         else condizione ISBN non presente
-            archiviop-->g:return "ISBN non presente nella Lista Libri"
+            archiviop-->g:return "false"
         end
     else condizione Matricola non presente
-        archiviop-->g:return "Utente non presente"
+        archiviop-->g:return "false"
     end
 end
 
