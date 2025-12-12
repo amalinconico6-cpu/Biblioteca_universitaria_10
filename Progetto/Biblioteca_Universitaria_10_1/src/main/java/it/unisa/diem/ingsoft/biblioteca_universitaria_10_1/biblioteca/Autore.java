@@ -1,5 +1,5 @@
 /**
- * @file 
+ * @file Autore
  * @brief
  * "Inserire qui descrizione specifica della classe"
  * @author
