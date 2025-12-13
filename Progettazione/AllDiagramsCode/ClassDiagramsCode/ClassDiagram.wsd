@@ -72,7 +72,7 @@ class Lista_Prestiti {
     + aggiornaRitardi(): List<Prestito>
     + cercaPerISBN(ISBN: String): List<Prestito>
     + cercaPerID(ID: int): List<Prestito>
-    + cercaPerMatricola(Matricola: int): List<Prestito>
+    + cercaPerMatricola(Matricola: String): List<Prestito>
     + cercaPerData(dataScadenza: LocalDate): List<Prestito>
     + OrdinaLibriPerScadenza(cmp: Comparator<Prestito>): void
     + ModificaPrestito(old: Prestito,newer: Prestito):boolean
@@ -106,8 +106,8 @@ class Prestito {
     + getComp():Comparator<Prestito>
     + getISBN(): String
     + setISBN(String: ISBN): void
-    + getMatricola(): int
-    + setMatricola(int: Matricola): void
+    + getMatricola(): String
+    + setMatricola(String: Matricola): void
     + getID(): int
     + getDataScadenza(): LocalDate
     + setDataScadenza(data: LocalDate): void
