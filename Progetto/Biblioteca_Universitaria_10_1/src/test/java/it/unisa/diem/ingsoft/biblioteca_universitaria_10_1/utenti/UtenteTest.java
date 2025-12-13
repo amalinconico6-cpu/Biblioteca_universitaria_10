@@ -22,11 +22,6 @@ public class UtenteTest {
     @BeforeEach
     public void setUp() {
     }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getNome method, of class Utente.
      */

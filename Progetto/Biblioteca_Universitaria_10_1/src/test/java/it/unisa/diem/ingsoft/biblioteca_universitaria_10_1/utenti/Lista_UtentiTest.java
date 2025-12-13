@@ -5,7 +5,7 @@
  */
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 
-import java.util.List;
+import java.util.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +28,8 @@ public class Lista_UtentiTest {
     
     @BeforeEach
     public void setUp() {
+        utenti=new Lista_Utenti();
+        utenti.aggiungiUtente(new Utente("Pippo","Pappolo","0162708899","p.pappolo@studenti.unisa.it"));
     }
 
 
@@ -36,14 +38,12 @@ public class Lista_UtentiTest {
      */
     @org.junit.jupiter.api.Test
     public void testAggiungiUtente() {
-        System.out.println("aggiungiUtente");
-        Utente utente = null;
-        Lista_Utenti instance = new Lista_Utenti();
-        String expResult = "";
-        String result = instance.aggiungiUtente(utente);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("Utente aggiunto correttamente", utenti.aggiungiUtente(new Utente("Pippo","Pappolo","0162708898","p.pappolo@studenti.unisa.it")));
+        assertEquals("Nome non valido", utenti.aggiungiUtente(new Utente(null,"SavonarolaJr","0612705555","g.savonarola@studenti.unisa.it")));
+        assertEquals("Cognome non valido", utenti.aggiungiUtente(new Utente("Girolamo",null,"0612705555","g.savonarola@studenti.unisa.it")));
+        assertEquals("Matricola non valida", utenti.aggiungiUtente(new Utente("Girolamo","SavonarolaJr",null,"g.savonarola@studenti.unisa.it")));
+        assertEquals("Email non valida", utenti.aggiungiUtente(new Utente("Girolamo","SavonarolaJr","0612705555",null)));
+        assertEquals("Esiste già un utente con questa matricola", utenti.aggiungiUtente(new Utente("Pippo","Pappolo","0162708899","p.pappolo@studenti.unisa.it")));
     }
 
     /**
@@ -51,14 +51,9 @@ public class Lista_UtentiTest {
      */
     @org.junit.jupiter.api.Test
     public void testRimuoviUtente() {
-        System.out.println("rimuoviUtente");
-        Utente utente = null;
-        Lista_Utenti instance = new Lista_Utenti();
-        String expResult = "";
-        String result = instance.rimuoviUtente(utente);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("Utente non valido",utenti.rimuoviUtente(null));
+        assertEquals("Utente non presente in lista",utenti.rimuoviUtente(new Utente("Pippo","Pappolo","0162708888","p.pappolo@studenti.unisa.it")));
+        assertEquals("Utente rimosso correttamente",utenti.rimuoviUtente(new Utente("Pippo","Pappolo","0162708899","p.pappolo@studenti.unisa.it")));
     }
 
     /**
@@ -66,14 +61,9 @@ public class Lista_UtentiTest {
      */
     @org.junit.jupiter.api.Test
     public void testModificaUtente() {
-        System.out.println("modificaUtente");
-        Utente utente = null;
-        Lista_Utenti instance = new Lista_Utenti();
-        Utente expResult = null;
-        Utente result = instance.modificaUtente(utente);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(null,utenti.modificaUtente(null));
+        assertEquals(new Utente("Pippo","Pappolo","0162708888","p.pappolo@studenti.unisa.it"),utenti.modificaUtente(new Utente("Pippo","Pappolo","0162708888","p.pappolo@studenti.unisa.it")));
+        assertEquals("Utente rimosso correttamente",utenti.modificaUtente(new Utente("Pippo","Pappolo","0162708899","p.pappolo@studenti.unisa.it")));
     }
 
     /**
@@ -81,13 +71,9 @@ public class Lista_UtentiTest {
      */
     @org.junit.jupiter.api.Test
     public void testGetUtenti() {
-        System.out.println("getUtenti");
-        Lista_Utenti instance = new Lista_Utenti();
-        List<Utente> expResult = null;
-        List<Utente> result = instance.getUtenti();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<Utente> utentissimi=new ArrayList<>();
+        utentissimi.add(new Utente("Pippo","Pappolo","0162708888","p.pappolo@studenti.unisa.it"));
+        assertEquals(utentissimi,utenti.getUtenti());
     }
 
     /**
@@ -95,12 +81,7 @@ public class Lista_UtentiTest {
      */
     @org.junit.jupiter.api.Test
     public void testSetUtenti() {
-        System.out.println("setUtenti");
-        List<Utente> utenti = null;
-        Lista_Utenti instance = new Lista_Utenti();
-        instance.setUtenti(utenti);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
