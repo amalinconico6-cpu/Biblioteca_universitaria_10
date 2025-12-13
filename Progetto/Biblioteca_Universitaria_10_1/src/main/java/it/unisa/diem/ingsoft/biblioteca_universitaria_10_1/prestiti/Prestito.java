@@ -1,10 +1,8 @@
 /**
- * @file 
- * @brief
- * "Inserire qui descrizione specifica della classe"
- * @author
- * @date
- * @version
+ * @file Prestito.java
+ * @brief Gestisce i prestiti
+ * "rappresenta il contenuto di un singolo prestito nella lista prestiti"
+ * @author ALESSANDRO VISCIANO
  */
 
 
