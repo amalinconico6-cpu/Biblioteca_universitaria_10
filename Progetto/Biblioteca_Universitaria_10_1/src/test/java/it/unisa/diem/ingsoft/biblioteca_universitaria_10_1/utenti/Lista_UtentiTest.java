@@ -18,24 +18,16 @@ import static org.junit.Assert.*;
  * @author aldomalinconico
  */
 public class Lista_UtentiTest {
-    
-    public Lista_UtentiTest() {
-    }
-    
+    private  Lista_Utenti instance;
+    private Utente utente;
+    private String nome="Guglielmo";
+    private String cognome="Savonarola";
+    private String Matricola="0612705555";
+    private String mail="g.savonarola@studenti.unisa.it";
     @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+    public void setUpClass() {
+        instance = new Lista_Utenti();
+        utente=new Utente("Guglielmo","Savonarola","0612705555","g.savonarola@studenti.unisa.it");
     }
 
     /**
@@ -43,12 +35,10 @@ public class Lista_UtentiTest {
      */
     @Test
     public void testAggiungiUtente() {
-        System.out.println("aggiungiUtente");
-        Utente utente = null;
-        Lista_Utenti instance = new Lista_Utenti();
         String expResult = "";
-        String result = instance.aggiungiUtente(utente);
-        assertEquals(expResult, result);
+        ;
+        assertEquals(instance.aggiungiUtente(utente),"Utente aggiunto correttamente");
+        ;
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
