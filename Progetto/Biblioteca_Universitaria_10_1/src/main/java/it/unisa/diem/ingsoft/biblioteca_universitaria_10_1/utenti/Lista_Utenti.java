@@ -1,15 +1,10 @@
 /**
- * @file 
- * @brief
- * "Inserire qui descrizione specifica della classe"
+ * @file Lista_Utenti.java
  * @author ALDO MALINCONICO
- * @date
- * @version
  */
 
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 import it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.biblioteca.*;
-
 
 import java.util.List;
 import java.util.ArrayList;
@@ -22,7 +17,6 @@ import java.io.IOException;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
-
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -37,10 +31,10 @@ public class Lista_Utenti {
      * "Se utente è null torna null, se utente NON è null allora chiama 
      * checkUtente per verificare se esiste un utente con la stessa matricola, 
      * se NON esiste lo aggiunge"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @pre i campi devono essere non NULL
+     * @post se i controlli vengono superati e se la matricola è univoca
+     * l'utente viene aggiunto alla lista
+     * @param[in] utente
      * @author ALDO MALINCONICO
      */
     
@@ -74,10 +68,9 @@ public class Lista_Utenti {
     }
     /**
      * @brief "Rimuove un utente dalla lista"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @pre l'utente deve essere non null per esserea aggiunto
+     * @post se l'utente è presente nella lista viene rimosso
+     * @param[in] utente da rimuovere
      * @author ALDO MALINCONICO
      */
   public String rimuoviUtente(Utente utente) {
@@ -92,14 +85,14 @@ public class Lista_Utenti {
 }
 
     /**
-     * @brief "Aggiorna un utente già presente nella lista"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @brief "Modifica i dati di un utente presente in lista"
+     * "L’utente viene individuato tramite equals(). Se trovato, viene sostituito 
+     * con l’utente passato come parametro."
+     * @pre l'utente non deve essere NULL
+     * @post se l'utente è presente i suoi dati vengono modificati
+     * @param[in] istanza utente da modificare
+     * @return utente aggiornato se la modifica va a buon fine
      * @author ALDO MALINCONICO
-     * @return 
      */
     public Utente modificaUtente(Utente utente) {
         if (utente == null) return null;
@@ -115,24 +108,19 @@ public class Lista_Utenti {
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * @param[in]
-     * @param[out]
+     * @brief "Restituisce la lista utenti"
+     * @return lista utenti 
      * @author ALDO MALINCONICO
-     * @return 
      */
-   
-    
     public List<Utente> getUtenti() {
         return utenti;
     }
     
     /**
-     * @brief "Ritorna l'intera lista degli utenti"
-     * "Se la lista passata è null, creo una nuova lista vuota,
-     * altrimenti assegno direttamente la lista ricevuta
-     * @param[in]
-     * @param[out]
+     * @brief "Imposta la lista utenti"
+     * Se la lista passata è NULL, viene creata una nuova lista
+     * Altrimenti la lista interna viene sostituita con quella fornita
+     * @param[in] lista utenti da gestire
      * @author ALDO MALINCONICO
      */
     public void setUtenti(List<Utente> utenti) {
@@ -144,11 +132,11 @@ public class Lista_Utenti {
     }
 
     /**
-     * @brief Ricerca per matricola
+     * @brief "Ricerca utente per matricola"
      * "Creo la lista dei risultati (all'inizio vuota),
      * trim mi serve perchè se l'utente digita degli spazi mi "danneggia" la
      * stringa, con trim "ritaglio" la stringa in quello che mi serve"
-     * @return lista utenti trovati
+     * @return lista utenti trovati (anche vuota)
      * @param str
      * @author ALDO MALINCONICO
      */
@@ -167,9 +155,10 @@ public List<Utente> cercaPerMatricola(String str) {
 }
 /**
  * @brief "Controlla se esiste un utente con la matricola indicata"
+ * @pre La matricola può essere valida, NULL o vuota
+ * @post nessuna modifica alla lista
  * @author ALDO MALINCONICO
 */
-
 public boolean checkMatricola(String matricola) {
         if (matricola == null || matricola.trim().isEmpty()) return false;
 String trimmed = matricola.trim();
@@ -183,16 +172,15 @@ String trimmed = matricola.trim();
 
 
 /**
- * @brief "inserire qui descrizione breve"
+ * @brief "Cerca utenti in base a nome o cognome"
  * "Nella ricerca dei nomi converto tutto in minuscolo per avere una ricerca 
  * case-insensitive per garantire che l’utente ottenga match 
  * indipendentemente da come sono state inserite le maiuscole nel file"
- * @pre
- * @post
- * @param[in]
- * @param[out]
- * @return 
- * @author
+ * @pre la stringa può essere valida o NULL
+ * @post nessuna modifica alla lista
+ * @param[in] stringa di ricerca (nome o cognome)
+ * @return lista utenti che soddisfano la ricerca
+ * @author ALDO MALINCONICO
  */
 public List<Utente> cercaPerNomeCognome(String str) {
     List<Utente> risultato = new ArrayList<>();
