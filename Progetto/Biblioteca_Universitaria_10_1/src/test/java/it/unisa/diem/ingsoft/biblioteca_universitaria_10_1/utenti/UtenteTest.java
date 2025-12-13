@@ -7,29 +7,19 @@ package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author aldomalinconico
+ * @author aless
  */
 public class UtenteTest {
     
-    public UtenteTest() {
-    }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
+    @BeforeEach
     public void setUp() {
     }
     
@@ -98,8 +88,8 @@ public class UtenteTest {
     public void testGetMatricola() {
         System.out.println("getMatricola");
         Utente instance = null;
-        int expResult = 0;
-        int result = instance.getMatricola();
+        String expResult = "";
+        String result = instance.getMatricola();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -111,7 +101,7 @@ public class UtenteTest {
     @Test
     public void testSetMatricola() {
         System.out.println("setMatricola");
-        int matricola = 0;
+        String matricola = "";
         Utente instance = null;
         instance.setMatricola(matricola);
         // TODO review the generated test code and remove the default call to fail.

@@ -6,39 +6,42 @@
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author aldomalinconico
+ * @author aless
  */
 public class Lista_UtentiTest {
-    private  Lista_Utenti instance;
+    private Lista_Utenti utenti;
     private Utente utente;
-    private String nome="Guglielmo";
-    private String cognome="Savonarola";
+    private String nome="Girolamo";
+    private String cognome="SavonarolaJr";
+    
     private String Matricola="0612705555";
     private String mail="g.savonarola@studenti.unisa.it";
-    @BeforeClass
-    public void setUpClass() {
-        instance = new Lista_Utenti();
-        utente=new Utente("Guglielmo","Savonarola","0612705555","g.savonarola@studenti.unisa.it");
+    
+    @BeforeEach
+    public void setUp() {
     }
+
 
     /**
      * Test of aggiungiUtente method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testAggiungiUtente() {
+        System.out.println("aggiungiUtente");
+        Utente utente = null;
+        Lista_Utenti instance = new Lista_Utenti();
         String expResult = "";
-        ;
-        assertEquals(instance.aggiungiUtente(utente),"Utente aggiunto correttamente");
-        ;
+        String result = instance.aggiungiUtente(utente);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -46,7 +49,7 @@ public class Lista_UtentiTest {
     /**
      * Test of rimuoviUtente method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testRimuoviUtente() {
         System.out.println("rimuoviUtente");
         Utente utente = null;
@@ -61,7 +64,7 @@ public class Lista_UtentiTest {
     /**
      * Test of modificaUtente method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testModificaUtente() {
         System.out.println("modificaUtente");
         Utente utente = null;
@@ -76,7 +79,7 @@ public class Lista_UtentiTest {
     /**
      * Test of getUtenti method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testGetUtenti() {
         System.out.println("getUtenti");
         Lista_Utenti instance = new Lista_Utenti();
@@ -90,7 +93,7 @@ public class Lista_UtentiTest {
     /**
      * Test of setUtenti method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testSetUtenti() {
         System.out.println("setUtenti");
         List<Utente> utenti = null;
@@ -103,7 +106,7 @@ public class Lista_UtentiTest {
     /**
      * Test of cercaPerMatricola method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testCercaPerMatricola() {
         System.out.println("cercaPerMatricola");
         String str = "";
@@ -118,10 +121,10 @@ public class Lista_UtentiTest {
     /**
      * Test of checkMatricola method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testCheckMatricola() {
         System.out.println("checkMatricola");
-        int matricola = 0;
+        String matricola = "";
         Lista_Utenti instance = new Lista_Utenti();
         boolean expResult = false;
         boolean result = instance.checkMatricola(matricola);
@@ -133,7 +136,7 @@ public class Lista_UtentiTest {
     /**
      * Test of cercaPerNomeCognome method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testCercaPerNomeCognome() {
         System.out.println("cercaPerNomeCognome");
         String str = "";
@@ -148,7 +151,7 @@ public class Lista_UtentiTest {
     /**
      * Test of salvataggioUtenti method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testSalvataggioUtenti() throws Exception {
         System.out.println("salvataggioUtenti");
         String nomefile = "";
@@ -161,7 +164,7 @@ public class Lista_UtentiTest {
     /**
      * Test of letturaUtenti method, of class Lista_Utenti.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testLetturaUtenti() throws Exception {
         System.out.println("letturaUtenti");
         String nomefile = "";
