@@ -57,7 +57,7 @@ public class AutoreTest {
     @Test
     public void TestEqualsNomeDiverso() {
     Autore a1 = new Autore("Angelo", "Mastandrea");
-    Autore a2 = new Autore("Angelina","Mastandrea");
+    Autore a2 = new Autore("Anna","Mastandrea");
     assertFalse(a1.equals(a2));
     }
     

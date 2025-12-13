@@ -1,10 +1,6 @@
 /**
- * @file 
- * @brief
- * "Inserire qui descrizione specifica della classe"
+ * @file Utente.java
  * @author ALDO MALINCONICO
- * @date
- * @version
  */
 
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
@@ -20,12 +16,11 @@ public class Utente implements Serializable{
     private String mail;
 
     /**
-     * @brief "inserire qui descrizione breve"
+     * @brief costruttore classe Utente
      * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @pre i parametri devono essere validi
+     * @post viene creato un nuovo oggetto utente
+     * @param[in] nome cognome matricola mail
      * @author ALDO MALINCONICO
      */
     
@@ -37,13 +32,8 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
-     * @return 
+     * @brief "Restituisce il nome dell'utente"
+     * @return nome utente
      * @author ALDO MALINCONICO
      */
     public String getNome() {
@@ -51,12 +41,10 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @brief "Imposta il nome dell'utente"
+     * @pre il parametro nome non deve essere null
+     * @post il parametro nome viene aggiornato
+     * @param[in] nome
      * @author ALDO MALINCONICO
      */
     public void setNome(String nome) {
@@ -64,13 +52,8 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
-     * @return 
+     * @brief "Restituisce cognome dell'utente"
+     * @return cognome
      * @author ALDO MALINCONICO
      */
     public String getCognome() {
@@ -78,12 +61,10 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @brief "Imposta cognome utente"
+     * @pre il parametro non deve essere null
+     * @post l'attributo cognome viene aggiornato
+     * @param[in] cognome
      * @author ALDO MALINCONICO
      */
     public void setCognome(String cognome) {
@@ -91,27 +72,19 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
-     * @return 
+     * @brief "restituisce la matricola dell'utente"
+     * @return matricola utente
      * @author ALDO MALINCONICO
      */
-    
     public String getMatricola() {
         return this.matricola;
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @brief "Imposta la matricola dell'utente"
+     * @pre il parametro deve essere valido
+     * @post il parametro matricola viene aggiornato
+     * @param[in] matricola
      * @author ALDO MALINCONICO
      */
     public void setMatricola(String matricola) {
@@ -119,13 +92,8 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
-     * @return 
+     * @brief "restituisce mail utente"
+     * @return mail
      * @author ALDO MALINCONICO
      */
     public String getMail() {
@@ -133,12 +101,10 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
+     * @brief "imposta email utente"
+     * @pre il parametro mail deve essere valido
+     * @post il parametro mail viene aggiornato
+     * @param[in] mail
      * @author ALDO MALINCONICO
      */
     public void setMail(String mail) {
@@ -146,13 +112,10 @@ public class Utente implements Serializable{
     }
 
     /**
-     * @brief "inserire qui descrizione breve"
-     * "inserire qui descrizione specifica del metodo"
-     * @pre
-     * @post
-     * @param[in]
-     * @param[out]
-     * @return 
+     * @brief "confronta due utenti sulla matricola"
+     * "Due utenti sono uguali se hanno la stessa matricola"
+     * @param[in] oggetto da confrontare
+     * @return true se due utenti hanno la stessa matricola,false altrimenti
      * @author ALDO MALINCONICO
      */
     @Override
