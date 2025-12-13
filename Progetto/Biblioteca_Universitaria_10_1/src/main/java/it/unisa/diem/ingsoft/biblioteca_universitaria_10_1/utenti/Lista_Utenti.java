@@ -47,12 +47,12 @@ public class Lista_Utenti {
             return "Utente non valido";
         }
 
-        int matricola = utente.getMatricola();
+        String matricola = utente.getMatricola();
         String nome = utente.getNome();
         String cognome = utente.getCognome();
         String email = utente.getMail();
 
-        if (matricola <= 0) {
+        if (matricola == null) {
             return "Matricola non valida";
         }
         if (nome == null || nome.trim().isEmpty()) {
@@ -158,14 +158,10 @@ public List<Utente> cercaPerMatricola(String str) {
     if (trimmed.isEmpty()) {
         return risultato;
     }
-    try {
-        int matricola = Integer.parseInt(trimmed);
         for (Utente u : utenti) {
-            if (u.getMatricola() == matricola) {
+            if (u.getMatricola().equals(trimmed)) {
                 risultato.add(u);
             }
-        }
-    } catch (NumberFormatException e) {
     }
     return risultato;
 }
@@ -173,15 +169,16 @@ public List<Utente> cercaPerMatricola(String str) {
  * @brief "Controlla se esiste un utente con la matricola indicata"
  * @author ALDO MALINCONICO
 */
-public boolean checkMatricola(int matricola) {
-    if (matricola <= 0) return false;
-    for (Utente u : utenti) {
-        if (u != null && u.getMatricola() == matricola) {
-            return true; 
+public boolean checkMatricola(String matricola) {
+        if (matricola == null || matricola.trim().isEmpty()) return false;
+
+        for (Utente u : utenti) {
+            if (u != null && matricola.equals(u.getMatricola())) {
+                return true;
+            }
         }
+        return false;
     }
-    return false; 
-}
 
 /**
  * @brief "inserire qui descrizione breve"
@@ -200,11 +197,15 @@ public List<Utente> cercaPerNomeCognome(String str) {
     if (str == null) {
         return risultato;
     }
+    
     String trimmed = str.trim();
+    
     if (trimmed.isEmpty()) {
         return risultato; 
     }
+    
     String query = trimmed.toLowerCase();
+    
     for (Utente u : utenti) {
         String nome;
         String cognome;
@@ -224,13 +225,10 @@ public List<Utente> cercaPerNomeCognome(String str) {
         } else {
             cognome = ""; // 
         }
-        //Verifico se la query è contenuta nel nome o nel cognome
-        boolean matchSuNome = nome.contains(query);
-        boolean matchSuCognome = cognome.contains(query);
-        //Se la query è presente in almeno uno dei due, aggiungo l'utente ai risultati
-        if (matchSuNome || matchSuCognome) {
-            risultato.add(u);
-        }
+        
+         if (nome.contains(query) || cognome.contains(query)) {
+                risultato.add(u);
+            }
     }
     return risultato;
 }
