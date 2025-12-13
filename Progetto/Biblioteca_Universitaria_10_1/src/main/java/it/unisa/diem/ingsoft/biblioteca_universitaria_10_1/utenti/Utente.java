@@ -13,7 +13,7 @@ public class Utente {
 
     private String nome;
     private String cognome;
-    private int matricola;
+    private String matricola;
     private String mail;
 
     /**
@@ -25,7 +25,7 @@ public class Utente {
      * @param[out]
      * @author ALDO MALINCONICO
      */
-    public Utente(String nome, String cognome, int matricola, String mail) {
+    public Utente(String nome, String cognome, String matricola, String mail) {
         this.nome = nome;
         this.cognome = cognome;
         this.matricola = matricola;
@@ -96,7 +96,7 @@ public class Utente {
      * @return 
      * @author ALDO MALINCONICO
      */
-    public int getMatricola() {
+    public String getMatricola() {
         return this.matricola;
     }
 
@@ -109,7 +109,7 @@ public class Utente {
      * @param[out]
      * @author ALDO MALINCONICO
      */
-    public void setMatricola(int matricola) {
+    public void setMatricola(String matricola) {
         this.matricola = matricola;
     }
 
@@ -157,6 +157,6 @@ public class Utente {
         if (o == null || getClass() != o.getClass()) return false;
 
         Utente altro = (Utente) o;
-        return this.matricola == altro.matricola;
+        return this.matricola.equals(altro.matricola);
     }
 }
