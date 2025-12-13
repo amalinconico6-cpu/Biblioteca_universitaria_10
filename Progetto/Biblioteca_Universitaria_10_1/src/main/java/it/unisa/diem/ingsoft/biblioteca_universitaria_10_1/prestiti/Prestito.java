@@ -16,13 +16,13 @@ import java.util.Comparator;
 public class Prestito {
 
     private String ISBN;
-    private int Matricola;
+    private String Matricola;
     private LocalDate dataScadenza;
     private final int ID;
     private static int counter=0;
     public static final Comparator<Prestito> SCADENZA = Comparator.comparing(Prestito::getDataScadenza);
     
-    public Prestito(String ISBN,int Matricola,LocalDate dataScadenza){
+    public Prestito(String ISBN,String Matricola,LocalDate dataScadenza){
         this.ISBN=ISBN;
         this.Matricola=Matricola;
         this.dataScadenza=dataScadenza;
@@ -64,10 +64,10 @@ public class Prestito {
  * @brief "get della Matricola"
  * "restituisce la Matricola associata al prestito"
  * @post viene restituita la Matricola
- * @return int Matricola
+ * @return String Matricola
  * @author ALESSANDRO VISCIANO
  */
-   public int getMatricola(){
+   public String getMatricola(){
         return this.Matricola;
     }
 /**
@@ -75,10 +75,10 @@ public class Prestito {
  * "Sostituisce la Matricola dell'oggetto con la Matricola passata come parametro"
  * @pre la matricola rispetta il formato desiderato
  * @post viene modificata la Matricola
- * @param[in] int Matricola
+ * @param[in] String Matricola
  * @author ALESSANDRO VISCIANO
  */
-   public void setMatricola(int Matricola){
+   public void setMatricola(String Matricola){
         this.Matricola=Matricola;
     }
 /**

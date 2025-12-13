@@ -144,10 +144,10 @@ public class Lista_Prestiti {
  * @param[out]
  * @author ALESSANDRO VISCIANO
  */
-    public List<Prestito> cercaPrestitoPerMatricola(int Matricola){
+    public List<Prestito> cercaPrestitoPerMatricola(String Matricola){
         List<Prestito> filter=new ArrayList<>();
         for(Prestito p:prestiti){
-            if(p.getMatricola()==Matricola)
+            if(p.getMatricola().equals(Matricola))
                 filter.add(p);
         }
         return filter;
