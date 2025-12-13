@@ -1,113 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.biblioteca;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author aldomalinconico
- */
 public class AutoreTest {
-    
-    public AutoreTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+
+    private Autore autore;
+
+    @BeforeEach
+    void setUp() {
+        autore = new Autore("Mario", "Rossi");
     }
 
-    /**
-     * Test of getNome method, of class Autore.
-     */
     @Test
-    public void testGetNome() {
-        System.out.println("getNome");
-        Autore instance = null;
-        String expResult = "";
-        String result = instance.getNome();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    void testGetNome() {
+        assertEquals("Mario", autore.getNome());
     }
 
-    /**
-     * Test of setNome method, of class Autore.
-     */
     @Test
-    public void testSetNome() {
-        System.out.println("setNome");
-        String nome = "";
-        Autore instance = null;
-        String expResult = "";
-        String result = instance.setNome(nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    void testSetNome() {
+        autore.setNome("Giuseppe");
+        assertEquals("Giuseppe", autore.getNome());
     }
 
-    /**
-     * Test of getCognome method, of class Autore.
-     */
     @Test
-    public void testGetCognome() {
-        System.out.println("getCognome");
-        Autore instance = null;
-        String expResult = "";
-        String result = instance.getCognome();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    void testGetCognome() {
+        assertEquals("Rossi", autore.getCognome());
     }
 
-    /**
-     * Test of setCognome method, of class Autore.
-     */
     @Test
-    public void testSetCognome() {
-        System.out.println("setCognome");
-        String cognome = "";
-        Autore instance = null;
-        String expResult = "";
-        String result = instance.setCognome(cognome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    void testSetCognome() {
+        autore.setCognome("Bianchi");
+        assertEquals("Bianchi", autore.getCognome());
     }
-
-    /**
-     * Test of equals method, of class Autore.
-     */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object o = null;
-        Autore instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(o);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
