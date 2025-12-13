@@ -12,7 +12,7 @@ public class AutoreTest {
     @Test
     public void TestCostruttoreEGetters(){
         Autore a = new Autore("Alessandro", "Visciano");
-        assertEquals("Alesandro", a.getNome());
+        assertEquals("Alessandro", a.getNome());
         assertEquals("Visciano", a.getCognome());
     }
     

@@ -10,6 +10,7 @@
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 import it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.biblioteca.*;
 
+
 import java.util.List;
 import java.util.ArrayList;
 import java.io.BufferedWriter;
@@ -42,18 +43,19 @@ public class Lista_Utenti {
      * @param[out]
      * @author ALDO MALINCONICO
      */
-     public String aggiungiUtente(Utente utente) {
+    
+    public String aggiungiUtente(Utente utente) {
         if (utente == null) {
             return "Utente non valido";
         }
 
-        String matricola = utente.getMatricola();
+        String matricola = String.valueOf(utente.getMatricola());
         String nome = utente.getNome();
         String cognome = utente.getCognome();
         String email = utente.getMail();
 
         if (matricola == null) {
-            return "Matricola non valida";
+            return "Matricolda non valida";
         }
         if (nome == null || nome.trim().isEmpty()) {
             return "Nome non valido";
@@ -119,10 +121,12 @@ public class Lista_Utenti {
      * @author ALDO MALINCONICO
      * @return 
      */
+   
+    
     public List<Utente> getUtenti() {
         return utenti;
     }
-
+    
     /**
      * @brief "Ritorna l'intera lista degli utenti"
      * "Se la lista passata è null, creo una nuova lista vuota,
@@ -151,17 +155,13 @@ public class Lista_Utenti {
     
 public List<Utente> cercaPerMatricola(String str) {
     List<Utente> risultato = new ArrayList<>();
-    if (str == null) {
-        return risultato;
-    }
+    if (str == null) return risultato;
     String trimmed = str.trim();
-    if (trimmed.isEmpty()) {
-        return risultato;
-    }
-        for (Utente u : utenti) {
-            if (u.getMatricola().equals(trimmed)) {
-                risultato.add(u);
-            }
+    if (trimmed.isEmpty()) return risultato;
+    for (Utente u : utenti) {
+        if (String.valueOf(u.getMatricola()).equals(trimmed)) {
+            risultato.add(u);
+        }
     }
     return risultato;
 }
@@ -169,16 +169,18 @@ public List<Utente> cercaPerMatricola(String str) {
  * @brief "Controlla se esiste un utente con la matricola indicata"
  * @author ALDO MALINCONICO
 */
+
 public boolean checkMatricola(String matricola) {
         if (matricola == null || matricola.trim().isEmpty()) return false;
-
+String trimmed = matricola.trim();
         for (Utente u : utenti) {
-            if (u != null && matricola.equals(u.getMatricola())) {
+            if (u != null && String.valueOf(u.getMatricola()).equals(trimmed)) {
                 return true;
             }
         }
         return false;
     }
+
 
 /**
  * @brief "inserire qui descrizione breve"
@@ -216,7 +218,7 @@ public List<Utente> cercaPerNomeCognome(String str) {
             String nomeMinuscolo = nomeOriginale.toLowerCase(); // lo normalizzo in minuscolo
             nome = nomeMinuscolo;              // assegno alla variabile finale
         } else {
-            nome = ""; // nessun nome disponibile → uso stringa vuota
+            nome = ""; // nessun nome disponibile ? uso stringa vuota
         }
         if (u.getCognome() != null) {
             String cognomeOriginale = u.getCognome();     

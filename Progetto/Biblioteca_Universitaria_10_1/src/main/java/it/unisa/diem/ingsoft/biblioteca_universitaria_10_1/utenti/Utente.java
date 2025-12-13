@@ -9,8 +9,11 @@
 
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 
-public class Utente {
+import java.io.Serializable;
+import java.util.Objects;
 
+public class Utente implements Serializable{
+   private static final long serialVersionUID = 1L;
     private String nome;
     private String cognome;
     private String matricola;
@@ -25,6 +28,7 @@ public class Utente {
      * @param[out]
      * @author ALDO MALINCONICO
      */
+    
     public Utente(String nome, String cognome, String matricola, String mail) {
         this.nome = nome;
         this.cognome = cognome;
@@ -96,6 +100,7 @@ public class Utente {
      * @return 
      * @author ALDO MALINCONICO
      */
+    
     public String getMatricola() {
         return this.matricola;
     }
@@ -139,7 +144,6 @@ public class Utente {
     public void setMail(String mail) {
         this.mail = mail;
     }
-    
 
     /**
      * @brief "inserire qui descrizione breve"
@@ -158,5 +162,9 @@ public class Utente {
 
         Utente altro = (Utente) o;
         return this.matricola.equals(altro.matricola);
+    }
+     @Override
+    public int hashCode() {
+        return Objects.hash(matricola);
     }
 }
