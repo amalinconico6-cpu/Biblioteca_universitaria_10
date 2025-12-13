@@ -3,164 +3,79 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.prestiti;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.prestiti.Prestito;
 import java.time.LocalDate;
 import java.util.Comparator;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 /**
  *
- * @author aldomalinconico
+ * @author francesco sabia
  */
 public class PrestitoTest {
-    
-    public PrestitoTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+    private Prestito prestito;
+    private final String ISBN = "1234567891234";
+    private final String MATRICOLA = "0612709788";
+    private final LocalDate DATA = LocalDate.of(2025, 12, 13);
 
-    /**
-     * Test of getComp method, of class Prestito.
-     */
+    @BeforeEach
+    public void setUpClass() {
+            prestito = new Prestito("1234567891234","0612709788", LocalDate.of(2025, 12, 13));
+    }
     @Test
-    public void testGetComp() {
-        System.out.println("getComp");
-        Prestito instance = null;
-        Comparator<Prestito> expResult = null;
-        Comparator<Prestito> result = instance.getComp();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testConstructor() {
+            assertEquals(ISBN, prestito.getISBN());
+            assertEquals(MATRICOLA, prestito.getMatricola());
+            assertEquals(DATA, prestito.getDataScadenza());
     }
-
-    /**
-     * Test of getISBN method, of class Prestito.
-     */
     @Test
-    public void testGetISBN() {
-        System.out.println("getISBN");
-        Prestito instance = null;
-        String expResult = "";
-        String result = instance.getISBN();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetComparatore(){
+        assertEquals(prestito.SCADENZA,prestito.getComp());
     }
-
-    /**
-     * Test of setISBN method, of class Prestito.
-     */
+    @Test
+    public void testGetISBN(){
+        assertEquals(ISBN,prestito.getISBN());
+    }
     @Test
     public void testSetISBN() {
-        System.out.println("setISBN");
-        String ISBN = "";
-        Prestito instance = null;
-        instance.setISBN(ISBN);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        String nuovo_isbn="1011121314151";
+        prestito.setISBN(nuovo_isbn);
+        assertEquals(nuovo_isbn, prestito.getISBN());
 
-    /**
-     * Test of getMatricola method, of class Prestito.
-     */
-    @Test
-    public void testGetMatricola() {
-        System.out.println("getMatricola");
-        Prestito instance = null;
-        int expResult = 0;
-        int result = instance.getMatricola();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of setMatricola method, of class Prestito.
-     */
     @Test
-    public void testSetMatricola() {
-        System.out.println("setMatricola");
-        int Matricola = 0;
-        Prestito instance = null;
-        instance.setMatricola(Matricola);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetMatricola(){
+        assertEquals(MATRICOLA, prestito.getMatricola());
     }
-
-    /**
-     * Test of getID method, of class Prestito.
-     */
     @Test
-    public void testGetID() {
-        System.out.println("getID");
-        Prestito instance = null;
-        int expResult = 0;
-        int result = instance.getID();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testsetMatricola(){
+        String nuovo_mat="0612709789";
+        prestito.setMatricola(nuovo_mat);
+        assertEquals(nuovo_mat, prestito.getMatricola());
     }
-
-    /**
-     * Test of getDataScadenza method, of class Prestito.
-     */
     @Test
-    public void testGetDataScadenza() {
-        System.out.println("getDataScadenza");
-        Prestito instance = null;
-        LocalDate expResult = null;
-        LocalDate result = instance.getDataScadenza();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetId(){
+        assertEquals(1, prestito.getID());
     }
-
-    /**
-     * Test of equals method, of class Prestito.
-     */
     @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object o = null;
-        Prestito instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(o);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetSacdenza(){
+        assertEquals(DATA, prestito.getDataScadenza());
     }
-
-    /**
-     * Test of setDataScadenza method, of class Prestito.
-     */
     @Test
-    public void testSetDataScadenza() {
-        System.out.println("setDataScadenza");
-        LocalDate dataScadenza = null;
-        Prestito instance = null;
-        instance.setDataScadenza(dataScadenza);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetScadenza(){
+        prestito.setDataScadenza(LocalDate.of(2025, 12, 25));
+        assertEquals(LocalDate.of(2025, 12, 25), prestito.getMatricola());
     }
-    
+    @Test
+    public void testEquals(){
+        Prestito Copia_p= new Prestito(ISBN, MATRICOLA, DATA);
+        assertTrue(prestito.equals(prestito));
+        assertFalse(prestito.equals(null));
+        assertFalse(prestito.equals(Copia_p));
+    }
 }

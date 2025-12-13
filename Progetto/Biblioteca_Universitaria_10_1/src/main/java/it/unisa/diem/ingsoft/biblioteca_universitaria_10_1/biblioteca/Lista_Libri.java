@@ -200,7 +200,7 @@ public class Lista_Libri {
     public void salvataggioLibri(String nomefile)throws IOException{
         FileOutputStream fileOut = new FileOutputStream(nomefile);
         try(ObjectOutputStream objin=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(nomefile)))){
-            objin.writeObject(this); 
+            objin.writeObject(this.libri); 
         }catch(IOException e){
             e.printStackTrace();
         }
