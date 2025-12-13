@@ -25,14 +25,16 @@ public class Lista_Libri {
     private List<Libro> libri=new ArrayList<>();
 
 /**
-  * @brief "aggiunta libro"
- * "permette l'aggiunta di un nuovo libro alla lista di libri gia presente"
- * @pre Libro passato != null
- * @post viene aggiunto un libro
- * @param[in] Libro libro
+ * @brief "getter Libro"
+ * @retrun lista libri
  * @author Francesco Sabia
  */
-    public void aggiungiLibro(Libro libro){
+    
+    public List<Libro> getLibri(){
+        return libri;
+    }
+
+    public void aggiungiLibro(Libro libro) {
         if(this.libri.contains(libro)){
             for(Libro l: this.libri){
                 if(l.equals(libro)){
@@ -102,14 +104,12 @@ public class Lista_Libri {
     public List<Libro> cercaPerTitolo(String str){
         List<Libro> temp_list=new ArrayList<>();
         for(Libro l: this.libri){
-            if(l.getTitolo()==str){
+            if(l.getTitolo().equalsIgnoreCase(str)){
                 temp_list.add(l);
             }
         }
-        if(temp_list.isEmpty())
-            return null;//errore
-        else
-            return temp_list;
+
+        return temp_list;
     }
 /**
  * @brief "cerca un libro per ISBN"
@@ -127,10 +127,7 @@ public class Lista_Libri {
                 temp_list.add(l);
             }
         }
-        if(temp_list.isEmpty())
-            return null;
-        else
-            return temp_list;
+        return temp_list;
     }
 /**
   * @brief "cerca un libro per Autore"
@@ -145,12 +142,9 @@ public class Lista_Libri {
         List<Libro> temp_list=new ArrayList<>();
         for(Libro l: this.libri){
             for(Autore a : l.getAutori())
-                if(a.getCognome().equals(str)||a.getNome().equals(str))
+                if(a.getCognome().equalsIgnoreCase(str)||a.getNome().equalsIgnoreCase(str))
                     temp_list.add(l);
             }
-        if(temp_list.isEmpty())
-            return null;
-        else
             return temp_list;
     }
 /**
@@ -165,12 +159,26 @@ public class Lista_Libri {
         for(Libro l: this.libri){
             if(l.getISBN().equals(ISBN))
                 return true;
-            else 
-                return false;
         }
         return false;
     }
-/**
+  /**
+ * @brief "controlla il numero di copie dell'ISBN"
+ * @pre ISBN deve essere valido
+ * @param[in] Una Stringa contente l'ISBN
+ * @param[out] un boolean
+ * @return un boolean
+ * @author Francesco Sabia
+ */
+  public boolean checkCopie(String ISBN){
+        for(Libro l: this.libri){
+            if(l.getISBN().equals(ISBN)){
+                if(l.getCopie()>=1)
+                   return true;
+            }
+        }
+        return false;
+    }
  /**
  * @brief "ordina i libri presenti nella lista"
  * "ordina la lista di libri in base a uno degli ordini stabiliti nella classe Libro"
