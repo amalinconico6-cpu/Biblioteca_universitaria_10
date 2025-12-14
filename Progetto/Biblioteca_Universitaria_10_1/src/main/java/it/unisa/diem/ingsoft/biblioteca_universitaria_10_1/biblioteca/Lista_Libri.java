@@ -85,11 +85,13 @@ public class Lista_Libri {
  * @author Francesco Sabia
  */
     public void modificaCopie(String ISBN, int n){
-        for(Libro l: this.libri){
-                if(l.getISBN()==ISBN){
-                    if(n<0&&(n*-1)<l.getCopie())
-                    l.setCopie(l.getCopie()+n);
+        for (Libro l : this.libri) {
+            if (l.getISBN().equals(ISBN)) {
+                int risultato = l.getCopie() + n;
+                if (risultato >= 0) {
+                    l.setCopie(risultato);
                 }
+            }
         }
     }
 /**
