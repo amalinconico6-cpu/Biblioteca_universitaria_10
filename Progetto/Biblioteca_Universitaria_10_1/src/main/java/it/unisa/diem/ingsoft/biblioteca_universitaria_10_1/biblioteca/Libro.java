@@ -23,9 +23,9 @@ public class Libro {
     private boolean disponibile;
     private int copie;
 
-    public static final Comparator<Libro> TITOLO = null;
-    public static final Comparator<Libro> ISBN_COMPARATOR = null;
-    public static final Comparator<Libro> PRIMO_AUTORE = null;
+    public static final Comparator<Libro> TITOLO = Comparator.comparing(Libro::getTitolo);
+    public static final Comparator<Libro> ISBN_COMPARATOR = Comparator.comparing(Libro::getISBN);
+    public static final Comparator<Libro> PRIMO_AUTORE =Comparator.comparing(libro -> libro.getAutori().get(0).getCognome());;
 
 /**
  * @brief "construttore di libro"
@@ -38,7 +38,7 @@ public class Libro {
  */
     public Libro(String titolo, List<Autore> autori, String ISBN, int anno, boolean disponibile, int copie) {
         this.titolo = titolo;
-        this.autori = autori;
+        this.autori = new ArrayList<>(autori);
         this.ISBN = ISBN;
         this.anno = anno;
         this.disponibile = disponibile;

@@ -69,12 +69,12 @@ public class Lista_Libri {
  * @author Francesco Sabia
  */
     public void modificaLibro(Libro libro, Libro l_modificato){
-        for(Libro l: this.libri){
-            if(l.equals(libro)){
-                    l=l_modificato;
+        int index = this.libri.indexOf(libro);
+            if (this.libri.indexOf(libro)!= -1) {
+                this.libri.set(index, l_modificato);
             }
-        }
     }
+
     
     /**
  * @brief "permette di modificare solo il numero di copie presenti nella lista"
