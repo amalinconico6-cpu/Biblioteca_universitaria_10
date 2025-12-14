@@ -18,8 +18,7 @@ public class Autore {
     private String nome;
     private String cognome;
 
-    public static Comparator<Autore> COGNOME;
-
+    public static Comparator<Autore> COGNOME=Comparator.comparing(Autore::getCognome);
 /**
  * @brief "Costruttore delle classe"
  * "costruttore di classe"

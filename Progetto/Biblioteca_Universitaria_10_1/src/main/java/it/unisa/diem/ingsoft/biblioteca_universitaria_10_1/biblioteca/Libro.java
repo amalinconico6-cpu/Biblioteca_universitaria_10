@@ -25,7 +25,7 @@ public class Libro {
 
     public static final Comparator<Libro> TITOLO = Comparator.comparing(Libro::getTitolo);
     public static final Comparator<Libro> ISBN_COMPARATOR = Comparator.comparing(Libro::getISBN);
-    public static final Comparator<Libro> PRIMO_AUTORE =Comparator.comparing(libro -> libro.getAutori().get(0).getCognome());;
+    public static final Comparator<Libro> PRIMO_AUTORE =Comparator.comparing(libro -> libro.getAutori().get(0).getCognome());
 
 /**
  * @brief "construttore di libro"
