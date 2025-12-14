@@ -19,7 +19,14 @@ public class Prestito {
     private final int ID;
     private static int counter=0;
     public static final Comparator<Prestito> SCADENZA = Comparator.comparing(Prestito::getDataScadenza);
-    
+/**
+* @brief costruttore classe Prestito
+* "Serve per creare un oggetto prestito inizializzando i suoi attributi"
+* @pre i parametri devono essere validi e non null
+* @post viene creato un nuovo oggetto prestito
+* @param[in] String ISBN,String Matricola,LocalDate dataScadenza
+* @author ALESSANDRO VISCIANO
+*/
     public Prestito(String ISBN,String Matricola,LocalDate dataScadenza){
         this.ISBN=ISBN;
         this.Matricola=Matricola;

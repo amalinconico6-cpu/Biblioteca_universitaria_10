@@ -5,35 +5,32 @@
  */
 package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.utenti;
 
-import org.junit.After;
-import org.junit.AfterClass;
+import java.util.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author aless
+ * @author ALESSANDRO VISCIANO
  */
 public class UtenteTest {
-    
+    private Utente utente;
     
     @BeforeEach
     public void setUp() {
+        utente=new Utente("Pippo","Pappolo","0612708899","p.pappolo@studenti.unisa.it");
     }
     /**
      * Test of getNome method, of class Utente.
      */
     @Test
     public void testGetNome() {
-        System.out.println("getNome");
-        Utente instance = null;
-        String expResult = "";
-        String result = instance.getNome();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String nome="Pippo";
+        assertEquals(nome,utente.getNome());    
     }
 
     /**
@@ -41,12 +38,9 @@ public class UtenteTest {
      */
     @Test
     public void testSetNome() {
-        System.out.println("setNome");
-        String nome = "";
-        Utente instance = null;
-        instance.setNome(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String nome="Pippa";
+        utente.setNome(nome);
+        assertEquals(nome,utente.getNome());
     }
 
     /**
@@ -54,13 +48,8 @@ public class UtenteTest {
      */
     @Test
     public void testGetCognome() {
-        System.out.println("getCognome");
-        Utente instance = null;
-        String expResult = "";
-        String result = instance.getCognome();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String cognome="Pappolo";
+        assertEquals(cognome,utente.getCognome());  
     }
 
     /**
@@ -68,12 +57,9 @@ public class UtenteTest {
      */
     @Test
     public void testSetCognome() {
-        System.out.println("setCognome");
-        String cognome = "";
-        Utente instance = null;
-        instance.setCognome(cognome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String cognome="Pappola";
+        utente.setCognome(cognome);
+        assertEquals(cognome,utente.getCognome());
     }
 
     /**
@@ -81,13 +67,8 @@ public class UtenteTest {
      */
     @Test
     public void testGetMatricola() {
-        System.out.println("getMatricola");
-        Utente instance = null;
-        String expResult = "";
-        String result = instance.getMatricola();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       String matricola="0612708899";
+       assertEquals(matricola,utente.getMatricola());
     }
 
     /**
@@ -95,12 +76,9 @@ public class UtenteTest {
      */
     @Test
     public void testSetMatricola() {
-        System.out.println("setMatricola");
-        String matricola = "";
-        Utente instance = null;
-        instance.setMatricola(matricola);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String matricola="0612705559";
+        utente.setMatricola(matricola);
+        assertEquals(matricola,utente.getMatricola());
     }
 
     /**
@@ -108,13 +86,8 @@ public class UtenteTest {
      */
     @Test
     public void testGetMail() {
-        System.out.println("getMail");
-        Utente instance = null;
-        String expResult = "";
-        String result = instance.getMail();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       String mail="p.pappolo@studenti.unisa.it";
+       assertEquals(mail,utente.getMail());
     }
 
     /**
@@ -122,12 +95,9 @@ public class UtenteTest {
      */
     @Test
     public void testSetMail() {
-        System.out.println("setMail");
-        String mail = "";
-        Utente instance = null;
-        instance.setMail(mail);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       String mail="t.pappolo@studenti.unisa.it";
+       utente.setMail(mail);
+       assertEquals(mail,utente.getMail());
     }
 
     /**
@@ -135,14 +105,10 @@ public class UtenteTest {
      */
     @Test
     public void testEquals() {
-        System.out.println("equals");
-        Object o = null;
-        Utente instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(o);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Utente u=new Utente("p","pa","06177","ursula.vonderlein@gmail.eu");
+        assertTrue(utente.equals(utente));
+        assertFalse(utente.equals(null));
+        assertFalse(utente.equals(u));
     }
     
 }
