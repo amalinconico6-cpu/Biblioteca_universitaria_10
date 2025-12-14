@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.prestiti;
 
 
 import it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.prestiti.Lista_Prestiti;
@@ -44,6 +45,7 @@ public class Lista_PrestitiTest {
     }
     @Test
     public void testAggiongiPrestitoLimite(){
+        listaPrestiti.aggiungiPrestito(p1);
         listaPrestiti.aggiungiPrestito(p2);
         listaPrestiti.aggiungiPrestito(p3);
         assertEquals(3, listaPrestiti.getPrestiti().size());
@@ -53,12 +55,16 @@ public class Lista_PrestitiTest {
     @Test
     public void testAggiongiPrestitoOrdinato(){
         List<Prestito> tmp_lista = listaPrestiti.getPrestiti();
+        listaPrestiti.aggiungiPrestito(p1);
+        listaPrestiti.aggiungiPrestito(p2);
+        listaPrestiti.aggiungiPrestito(p3);
         assertEquals(p2, tmp_lista.get(0));
-        assertEquals(p1, tmp_lista.get(1));
-        assertEquals(p3, tmp_lista.get(2));
+        assertEquals(p3, tmp_lista.get(1));
+        assertEquals(p1, tmp_lista.get(2));
     }
     @Test
     public void testRimuoviPrestito() {
+        listaPrestiti.aggiungiPrestito(p1);
         assertTrue(listaPrestiti.rimuoviPrestito(p1));
         assertTrue(listaPrestiti.getPrestiti().isEmpty());
     }

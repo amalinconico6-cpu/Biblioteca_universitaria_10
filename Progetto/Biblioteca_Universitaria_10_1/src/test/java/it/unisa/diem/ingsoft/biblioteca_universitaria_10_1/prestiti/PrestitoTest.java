@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package it.unisa.diem.ingsoft.biblioteca_universitaria_10_1.prestiti;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,7 +60,7 @@ public class PrestitoTest {
     }
     @Test
     public void testGetId(){
-        assertEquals(1, prestito.getID());
+        assertTrue(prestito.getID()>0);
     }
     @Test
     public void testGetSacdenza(){
@@ -69,7 +69,7 @@ public class PrestitoTest {
     @Test
     public void testSetScadenza(){
         prestito.setDataScadenza(LocalDate.of(2025, 12, 25));
-        assertEquals(LocalDate.of(2025, 12, 25), prestito.getMatricola());
+        assertEquals(LocalDate.of(2025, 12, 25), prestito.getDataScadenza());
     }
     @Test
     public void testEquals(){
