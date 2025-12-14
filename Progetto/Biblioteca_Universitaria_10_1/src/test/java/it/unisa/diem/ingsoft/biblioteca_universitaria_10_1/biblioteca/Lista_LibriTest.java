@@ -40,7 +40,7 @@ class Lista_LibriTest {
 
     @Test
     public void TestAggiungiLibroNuovoLibro() {
-        Libro l1 = libro("ISBN1", "Titolo1", 1, autore("Mario", "Rossi"));
+        Libro l1 = libro("ISBN1", "Titolo1", 1, autore("Claudio", "Baglioni"));
         lista.aggiungiLibro(l1);
 
         assertEquals(1, lista.getLibri().size());
@@ -49,7 +49,7 @@ class Lista_LibriTest {
 
     @Test
     public void TestAggiungiLibroStessoISBN() {
-        Libro l1 = libro("ISBN1", "Titolo1", 1, autore("Mario", "Rossi"));
+        Libro l1 = libro("ISBN1", "Titolo1", 1, autore("Bruno", "Vittorino"));
         lista.aggiungiLibro(l1);
 
         // equals di Libro confronta SOLO ISBN, quindi questo è considerato "uguale"
@@ -138,13 +138,13 @@ class Lista_LibriTest {
 
     @Test
     public void TestOrdinaPerTitolo() {
-        lista.aggiungiLibro(libro("2", "Zeta", 1));
+        lista.aggiungiLibro(libro("2", "Beta", 1));
         lista.aggiungiLibro(libro("1", "Alpha", 1));
 
         lista.ordina(Comparator.comparing(Libro::getTitolo, String.CASE_INSENSITIVE_ORDER));
 
         assertEquals("Alpha", lista.getLibri().get(0).getTitolo());
-        assertEquals("Zeta", lista.getLibri().get(1).getTitolo());
+        assertEquals("Beta", lista.getLibri().get(1).getTitolo());
     }
 
     @Test
