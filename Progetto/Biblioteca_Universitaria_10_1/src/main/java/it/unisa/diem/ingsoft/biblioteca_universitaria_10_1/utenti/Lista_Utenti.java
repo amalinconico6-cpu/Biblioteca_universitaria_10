@@ -39,33 +39,34 @@ public class Lista_Utenti {
      */
     
     public String aggiungiUtente(Utente utente) {
-        if (utente == null) {
-            return "Utente non valido";
-        }
-
-        String matricola = String.valueOf(utente.getMatricola());
-        String nome = utente.getNome();
-        String cognome = utente.getCognome();
-        String email = utente.getMail();
-
-        if (matricola == null) {
-            return "Matricolda non valida";
-        }
-        if (nome == null || nome.trim().isEmpty()) {
-            return "Nome non valido";
-        }
-        if (cognome == null || cognome.trim().isEmpty()) {
-            return "Cognome non valido";
-        }
-        if (email == null || email.trim().isEmpty()) {
-            return "Email non valida";
-        }
-        if (checkMatricola(matricola)) {
-            return "Esiste già un utente con questa matricola";
-        }
-        utenti.add(utente);
-        return "Utente aggiunto correttamente";
+    if (utente == null) {
+        return "Utente non valido";
     }
+
+    String matricola = utente.getMatricola();
+    String nome = utente.getNome();
+    String cognome = utente.getCognome();
+    String email = utente.getMail();
+
+    if (matricola == null || matricola.trim().isEmpty()) {
+        return "Matricola non valida";
+    }
+    if (nome == null || nome.trim().isEmpty()) {
+        return "Nome non valido";
+    }
+    if (cognome == null || cognome.trim().isEmpty()) {
+        return "Cognome non valido";
+    }
+    if (email == null || email.trim().isEmpty()) {
+        return "Email non valida";
+    }
+    if (checkMatricola(matricola)) {
+        return "Esiste già un utente con questa matricola";
+    }
+    utenti.add(utente);
+    return "Utente aggiunto correttamente";
+}
+
     /**
      * @brief "Rimuove un utente dalla lista"
      * @pre l'utente deve essere non null per esserea aggiunto
