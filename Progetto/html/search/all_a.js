@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['mail_0',['mail',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1utenti_1_1_utente.html#a5fa2ad2d4195cdfbc4be945784d735e3',1,'it.unisa.bibliotecajfx.model.utenti.Utente.mail'],['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1utenti_1_1_lista___utenti_test.html#ac3cb16970493974720c5dba5a920cc24',1,'it.unisa.bibliotecajfx.model.utenti.Lista_UtentiTest.mail']]],
+  ['main_1',['Main',['../classit_1_1unisa_1_1bibliotecajfx_1_1_main.html',1,'it::unisa::bibliotecajfx']]],
+  ['main_2',['main',['../classit_1_1unisa_1_1bibliotecajfx_1_1_main.html#a960fc731d4b3fb9d1b8faafce03c10f7',1,'it::unisa::bibliotecajfx::Main']]],
+  ['main_2ejava_3',['Main.java',['../_main_8java.html',1,'']]],
+  ['mainpane_4',['mainPane',['../classnavigazione_1_1navigazione.html#a79957caa4f0759e018c33c4b492c2cb9',1,'navigazione::navigazione']]],
+  ['masterdata_5',['masterData',['../classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_gestione_utenti.html#a9fed2be51e5531a3d281f0853a178e66',1,'it::unisa::bibliotecajfx::controller::ControllerGestioneUtenti']]],
+  ['matricola_6',['MATRICOLA',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1prestiti_1_1_lista___prestiti_test.html#a69be6c8fa27aaa663873d5104db0fd98',1,'it.unisa.bibliotecajfx.model.prestiti.Lista_PrestitiTest.MATRICOLA'],['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1prestiti_1_1_prestito_test.html#afb71b3abebd6a178dd8e8cf79fb1732e',1,'it.unisa.bibliotecajfx.model.prestiti.PrestitoTest.MATRICOLA']]],
+  ['matricola_7',['Matricola',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1prestiti_1_1_prestito.html#abf611130bc40c9f87eebc12a4147fec5',1,'it.unisa.bibliotecajfx.model.prestiti.Prestito.Matricola'],['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1utenti_1_1_lista___utenti_test.html#ae0e52fa5435675b461acb38e258548f9',1,'it.unisa.bibliotecajfx.model.utenti.Lista_UtentiTest.Matricola']]],
+  ['matricola_8',['matricola',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1utenti_1_1_utente.html#aecb0b7989a188d31ea6edce912879722',1,'it::unisa::bibliotecajfx::model::utenti::Utente']]],
+  ['matricola_5frit_9',['MATRICOLA_RIT',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1prestiti_1_1_lista___prestiti_test.html#a3b9027c6be7a4b8a10fa7aaccef9cce3',1,'it::unisa::bibliotecajfx::model::prestiti::Lista_PrestitiTest']]],
+  ['modificaautore_10',['modificaAutore',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1biblioteca_1_1_libro.html#a66c99dc2367917d21aa743ecc4eb2e68',1,'it::unisa::bibliotecajfx::model::biblioteca::Libro']]],
+  ['modificacopie_11',['modificaCopie',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1biblioteca_1_1_lista___libri.html#a670315ca8d68b444a4ec1c1229688445',1,'it::unisa::bibliotecajfx::model::biblioteca::Lista_Libri']]],
+  ['modificalibro_12',['modificaLibro',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1biblioteca_1_1_lista___libri.html#a9d486637b8d8bf40bf233c81aa2a9b09',1,'it::unisa::bibliotecajfx::model::biblioteca::Lista_Libri']]],
+  ['modificaprestito_13',['ModificaPrestito',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1prestiti_1_1_lista___prestiti.html#a9e88d012ef2d5aa46243e9ac4906ffd9',1,'it::unisa::bibliotecajfx::model::prestiti::Lista_Prestiti']]],
+  ['modificautente_14',['modificaUtente',['../classit_1_1unisa_1_1bibliotecajfx_1_1model_1_1utenti_1_1_lista___utenti.html#a0649413257bb3eee6cc42e767e631d50',1,'it::unisa::bibliotecajfx::model::utenti::Lista_Utenti']]],
+  ['mostralibri_15',['mostraLibri',['../classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_libri.html#a5a7b5716b18f17f9d1f4e3e55908e616',1,'it::unisa::bibliotecajfx::controller::ControllerListaLibri']]]
+];

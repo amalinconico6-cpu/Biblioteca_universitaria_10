@@ -1,0 +1,26 @@
+var classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi =
+[
+    [ "aggiornaTabella", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ac60fdcd308a0d670e1ff3816a8b7b9eb", null ],
+    [ "cambiaCopieLibro", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a111bd1acf6a42ef120daf19e3abe05b8", null ],
+    [ "handleCercaRitardo", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ad80fc13b687fadd32776911fdc0254c4", null ],
+    [ "handleChiudi", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a5d8f31104d9447a586807207957ebb81", null ],
+    [ "handleResetFiltroRitardi", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a086f4ece6aa69d0557c1d4e7a45d64ab", null ],
+    [ "initialize", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ad948e559e61eacd15dc0a9a0e7840040", null ],
+    [ "onModificaRitardo", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a190f2a7a48f49d374aebe8348521a747", null ],
+    [ "onRimuoviRitardo", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#abc4a230c6134125e3998a6d54cf6c4da", null ],
+    [ "setListe", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#aa466241e9e997747bb2782c7e90eb46e", null ],
+    [ "btnCercaRitardo", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#aed91b1f81e4c76f170ce26e9eec0ff31", null ],
+    [ "btnChiudi", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ad7f5a8722cf2eda2bbc4b3cf061e1a2b", null ],
+    [ "btnModificaRitardo", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ad0acb4caa36ac001253f3952b55e6eee", null ],
+    [ "btnResetRitardi", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a553a973b0fcbac3d37d4126e6470f0f6", null ],
+    [ "btnRimuoviRitardo", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#addd891677d2159b4ba6fe4dfb47bf994", null ],
+    [ "colDataScadenza", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a49ac2483e755a6fd1f0f26755456e73c", null ],
+    [ "colID", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ae0f2621f1066c19b1eeb380f947d1588", null ],
+    [ "colISBN", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ad28673f09d9edaa50561e8c68574374a", null ],
+    [ "colMatricola", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#afd070cf114a081c04edb80305930070e", null ],
+    [ "listaLibri", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#abfec57c7f92df5db7bf4d9b272fb06a2", null ],
+    [ "listaPrestiti", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a41241c504ef11572d9f3353288ffed3c", null ],
+    [ "listaUtenti", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a63119896e91a57f1ba39803884ee3edb", null ],
+    [ "tabellaRitardi", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#a47a47595a6c65b79a9121b11eb6494da", null ],
+    [ "txtRicercaRitardo", "classit_1_1unisa_1_1bibliotecajfx_1_1controller_1_1_controller_lista_ritardi.html#ae0c4f43eb39d460f6544c8611d075104", null ]
+];
