@@ -1,0 +1,21 @@
+.root {
+    -fx-background-color: rgba(0,0,0,0.45);
+}
+
+.button {
+    -fx-background-color: #2A4E69;
+    -fx-background-radius: 15;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #365f82;
+}
+.footer {
+    -fx-background-color: rgba(20,35,65,0.85);
+    -fx-background-radius: 12;
+    -fx-padding: 10 25;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}

@@ -1,0 +1,32 @@
+/* Sidebar moderna */
+.sidebar {
+    -fx-background-color: #1F2D3A;
+}
+
+/* Bottoni eleganti */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 14 22;
+
+
+    /* Per fare l'effetto "voce di menu" */
+    -fx-background-radius: 0;
+
+    /* Linea sottile sotto */
+    -fx-border-width: 0 0 1 0;       
+    -fx-border-color: rgba(255,255,255,0.1);
+}
+
+/* Hover moderno */
+.sidebar-button:hover {
+    -fx-background-color: rgba(255,255,255,0.12);
+    -fx-cursor: hand;
+}
+
+/* Voce selezionata */
+.sidebar-button-selected {
+    -fx-background-color: rgba(255,255,255,0.20);
+    -fx-border-width: 0 0 0 4;
+    -fx-border-color: #F4A261;
+}
