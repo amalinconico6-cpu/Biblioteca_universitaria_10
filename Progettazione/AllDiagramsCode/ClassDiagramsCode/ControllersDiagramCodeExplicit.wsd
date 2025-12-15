@@ -1,0 +1,375 @@
+@startuml ControllersDiagramCodeExplicit
+skinparam linetype ortho
+left to right direction 
+
+class ControllerAggiungiLibro {
+  - listalibri : Lista_Libri
+  - autoriTemp : ObservableList<Autore>
+  - FILE_LIBRI : String
+  - btnAggiungiLibro : Button
+  - txtTitolo : TextField
+  - txtAnno : TextField
+  - txtISBN : TextField
+  - txtNomeAutore : TextField
+  - txtCognomeAutore : TextField
+  - listAutori : ListView<String>
+  + setListaLibri(listalibri : Lista_Libri) : void
+  + setLibro(libro : Libro) : void
+  - refreshListaAutori() : void
+  - chiudiFinestra() : void
+  - initialize() : void
+  - onAggiungiAutore() : void
+  - onRimuoviAutore() : void
+  - onAggiungiLibro(event : ActionEvent) : void
+  - onCancella() : void
+}
+
+class ControllerModificaLibro {
+  - listalibri : Lista_Libri
+  - libro : Libro
+  - autoriTemp : ObservableList<Autore>
+  - FILE_LIBRI : String
+  - btnModificaLibro : Button
+  - txtTitolo : TextField
+  - txtNomeAutore : TextField
+  - txtCognomeAutore : TextField
+  - txtAnno : TextField
+  - txtISBN : TextField
+  - listAutori : ListView<String>
+  + setListaLibri(listalibri : Lista_Libri) : void
+  + setLibro(libro : Libro) : void
+  - refreshListaAutori() : void
+  - initialize() : void
+  - onAggiungiAutore() : void
+  - onRimuoviAutore() : void
+  - onModificaLibro(event : ActionEvent) : void
+  - onCancella() : void
+  - chiudiFinestra() : void
+}
+
+class ControllerGestioneLibri {
+  - listalibri : Lista_Libri
+  - FILE_LIBRI : String
+  - btnModificaLibro : Button
+  - btnRimuoviLibro : Button
+  - btnVisualizzaLibri : Button
+  - btnAggiungiLibro : Button
+  - btnCercaLibro : Button
+  - btnResetFiltroLibri : Button
+  - txtRicercaLibro : TextField
+  - tabellaLibri : TableView<Libro>
+  - colTitolo : TableColumn<Libro, String>
+  - colAutore : TableColumn<Libro, String>
+  - colISBN : TableColumn<Libro, String>
+  - colAnno : TableColumn<Libro, Integer>
+  - colCopie : TableColumn<Libro, Integer>
+  - lblConteggioLibri : Label
+  - data : ObservableList<Libro>
+  + setListaLibri(listalibri : Lista_Libri) : void
+  - initialize() : void
+  - inizializzaColonne() : void
+  - aggiornaTabella() : void
+  - onModificaLibro(event : ActionEvent) : void
+  - onRimuoviLibro(event : ActionEvent) : void
+  - handleVisualizzaLista(event : ActionEvent) : void
+  - handleAggiungiLibro(event : ActionEvent) : void
+  - handleCercaLibro(event : ActionEvent) : void
+  - handleResetFiltroLibri(event : ActionEvent) : void
+  - onBack(event : ActionEvent) : void
+}
+
+class ControllerListaLibri {
+  - listalibri : Lista_Libri
+  - FILE_LIBRI : String
+  - tabellaLibri : TableView<Libro>
+  - btnModificaLibro : Button
+  - btnRimuoviLibro : Button
+  - btnChiudi : Button
+  - colTitolo : TableColumn<Libro, String>
+  - colAutore : TableColumn<Libro, String>
+  - colISBN : TableColumn<Libro, String>
+  - colAnno : TableColumn<Libro, Integer>
+  - colCopie : TableColumn<Libro, Integer>
+  + setListaLibri(listalibri : Lista_Libri) : void
+  + mostraLibri(libri : List<Libro>) : void
+  - initialize() : void
+  - onModificaLibro(event : ActionEvent) : void
+  - onRimuoviLibro(event : ActionEvent) : void
+  - handleChiudi() : void
+}
+
+class ControllerAggiungiPrestito {
+  - listaPrestiti : Lista_Prestiti
+  - listaUtenti : Lista_Utenti
+  - listaLibri : Lista_Libri
+  - prestitoCreato : boolean
+  - FILE_PRESTITI : String
+  - FILE_LIBRI : String
+  - txtISBN : TextField
+  - txtMatricola : TextField
+  - dateScadenza : DatePicker
+  + setListe(lp : Lista_Prestiti, lu : Lista_Utenti, ll : Lista_Libri) : void
+  + isPrestitoCreato() : boolean
+  - initialize() : void
+  - onAggiungiPrestito() : void
+  - onCancella() : void
+  - chiudi() : void
+}
+
+class ControllerModificaPrestito {
+  - FILE_PRESTITI : String
+  - FILE_LIBRI : String
+  - txtISBN : TextField
+  - txtMatricola : TextField
+  - dateScadenza : DatePicker
+  - listaPrestiti : Lista_Prestiti
+  - listaLibri : Lista_Libri
+  - listaUtenti : Lista_Utenti
+  - prestitoOriginale : Prestito
+  + setListe(lp : Lista_Prestiti, lu : Lista_Utenti, ll : Lista_Libri) : void
+  + setPrestitoDaModificare(p : Prestito) : void
+  - onModificaPrestito() : void
+  - onCancella() : void
+  - chiudi() : void
+}
+
+class ControllerGestionePrestiti {
+  - btnVisualizzaPrestiti : Button
+  - btnAggiungiPrestito : Button
+  - btnVisualizzaRitardi : Button
+  - btnCercaPrestito : Button
+  - btnResetFiltroPrestiti : Button
+  - txtRicercaPrestito : TextField
+  - tabellaPrestiti : TableView<Prestito>
+  - colMatricola : TableColumn<Prestito, String>
+  - colID : TableColumn<Prestito, String>
+  - colISBN : TableColumn<Prestito, String>
+  - colDataScadenza : TableColumn<Prestito, LocalDate>
+  - listaPrestiti : Lista_Prestiti
+  - listaUtenti : Lista_Utenti
+  - listaLibri : Lista_Libri
+  + setListaPrestiti(listaPrestiti : Lista_Prestiti) : void
+  + setListe(lp : Lista_Prestiti, lu : Lista_Utenti, ll : Lista_Libri) : void
+  - initialize() : void
+  - inizializzaColonne() : void
+  - aggiornaTabella() : void
+  - handleVisualizzaListaPrestiti(event : ActionEvent) : void
+  - handleAggiungiPrestito(event : ActionEvent) : void
+  - handleVisualizzaRitardi(event : ActionEvent) : void
+  - handleCercaPrestito(event : ActionEvent) : void
+  - handleResetFiltroPrestiti(event : ActionEvent) : void
+  - onBack(event : ActionEvent) : void
+}
+
+class ControllerListaPrestiti {
+  - FILE_PRESTITI : String
+  - FILE_LIBRI : String
+  - tabellaPrestiti : TableView<Prestito>
+  - btnModificaPrestito : Button
+  - btnRimuoviPrestito : Button
+  - btnChiudi : Button
+  - colID : TableColumn<Prestito, Integer>
+  - colISBN : TableColumn<Prestito, String>
+  - colMatricola : TableColumn<Prestito, String>
+  - colDataScadenza : TableColumn<Prestito, LocalDate>
+  - txtMatricola : TextField
+  - listaPrestiti : Lista_Prestiti
+  - listaLibri : Lista_Libri
+  - listaUtenti : Lista_Utenti
+  + setListe(lp : Lista_Prestiti, lu : Lista_Utenti, ll : Lista_Libri) : void
+  - initialize() : void
+  - inizializzaColonne() : void
+  - aggiornaTabella() : void
+  - onModificaPrestito(event : ActionEvent) : void
+  - onRimuoviPrestito(event : ActionEvent) : void
+  - cambiaCopieLibro(isbn : String, delta : int) : boolean
+  - handleChiudi() : void
+}
+
+class ControllerListaRitardi {
+  - btnChiudi : Button
+  - txtRicercaRitardo : TextField
+  - btnCercaRitardo : Button
+  - btnResetRitardi : Button
+  - tabellaRitardi : TableView<Prestito>
+  - colID : TableColumn<Prestito, Integer>
+  - colISBN : TableColumn<Prestito, String>
+  - colMatricola : TableColumn<Prestito, String>
+  - colDataScadenza : TableColumn<Prestito, LocalDate>
+  - btnModificaRitardo : Button
+  - btnRimuoviRitardo : Button
+  - listaPrestiti : Lista_Prestiti
+  - listaUtenti : Lista_Utenti
+  - listaLibri : Lista_Libri
+  + setListe(lp : Lista_Prestiti, lu : Lista_Utenti, ll : Lista_Libri) : void
+  - initialize() : void
+  - aggiornaTabella() : void
+  - handleChiudi() : void
+  - handleCercaRitardo(event : ActionEvent) : void
+  - handleResetFiltroRitardi(event : ActionEvent) : void
+  - onModificaRitardo(event : ActionEvent) : void
+  - onRimuoviRitardo(event : ActionEvent) : void
+  - cambiaCopieLibro(isbn : String, delta : int) : boolean
+}
+
+class ControllerAggiungiUtente {
+  - listaUtenti : Lista_Utenti
+  - FILE_UTENTI : String
+  - txtNome : TextField
+  - txtCognome : TextField
+  - txtMatricola : TextField
+  - txtEmail : TextField
+  - btnAggiungiUtente : Button
+  + setListaUtenti(listaUtenti : Lista_Utenti) : void
+  - initialize() : void
+  - onAggiungiUtente(event : ActionEvent) : void
+  - onCancella() : void
+  - chiudi() : void
+}
+
+class ControllerModificaUtente {
+  - FILE_UTENTI : String
+  - btnModificaUtente : Button
+  - txtNome : TextField
+  - txtCognome : TextField
+  - txtMatricola : TextField
+  - txtEmail : TextField
+  - listaUtenti : Lista_Utenti
+  - utente : Utente
+  + setListaUtenti(listaUtenti : Lista_Utenti) : void
+  + setUtente(utente : Utente) : void
+  - onModificaUtente(event : ActionEvent) : void
+  - onCancella() : void
+  - chiudiFinestra() : void
+}
+
+class ControllerGestioneUtenti {
+  - txtRicercaUtente : TextField
+  - btnCercaUtente : Button
+  - btnResetFiltroUtenti : Button
+  - btnVisualizzaUtenti : Button
+  - btnAggiungiUtente : Button
+  - lblConteggioUtenti : Label
+  - tabellaUtenti : TableView<Utente>
+  - colMatricola : TableColumn<Utente, String>
+  - colNome : TableColumn<Utente, String>
+  - colCognome : TableColumn<Utente, String>
+  - colEmail : TableColumn<Utente, String>
+  - listaUtenti : Lista_Utenti
+  - masterData : ObservableList<Utente>
+  - filteredData : FilteredList<Utente>
+  + setListaUtenti(listaUtenti : Lista_Utenti) : void
+  - initialize() : void
+  - configuraColonneSePresenti() : void
+  - handleAggiungiUtente(event : ActionEvent) : void
+  - handleVisualizzaUtenti() : void
+  - handleCercaUtente(event : ActionEvent) : void
+  - handleResetFiltroUtenti(event : ActionEvent) : void
+  - onBack(event : ActionEvent) : void
+}
+
+class ControllerListaUtenti {
+  - FILE_UTENTI : String
+  - btnModificaUtente : Button
+  - btnRimuoviUtente : Button
+  - btnChiudi : Button
+  - tabellaUtenti : TableView<Utente>
+  - colNome : TableColumn<Utente, String>
+  - colCognome : TableColumn<Utente, String>
+  - colMatricola : TableColumn<Utente, String>
+  - colEmail : TableColumn<Utente, String>
+  - listaUtenti : Lista_Utenti
+  - data : ObservableList<Utente>
+  - onDone : Runnable
+  + setListaUtenti(listaUtenti : Lista_Utenti) : void
+  + setOnDone(onDone : Runnable) : void
+  - initialize() : void
+  - configuraColonneSePresenti() : void
+  - onModificaUtente(event : ActionEvent) : void
+  - onRimuoviUtente(event : ActionEvent) : void
+  - handleChiudi() : void
+}
+
+class ControllerHome {
+  - btnGestioneLibri : Button
+  - btnGestionePrestiti : Button
+  - btnGestioneUtenti : Button
+  - btnPortale : Button
+  - contentPane : AnchorPane
+  - listaUtenti : Lista_Utenti
+  - listaLibri : Lista_Libri
+  - listaPrestiti : Lista_Prestiti
+  - FILE_UTENTI : String
+  - FILE_LIBRI : String
+  - FILE_PRESTITI : String
+  - initialize() : void
+  - leggiTutto() : void
+  - salvaTutto() : void
+  - onBackToPortale() : void
+  - onGestioneLibri() : void
+  - onGestionePrestiti() : void
+  - onGestioneUtenti() : void
+}
+
+class ControllerDashboard {
+  - btnPortale : Button
+  - onBackToPortale() : void
+}
+
+class ControllerPopup {
+  - lblIcona : Label
+  - lblTitolo : Label
+  - lblMessaggio : Label
+  - btnOk : Button
+  + setSuccesso(messaggio : String) : void
+  + setErrore(messaggio : String) : void
+  - onOk() : void
+  + showSuccess(owner : Window, messaggio : String) : void
+  + showError(owner : Window, messaggio : String) : void
+  - show(owner : Window, success : boolean, messaggio : String) : void
+}
+
+class ControllerPortale {
+  - btnEntra : Button
+  - initialize() : void
+  - handleEntra(event : ActionEvent) : void
+}
+
+ControllerPortale ..> ControllerHome
+
+ControllerHome ..> ControllerDashboard
+ControllerHome ..> ControllerGestioneLibri
+ControllerHome ..> ControllerGestionePrestiti
+ControllerHome ..> ControllerGestioneUtenti
+
+ControllerGestioneLibri ..> ControllerAggiungiLibro
+ControllerGestioneLibri ..> ControllerModificaLibro
+ControllerGestioneLibri ..> ControllerListaLibri
+ControllerListaLibri ..> ControllerModificaLibro
+
+ControllerGestionePrestiti ..> ControllerAggiungiPrestito
+ControllerGestionePrestiti ..> ControllerListaPrestiti
+ControllerGestionePrestiti ..> ControllerListaRitardi
+ControllerListaPrestiti ..> ControllerModificaPrestito
+ControllerListaRitardi ..> ControllerModificaPrestito
+
+ControllerGestioneUtenti ..> ControllerAggiungiUtente
+ControllerGestioneUtenti ..> ControllerListaUtenti
+ControllerListaUtenti ..> ControllerModificaUtente
+
+ControllerGestioneLibri      ..> ControllerPopup
+ControllerGestionePrestiti   ..> ControllerPopup
+ControllerGestioneUtenti     ..> ControllerPopup
+
+ControllerListaPrestiti      ..> ControllerPopup
+ControllerListaRitardi       ..> ControllerPopup
+ControllerListaUtenti        ..> ControllerPopup
+
+ControllerModificaLibro      ..> ControllerPopup
+ControllerModificaPrestito   ..> ControllerPopup
+
+ControllerAggiungiLibro      ..> ControllerPopup
+ControllerAggiungiPrestito   ..> ControllerPopup
+ControllerAggiungiUtente     ..> ControllerPopup
+
+@enduml

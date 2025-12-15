@@ -83,18 +83,19 @@ class Lista_Prestiti {
 }
 
 class Lista_Utenti {
-    - utenti: List<Utente>
+- utenti: List<Utente>
 
-    + aggiungiUtente(utente: Utente): String
-    + rimuoviUtente(utente: Utente): String
-    + modificaUtente(utente: Utente): Utente
-    + getUtenti(): List<Utente>
-    + setUtenti(utenti: List<Utente>): void
-    + cercaPerMatricola(str: String): List<Utente>
-    + cercaPerNomeCognome(str: String): List<Utente>
-    + checkMatricola(matricola: String): boolean
-    + salvataggioUtenti(nomefile: String): void
-    + letturaUtenti(nomefile: String): void
++ aggiungiUtente(Utente utente): String
++ rimuoviUtente(Utente utente): String
++ modificaUtente(Utente utente): Utente
++ getUtenti(): List<Utente>
++ setUtenti(List<Utente> utenti): void
++ cercaPerMatricola(String str): List<Utente>
++ cercaPerNomeCognome(String str): List<Utente>
++ checkMatricola(String matricola): boolean
++ salvataggioUtenti(String nomefile): void
++ letturaUtenti(String nomefile): void
+
 }
 
 

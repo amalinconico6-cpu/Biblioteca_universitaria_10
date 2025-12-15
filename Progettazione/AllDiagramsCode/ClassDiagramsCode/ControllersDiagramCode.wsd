@@ -1,0 +1,84 @@
+@startuml ControllersDiagramCode
+skinparam linetype ortho
+left to right direction
+
+class ControllerAggiungiLibro {
+}
+
+class ControllerModificaLibro {
+}
+
+class ControllerGestioneLibri {
+}
+
+class ControllerListaLibri {
+}
+
+class ControllerAggiungiPrestito {
+}
+
+class ControllerModificaPrestito {
+}
+
+class ControllerGestionePrestiti {
+}
+
+class ControllerListaPrestiti {
+}
+
+class ControllerListaRitardi {
+}
+
+class ControllerAggiungiUtente {
+}
+
+class ControllerModificaUtente {
+}
+
+class ControllerGestioneUtenti {
+}
+
+class ControllerListaUtenti {
+}
+
+class ControllerHome {
+}
+
+ControllerPortale ..> ControllerHome
+
+ControllerHome ..> ControllerDashboard
+ControllerHome ..> ControllerGestioneLibri
+ControllerHome ..> ControllerGestionePrestiti
+ControllerHome ..> ControllerGestioneUtenti
+
+ControllerGestioneLibri ..> ControllerAggiungiLibro
+ControllerGestioneLibri ..> ControllerModificaLibro
+ControllerGestioneLibri ..> ControllerListaLibri
+ControllerListaLibri ..> ControllerModificaLibro
+
+ControllerGestionePrestiti ..> ControllerAggiungiPrestito
+ControllerGestionePrestiti ..> ControllerListaPrestiti
+ControllerGestionePrestiti ..> ControllerListaRitardi
+ControllerListaPrestiti ..> ControllerModificaPrestito
+ControllerListaRitardi ..> ControllerModificaPrestito
+
+ControllerGestioneUtenti ..> ControllerAggiungiUtente
+ControllerGestioneUtenti ..> ControllerListaUtenti
+ControllerListaUtenti ..> ControllerModificaUtente
+
+ControllerGestioneLibri      ..> ControllerPopup
+ControllerGestionePrestiti   ..> ControllerPopup
+ControllerGestioneUtenti     ..> ControllerPopup
+
+ControllerListaPrestiti      ..> ControllerPopup
+ControllerListaRitardi       ..> ControllerPopup
+ControllerListaUtenti        ..> ControllerPopup
+
+ControllerModificaLibro      ..> ControllerPopup
+ControllerModificaPrestito   ..> ControllerPopup
+
+ControllerAggiungiLibro      ..> ControllerPopup
+ControllerAggiungiPrestito   ..> ControllerPopup
+ControllerAggiungiUtente     ..> ControllerPopup
+
+@enduml
