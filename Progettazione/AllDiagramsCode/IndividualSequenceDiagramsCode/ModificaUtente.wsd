@@ -2,44 +2,38 @@
 title Modifica utente
 
 participant "Interfaccia" as UI
-participant "ControllerUtenti" as C
-participant "Lista_Utenti" as ListaUtenti
+participant "Lista Utenti" as ListaUtenti
+participant "Utente" as Utente
 participant "Archivio esterno utenti" as ArchUtenti
 
+' Accesso area gestione / modifica utenti (riassunto nello UI)
 note over UI
-L'utente inserisce una matricola,
-cerca l'utente e modifica i campi.
-L'utente può anche essere cercato per nome e cognome.
+Accesso area gestione utenti e
+selezione funzionalità "Modifica utente".
 end note
 
-' --- Ricerca utente ---
-UI -> C: click "Cerca" + matricola
-C -> ListaUtenti: cercaPerMatricola(matricola)
-ListaUtenti --> C: return List<Utente>
+' --- Ricerca / selezione utente ---
+    UI -> ListaUtenti: cercaPerMatricola() 
 
-alt lista NON vuota (utente trovato)
-    C -> C: utenteSelezionato = risultati.get(0)
-
-    ' --- Mostra dati correnti (getter usati dalla UI) ---
-    C --> UI: mostraDati(utenteSelezionato)
-
-    ' --- Conferma modifica ---
-    UI -> C: conferma modifica (nuovi dati)
-    C -> C: crea Utente aggiornato (stessa matricola)
-
-    C -> ListaUtenti: modificaUtente(utenteAggiornato)
-    ListaUtenti --> C: return Utente oppure null
-
-    alt modifica ok
-        C -> ListaUtenti: salvataggioUtenti(nomefile)
-        ListaUtenti -> ArchUtenti: writeObject(utenti)
-        C --> UI: messaggio "Modifica effettuata"
-    else modifica fallita
-        C --> UI: messaggio "Utente non presente / modifica non riuscita"
+    alt Utente trovato
+        ListaUtenti --> UI: return Utente
+    else Utente non trovato
+        ListaUtenti --> UI: return null
     end
 
-else lista vuota (utente NON trovato)
-    C --> UI: messaggio "Utente non trovato"
-end
+' --- Visualizzazione dati utente correnti ---
+UI -> Utente: getNome()
+Utente --> UI: return nome
+UI -> Utente: getCognome()
+Utente --> UI: return cognome
+UI -> Utente: getMatricola()
+Utente --> UI: return matricola
+UI -> Utente: getMail()
+Utente --> UI: return mail
+
+' --- Conferma modifica e aggiornamento archivi ---
+UI -> ListaUtenti: modificaUtente()
+ListaUtenti -> ArchUtenti: salvataggioUtenti()
 
 @enduml
+
