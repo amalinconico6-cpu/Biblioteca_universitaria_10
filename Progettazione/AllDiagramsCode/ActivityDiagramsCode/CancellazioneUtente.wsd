@@ -7,10 +7,6 @@ repeat
 repeat while (utente non trovato) is (sì (notifica))
 
 :Selezione utente;
-if(prestiti attivi?) then (yes)
-:Notifica;
-else (no)
-endif
 
 :Conferma Cancellazione;
 :Rimozione Utente da archivio;

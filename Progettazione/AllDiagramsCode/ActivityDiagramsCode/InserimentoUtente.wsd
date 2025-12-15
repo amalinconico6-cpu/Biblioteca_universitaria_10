@@ -2,15 +2,13 @@
 start 
 :Accesso are Gestione utenti;
 :Selezione aggiungi utente;
-:Inserimento nome;
-:Inseriment cognome;
-repeat
 repeat 
 repeat
+:Inserimento nome;
+:Inserimento cognome;
 :Inserimento matricola;
 :Inserimento e-mail universitaria;
 repeat while (Formato dati non corretto) is (sì)
-repeat while (e-mail non istituzionale) is (sì)
 repeat while (matricola già registrata) is (sì)
 
 :Conferma dati inseriti;

@@ -15,7 +15,7 @@ controlla formato dati, tipo di e-mail
 e unicità della matricola.
 end note
 
-' --- Controllo matricola già registrata ---
+'Controllo matricola già registrata
 UI -> ListaUtenti: checkMatricola()
 
 alt condizione Matricola non presente
