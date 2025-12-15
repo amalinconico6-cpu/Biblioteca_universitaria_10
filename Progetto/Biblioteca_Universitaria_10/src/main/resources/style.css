@@ -1,0 +1,144 @@
+/* Font e colore di sfondo generale */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #fdf8ee, #f5ebd8);
+}
+
+
+.tab-pane .tab-header-area{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.tab{
+    -fx-background-color: transparent;
+}
+
+
+
+.text-field {
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1c3a3;
+}
+
+
+.table-view{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #F3F5F8;
+}
+
+.table-view .column-header{
+    -fx-text-fill: #1F2D3A;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:filled:selected{
+    -fx-background-color: rgba(42,78,105,0.18);
+}
+
+
+
+
+
+.top-right-button {
+    -fx-background-color: #2A4E69;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-padding: 6 14;
+}
+
+.top-right-button:hover {
+    -fx-background-color: #365f82;
+}
+
+
+.home-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 18;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 18, 0.1, 0, 4);
+}
+
+.home-card:hover {
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 22, 0.1, 0, 6);
+}
+
+.content-card{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 18;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 18, 0.1, 0, 4);
+}
+
+.page-bg{
+    -fx-background-color: #F5F7FA;
+}
+
+.search-input{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D6DCE3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 8 12;
+}
+
+.btn-primary{
+    -fx-background-color: #2A4E69;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+}
+.btn-primary:hover{
+    -fx-background-color: #356A8A;
+}
+.btn-secondary{
+    -fx-background-color: #F3F5F8;
+    -fx-border-color: #D6DCE3;
+    -fx-border-radius: 10;
+}
+
+
+.btn-outline{
+    -fx-background-color: transparent;
+    -fx-border-color: #2A4E69;
+    -fx-text-fill: #2A4E69;
+    -fx-border-radius: 10;
+}
+.btn-danger{
+    -fx-background-color: #E5533D;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+}
+.btn-danger:hover{
+    -fx-background-color: #C94735;
+}
+
+.side-panel{
+  -fx-background-color: transparent;
+  -fx-padding: 0 12 0 12;
+}
+
+.side-action-btn{
+    -fx-background-color: #1F2D3A;
+    -fx-text-fill: white;
+    -fx-background-radius: 16;
+    -fx-padding: 16;
+}
+
+.side-action-btn:hover{
+    -fx-background-color: #2A4E69;
+    -fx-cursor: hand;
+}
+
+.back-button{
+    -fx-background-color: #E9EDF2;
+    -fx-text-fill: #1F2D3A;
+    -fx-background-radius: 50;
+}
+.back-button:hover{
+    -fx-background-color: #D6DCE3;
+}
