@@ -5,12 +5,12 @@ start
 :Accesso area gestione prestiti;
 :Accesso ricerca ritardo;
 
-repeat
+
 if(Ricerca per ISBN ) then
-elseif(Ricerca per cognome) then
+elseif(Ricerca per ID) then
 elseif(Ricerca per matricola) then 
 endif
-repeat while (Utente o libro trovato) is(no)
+
 
 :Visualizzazione elenco ritardi;
 

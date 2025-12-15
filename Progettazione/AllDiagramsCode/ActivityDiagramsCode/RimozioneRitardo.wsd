@@ -3,13 +3,14 @@ start
 :Accesso area gestione prestiti;
 :Accesso visualizza prestiti;
 if(Lista vuota) then (no)
-:Visualizzazione prestiti per data di restituzione;
+:Visualizzazione prestiti (in ritardo) per data di restituzione;
 
 repeat 
 :Ricerca ritardo;
 repeat while (ritardo trovato) is (no)
 
 :Rimozione ritardo;
+:Rimozione da lista prestiti;
 :Aggiornamento file esterno;
 
 else (sì)

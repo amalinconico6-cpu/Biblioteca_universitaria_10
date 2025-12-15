@@ -10,7 +10,7 @@ repeat
 repeat
 :Inserimento dati utente;
 repeat while(Utente non presente) is (sì)
-repeat while(Prestiti attivi < 3) is (sì)
+repeat while(Prestiti attivi = 3) is (sì)
 
 
 repeat 
