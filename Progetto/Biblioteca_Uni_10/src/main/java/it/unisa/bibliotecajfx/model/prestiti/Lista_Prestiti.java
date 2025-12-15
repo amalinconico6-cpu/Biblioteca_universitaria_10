@@ -70,7 +70,7 @@ public class Lista_Prestiti {
  * @pre Il metodo viene chiamato solo quando si vuole visualizzare la lista ritardi per un corretto e coerente funzionamento 
  * @post Ci si aspetta di ricevere una lista i quali elementi possiedono l'attributo dataScadenza "maggiore" rispetto alla data odierna
  * @return List<Prestito> ritardi
- * @author
+ * @author ALESSANDRO VISCIANO
  */
     public List<Prestito> aggiornaRitardi(){
         List<Prestito> ritardi=new ArrayList<>();
