@@ -73,12 +73,6 @@ public class ControllerGestioneUtenti {
     private Button btnAggiungiUtente;
 
     /**
-     * @brief Label per visualizzare il conteggio utenti
-     */
-    @FXML
-    private Label lblConteggioUtenti;
-
-    /**
      * @brief Tabella per la visualizzazione dei risultati utenti
      */
     @FXML

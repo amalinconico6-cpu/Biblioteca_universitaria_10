@@ -99,11 +99,6 @@ public class ControllerListaPrestiti {
     @FXML
     private TableColumn<Prestito, LocalDate> colDataScadenza;
 
-    /**
-     * @brief Campo testo per inserimento/ricerca matricola
-     */
-    @FXML
-    private TextField txtMatricola;
 
     /**
      * @brief Riferimento alla lista prestiti 
