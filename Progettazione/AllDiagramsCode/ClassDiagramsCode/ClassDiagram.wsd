@@ -85,17 +85,18 @@ class Lista_Prestiti {
 class Lista_Utenti {
     - utenti: List<Utente>
 
-    + aggiungiUtente(utente: Utente): void
-    + rimuoviUtente(utente: Utente): void
+    + aggiungiUtente(utente: Utente): String
+    + rimuoviUtente(utente: Utente): String
     + modificaUtente(utente: Utente): Utente
     + getUtenti(): List<Utente>
     + setUtenti(utenti: List<Utente>): void
     + cercaPerMatricola(str: String): List<Utente>
     + cercaPerNomeCognome(str: String): List<Utente>
-    + checkUtente(utente: Utente): boolean
+    + checkMatricola(matricola: String): boolean
     + salvataggioUtenti(nomefile: String): void
-    + letturaUtenti(nomefile: String): Lista_Utenti
+    + letturaUtenti(nomefile: String): void
 }
+
 
 class Prestito {
     - ISBN: String
@@ -118,20 +119,22 @@ class Prestito {
 class Utente {
     - nome: String
     - cognome: String
-    - matricola: int
+    - matricola: String
     - mail: String
 
-    + Utente(nome: String, cognome: String, matricola: int, mail: String)
+    + Utente(nome: String, cognome: String, matricola: String, mail: String)
     + getNome(): String
     + setNome(nome: String): void
     + getCognome(): String
     + setCognome(cognome: String): void
-    + getMatricola(): int
-    + setMatricola(matricola: int): void
+    + getMatricola(): String
+    + setMatricola(matricola: String): void
     + getMail(): String
     + setMail(mail: String): void
     + equals(o: Object): boolean
+    + hashCode(): int
 }
+
 
 class ControllerAggiungiLibro {
 }
