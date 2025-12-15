@@ -256,7 +256,5 @@ Utente "1" o-- "1..3" Prestito
 note as N1
 Metodi e attributi dei controller 
 sono implementati in file contenuti 
-nella directory IndividualClassControllersCode e nel
-file ControllersOnlyDiagramCodeExplicit ai fini 
-di una migliore rappresentazione
+nella directory al fine di una migliore rappresentazione
 end note
