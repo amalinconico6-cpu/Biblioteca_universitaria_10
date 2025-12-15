@@ -119,7 +119,7 @@ public class Utente implements Serializable{
      * "Due utenti sono uguali se hanno la stessa matricola"
      * @param[in] oggetto da confrontare
      * @return true se due utenti hanno la stessa matricola,false altrimenti
-     * @author ALDO MALINCONICO
+     * @author ALDO_MALINCONICO
      */
     @Override
     public boolean equals(Object o) {
