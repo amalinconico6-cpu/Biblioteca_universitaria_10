@@ -23,6 +23,7 @@ import it.unisa.bibliotecajfx.model.utenti.Lista_Utenti;
 import it.unisa.bibliotecajfx.model.prestiti.Prestito;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Optional;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -32,6 +33,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -268,6 +271,15 @@ public class ControllerListaPrestiti {
                     "Seleziona un prestito.");
             return;
         }
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Conferma eliminazione");
+    alert.setHeaderText(null);
+    alert.setContentText(
+    "Sei sicuro di voler rimuovere il prestito: " + p.getID() + " ?"
+);
+    Optional<ButtonType> res = alert.showAndWait();
+    if (!res.isPresent() || res.get() != ButtonType.OK) return;
+    
 
         boolean okCopia = cambiaCopieLibro(p.getISBN(), +1);
         if (!okCopia) {

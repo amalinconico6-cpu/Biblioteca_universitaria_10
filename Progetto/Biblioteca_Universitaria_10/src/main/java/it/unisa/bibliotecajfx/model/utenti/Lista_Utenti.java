@@ -61,7 +61,7 @@ public class Lista_Utenti {
         return "Email non valida";
     }
     if (checkMatricola(matricola)) {
-        return "Esiste giÃ  un utente con questa matricola";
+        return "Esiste già un utente con questa matricola";
     }
     utenti.add(utente);
     return "Utente aggiunto correttamente";

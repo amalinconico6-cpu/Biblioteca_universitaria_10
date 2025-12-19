@@ -169,7 +169,7 @@ public class ControllerAggiungiLibro {
         // evita duplicati (equals di Autore gi√† confronta nome+cognome)
         if (autoriTemp.contains(nuovo)) {
             ControllerPopup.showError(txtNomeAutore.getScene().getWindow(),
-                    "Autore gi√† inserito.");
+                    "Autore gi‡† inserito.");
             return;
         }
 
@@ -308,12 +308,26 @@ if (!titolo.matches(".*\\p{L}.*")) {
                         "Errore interno: ISBN presente ma libro non trovato in lista.");
                 return;
             }
+            
+               boolean uguali = stessiDati(
+            esistente,
+            titolo,
+            anno,
+            new ArrayList<>(autoriTemp)
+    );
+               if (!uguali) {
+        ControllerPopup.showError(txtISBN.getScene().getWindow(),
+                "ISBN gi‡ presente con dati diversi.\n"
+              + "Non puoi inserire un altro libro: modifica quello esistente.");
+        return;
+    }
+
 
             esistente.setCopie(esistente.getCopie() + 1);
             listalibri.salvataggioLibri(FILE_LIBRI);
 
             ControllerPopup.showSuccess(txtISBN.getScene().getWindow(),
-                    "Il libro √® gi√† presente: copie aumentate di 1!");
+                    "Libro gi‡† presente: copie aumentate di 1!");
 
             pulisciCampiLibro();
             return;
@@ -354,6 +368,41 @@ if (!titolo.matches(".*\\p{L}.*")) {
         autoriTemp.clear();
         listAutori.getItems().clear();
     }
+    
+    /**
+     * @brief Verifica se i dati di un libro esistente coincidono con quelli inseriti
+     * Questo metodo confronta i dati fondamentali di un libro gi‡ presente con quelli forniti in fase di inserimento di un libro.
+     * Il metodo viene utilizzato per garantire l'integrit‡ dei dati associati a un ISBN, impedendo l'inserimento di libri
+     * con lo stesso ISBN ma con dati diversi
+     * @post 
+     */
+    
+    
+    private boolean stessiDati(Libro esistente, String titolo, int anno, List<Autore> autoriNuovi) {
+
+    if (!esistente.getTitolo().trim().equalsIgnoreCase(titolo.trim()))
+        return false;
+
+    if (esistente.getAnno() != anno)
+        return false;
+
+    if (esistente.getAutori().size() != autoriNuovi.size())
+        return false;
+
+    List<String> a1 = esistente.getAutori().stream()
+            .map(a -> (a.getNome() + " " + a.getCognome()).toLowerCase().trim())
+            .sorted()
+            .collect(Collectors.toList());
+
+    List<String> a2 = autoriNuovi.stream()
+            .map(a -> (a.getNome() + " " + a.getCognome()).toLowerCase().trim())
+            .sorted()
+            .collect(Collectors.toList());
+
+    return a1.equals(a2);
+}
+
+
 
     /**
      * @brief Gestisce l'azione di cancellazione/annullamento

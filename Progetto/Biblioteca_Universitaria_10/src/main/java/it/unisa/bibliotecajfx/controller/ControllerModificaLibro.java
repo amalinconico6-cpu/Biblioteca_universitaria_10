@@ -29,7 +29,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
@@ -100,6 +103,20 @@ public class ControllerModificaLibro {
      */
     @FXML
     private ListView<String> listAutori;
+    
+    /**
+     * @brief Spinner in cui inserire un numero delle copie da modificare
+     */
+    @FXML
+    private Spinner<Integer> spnCopieDaModificare;
+    
+    /**
+     * @brief ChoiceBox dove è possibile scegliere l'operazione da eseguire (aggiunta/rimozione)
+     */
+    @FXML 
+    private ChoiceBox<String> sceltaOperazione;
+
+
 
     /**
      * @brief Imposta il libro da modificare e popola i campi della form
@@ -171,6 +188,8 @@ public class ControllerModificaLibro {
      * Imposta i TextFormatter per limitare l'input:
      * ISBN: massimo 13 cifre numeriche
      * Anno: massimo 4 cifre numeriche
+     * CopieDaAggiungere: decido quante copie del libro aggiungere
+     * sceltaOperazione: un choiceBox dove decido se aggiungere o rimuovere un numero di copie
      *
      * @post I campi ISBN e Anno accettano solo input numerico con lunghezza massima valida
      */
@@ -188,6 +207,18 @@ public class ControllerModificaLibro {
             if (newText.matches("\\d{0,4}")) return change;
             return null;
         }));
+        
+          spnCopieDaModificare.setValueFactory(
+        new SpinnerValueFactory.IntegerSpinnerValueFactory(
+            0,      // minimo
+            1000,   // massimo
+            0       // valore iniziale
+        )
+    );
+         
+    sceltaOperazione.getItems().addAll("Aggiungi", "Rimuovi");
+    sceltaOperazione.setValue("Aggiungi"); // default
+        
     }
 
     /**
@@ -319,13 +350,58 @@ if (!titolo.chars().anyMatch(Character::isLetter)) {
                     "Il codice ISBN deve contenere esattamente 13 cifre.");
             return;
         }
+        
+        
+        
+  // 6) COPIE: aggiungo, non sostituisco
+      int delta = 0;
+    if (spnCopieDaModificare != null && spnCopieDaModificare.getValue() != null) {
+        delta = spnCopieDaModificare.getValue();
+    }
+    if (delta < 0) {
+        ControllerPopup.showError(txtISBN.getScene().getWindow(),
+                "La quantità di copie non può essere negativa.");
+        return;
+    }
 
+    // 7) Controllo ISBN duplicato (solo se lo stai cambiando)
+   String isbnVecchio = libro.getISBN();
+    if (!isbn.equals(isbnVecchio)) {
+        // checkISBN è boolean: true => esiste già (quindi conflitto)
+        if (listalibri.checkISBN(isbn)) {
+            ControllerPopup.showError(txtISBN.getScene().getWindow(),
+                    "Esiste già un libro con questo ISBN. Non puoi assegnare un ISBN già presente.");
+            return;
+        }
+    }
+ String op = (sceltaOperazione != null) ? sceltaOperazione.getValue() : "Aggiungi";
+    if (op == null) op = "Aggiungi";
+
+    int copieAttuali = libro.getCopie();
+    int nuoveCopie;
+
+    if ("Rimuovi".equals(op)) {
+        nuoveCopie = copieAttuali - delta;
+        if (nuoveCopie < 0) {
+            ControllerPopup.showError(txtISBN.getScene().getWindow(),
+                    "Non puoi rimuovere più copie di quelle disponibili.");
+            return;
+        }
+    } else { // default: Aggiungi
+        nuoveCopie = copieAttuali + delta;
+    }
+    
+    
         libro.setTitolo(titolo);
         libro.setISBN(isbn);
         libro.setAnno(anno);
         libro.setAutori(new ArrayList<>(autoriTemp));
-
+          libro.setCopie(nuoveCopie);
+       
+     
         listalibri.salvataggioLibri(FILE_LIBRI);
+             ControllerPopup.showSuccess(txtTitolo.getScene().getWindow(),
+        "Modifica avvenuta con successo.");
         chiudiFinestra();
     }
 

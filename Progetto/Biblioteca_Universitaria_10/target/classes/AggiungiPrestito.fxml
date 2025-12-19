@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #e9ecef;" stylesheets="@styleAggiungiLibro.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.bibliotecajfx.controller.ControllerAggiungiPrestito">
+   <children>
+      <StackPane prefHeight="335.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <VBox prefHeight="490.0" prefWidth="839.0" styleClass="card" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label contentDisplay="CENTER" styleClass="form-title" text="Aggiungi Prestito" textFill="#23454a" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Separator prefHeight="33.0" prefWidth="703.0" />
+            <HBox alignment="CENTER_LEFT" spacing="30.0">
+               <children>
+                  <GridPane hgap="10.0" prefHeight="350.0" prefWidth="799.0" vgap="10.0" HBox.hgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="320.0" text="ISBN">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font></Label>
+                        <Label text="Matricola" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtISBN" prefHeight="34.0" prefWidth="246.0" promptText="Inserisci ISBN " styleClass="form-textfield" GridPane.columnIndex="1" />
+                        <Label text="E-mail" GridPane.rowIndex="2" />
+                        <Label text="Data Scadenza" GridPane.rowIndex="3" />
+                        <DatePicker fx:id="dateScadenza" prefHeight="25.0" prefWidth="375.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                        <StackPane alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <TextField fx:id="txtEmail" alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="240.0" promptText="nome.cognome">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                              </TextField>
+                              <Label alignment="TOP_LEFT" contentDisplay="RIGHT" mouseTransparent="true" prefHeight="16.0" prefWidth="119.0" text="\@studenti.unisa.it">
+                                 <padding>
+                                    <Insets left="13.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <TextField fx:id="txtMatricola" prefHeight="35.0" prefWidth="240.0" promptText="Inserisci ultime 4 cifre">
+                                 <padding>
+                                    <Insets left="44.0" />
+                                 </padding>
+                              </TextField>
+                              <Label fx:id="lblPrefisso" alignment="TOP_LEFT" mouseTransparent="true" prefHeight="16.0" prefWidth="58.0" text="06127">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="94.0" prefWidth="799.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btnAggiungi" alignment="CENTER" mnemonicParsing="false" onAction="#onAggiungi" prefHeight="67.0" prefWidth="270.0" styleClass="primary-button" text="Aggiungi" HBox.hgrow="ALWAYS">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button mnemonicParsing="false" onAction="#onCancella" prefHeight="67.0" prefWidth="268.0" styleClass="secondary-button" text="Cancella" HBox.hgrow="ALWAYS">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></Button>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

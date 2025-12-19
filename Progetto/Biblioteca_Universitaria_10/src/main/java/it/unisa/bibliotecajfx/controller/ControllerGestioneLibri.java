@@ -31,6 +31,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
 import javafx.collections.FXCollections;
@@ -39,6 +40,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -260,6 +263,17 @@ public class ControllerGestioneLibri {
         if (selezionato == null) {
             return;
         }
+        
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Conferma eliminazione");
+    alert.setHeaderText(null);
+    alert.setContentText(
+    "Sei sicuro di voler rimuovere il libro: " + selezionato.getTitolo() + " ?"
+);
+
+
+    Optional<ButtonType> res = alert.showAndWait();
+    if (!res.isPresent() || res.get() != ButtonType.OK) return;
 
         listalibri.rimuoviLibro(selezionato);
         listalibri.salvataggioLibri(FILE_LIBRI);

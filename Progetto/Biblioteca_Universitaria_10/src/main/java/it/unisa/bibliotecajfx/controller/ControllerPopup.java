@@ -69,7 +69,7 @@ public class ControllerPopup {
      * @post Il popup risulta configurato per segnalare un successo
      */
     public void setSuccesso(String messaggio) {
-        lblIcona.setText("?");
+        lblIcona.setText("\u2714");
         lblIcona.setStyle("-fx-text-fill: #198754;");
         lblTitolo.setText("Operazione completata");
         lblMessaggio.setText(messaggio);

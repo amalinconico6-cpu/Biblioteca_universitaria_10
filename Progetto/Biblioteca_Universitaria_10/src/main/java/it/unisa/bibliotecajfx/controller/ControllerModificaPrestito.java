@@ -231,6 +231,9 @@ public class ControllerModificaPrestito {
             libroNuovo.setCopie(libroNuovo.getCopie() - 1);
             copieModificate = true;
         }
+        
+        
+        
 
         // Creo il nuovo prestito con i dati modificati
         Prestito nuovo = new Prestito(nuovoISBN, nuovaMatricola, nuovaScadenza);

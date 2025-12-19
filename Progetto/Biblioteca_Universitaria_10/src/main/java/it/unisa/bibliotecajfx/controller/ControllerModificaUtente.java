@@ -138,6 +138,7 @@ public class ControllerModificaUtente {
 
         listaUtenti.modificaUtente(utente);
         listaUtenti.salvataggioUtenti(FILE_UTENTI);
+        ControllerPopup.showSuccess(txtNome.getScene().getWindow(), "Modifica avvenuta con successo.");
         chiudiFinestra();
     }
 

@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -35,7 +36,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -337,6 +340,16 @@ public class ControllerListaRitardi {
                     "Seleziona un ritardo da rimuovere.");
             return;
         }
+        
+               Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Conferma eliminazione");
+    alert.setHeaderText(null);
+    alert.setContentText(
+    "Sei sicuro di voler rimuovere il ritardo: " + selezionato.getID() + " ?"
+);
+    
+    Optional<ButtonType> res = alert.showAndWait();
+    if (!res.isPresent() || res.get() != ButtonType.OK) return;
 
         boolean ok = listaPrestiti.rimuoviPrestito(selezionato);
 

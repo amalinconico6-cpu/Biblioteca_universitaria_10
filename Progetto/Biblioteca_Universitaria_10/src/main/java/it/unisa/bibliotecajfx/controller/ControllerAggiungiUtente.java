@@ -201,7 +201,21 @@ public class ControllerAggiungiUtente {
             return;
         }
         String email = emailUser + DOMINIO_EMAIL;
+        
+        
+boolean emailGiaPresente = listaUtenti.getUtenti().stream()
+        .anyMatch(x -> x != null
+                && x.getMail() != null
+                && x.getMail().trim().equalsIgnoreCase(email.trim()));
 
+if (emailGiaPresente) {
+    ControllerPopup.showError(txtNome.getScene().getWindow(),
+            "E-mail già presente. Inserisci un'altra e-mail oppure modifica l'utente esistente.");
+    return;
+}
+        
+        
+        
         Utente u = new Utente(nome, cognome, matricolaCompletaStr, email);
         String esito = listaUtenti.aggiungiUtente(u);
 

@@ -16,6 +16,7 @@ package it.unisa.bibliotecajfx.controller;
 import it.unisa.bibliotecajfx.model.utenti.Lista_Utenti;
 import it.unisa.bibliotecajfx.model.utenti.Utente;
 import java.io.IOException;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +24,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -112,19 +115,6 @@ public class ControllerListaUtenti {
      */
     private ObservableList<Utente> data;
 
-    /**
-     * @brief Callback invocabile al termine di un'operazione
-     */
-    private Runnable onDone;
-
-    /**
-     * @brief Imposta una callback da eseguire al termine di operazioni 
-     *
-     * @param onDone funzione callback da eseguire
-     */
-    public void setOnDone(Runnable onDone) {
-        this.onDone = onDone;
-    }
 
     /**
      * @brief Metodo di inizializzazione JavaFX 
@@ -231,8 +221,21 @@ public class ControllerListaUtenti {
     @FXML
     private void onRimuoviUtente(ActionEvent event) throws IOException {
         Utente selezionato = tabellaUtenti.getSelectionModel().getSelectedItem();
-        if (selezionato == null) return;
+        if (selezionato == null) {
+         ControllerPopup.showError(tabellaUtenti.getScene().getWindow(), "Seleziona un utente.");
+        return;
+    }
 
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Conferma eliminazione");
+    alert.setHeaderText(null);
+    alert.setContentText(
+    "Sei sicuro di voler rimuovere l'utente: " + selezionato.getNome() + " ?"
+);
+        Optional<ButtonType> res = alert.showAndWait();
+    if (!res.isPresent() || res.get() != ButtonType.OK) return;
+        
+        
         String esito = listaUtenti.rimuoviUtente(selezionato);
         if ("Utente rimosso correttamente".equals(esito) || esito.toLowerCase().contains("rimosso")) {
             listaUtenti.salvataggioUtenti(FILE_UTENTI);

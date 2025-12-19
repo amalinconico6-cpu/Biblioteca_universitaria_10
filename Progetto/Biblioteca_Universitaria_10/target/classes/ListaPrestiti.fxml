@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="657.0" stylesheets="@visualizzaListaLibri.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.bibliotecajfx.controller.ControllerListaPrestiti">
+   <center>
+      <TableView fx:id="tabellaPrestiti" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn fx:id="colMatricola" prefWidth="99.0" text="Matricola" />
+            <TableColumn fx:id="colISBN" prefWidth="99.0" text="ISBN" />
+            <TableColumn fx:id="colID" prefWidth="61.0" text="ID" />
+            <TableColumn fx:id="colDataScadenza" minWidth="9.0" prefWidth="141.0" text="Data Scadenza" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="657.0" spacing="10.0" BorderPane.alignment="CENTER_RIGHT">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Button fx:id="btnChiudi" mnemonicParsing="false" onAction="#handleChiudi" prefHeight="27.0" prefWidth="72.0" styleClass="btn-outline" text="Chiudi">
+               <HBox.margin>
+                  <Insets right="280.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnModificaPrestito" mnemonicParsing="false" onAction="#onModificaPrestito" prefHeight="57.0" prefWidth="137.0" styleClass="btn-secondary" text="Modifica Prestito" />
+            <Button fx:id="btnRimuoviPrestito" mnemonicParsing="false" onAction="#onRimuoviPrestito" prefHeight="43.0" prefWidth="123.0" styleClass="btn-danger" text="Rimuovi Prestito" />
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="657.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label contentDisplay="CENTER" styleClass="dialog-title" text="LISTA PRESTITI" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </padding>
+      </HBox>
+   </top>
+</BorderPane>
