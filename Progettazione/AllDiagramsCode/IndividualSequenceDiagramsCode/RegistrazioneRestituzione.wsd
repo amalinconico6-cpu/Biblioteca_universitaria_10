@@ -3,7 +3,6 @@ title Registrazione di una restituzione
 
 participant "interfaccia" as UI
 participant "Lista Prestiti" as ListaPrestiti
-participant "Prestito" as Prestito
 participant "Lista Libri" as ListaLibri
 participant "Archivio esterno Prestiti" as ArchPrestiti
 
@@ -16,23 +15,14 @@ end note
 UI -> ListaPrestiti: rimuoviPrestito()
 activate ListaPrestiti
 
-ListaPrestiti -> ListaPrestiti: search()
-ListaPrestiti --> ListaPrestiti: return Prestito / null
-
-alt Prestito trovato
-    ListaPrestiti -> Prestito: getISBN()
-    Prestito --> ListaPrestiti: return ISBN
-
-    ListaPrestiti -> ListaLibri: cercaPerISBN()
-    ListaLibri --> ListaPrestiti: return Libro
-
-    ListaPrestiti -> ListaLibri: setCopie()
-
-    ListaPrestiti -> ListaPrestiti: rimuoviPrestito()
-
+ListaPrestiti -> ListaPrestiti: contains()
+alt Prestito trovato (return contains true)
+    ListaPrestiti -> ListaPrestiti: remove()
+    ListaPrestiti-->UI:return true
+    UI->ListaLibri:ModificaCopie()
     UI -> ListaPrestiti: salvataggioPrestiti()
 else Prestito non trovato
-    ListaPrestiti --> UI: return errore("Prestito non trovato")
+    ListaPrestiti --> UI: return false
 end
 
 deactivate ListaPrestiti
